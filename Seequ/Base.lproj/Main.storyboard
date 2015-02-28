@@ -597,7 +597,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="bookmarkButtonTouchUpInside:" destination="kfY-TE-mCn" eventType="touchUpInside" id="fXn-2p-72c"/>
                                             <segue destination="rQe-iX-EL0" kind="push" id="TCZ-jy-gBb"/>
                                         </connections>
                                     </button>
@@ -631,9 +630,6 @@
                                         <state key="normal" image="brower_share">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <action selector="buddyButtonTouchUpInside:" destination="kfY-TE-mCn" eventType="touchUpInside" id="Lab-L6-eWF"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.51764705879999995" green="0.73725490199999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -668,10 +664,10 @@
             </objects>
             <point key="canvasLocation" x="1779" y="193"/>
         </scene>
-        <!--View Controller-->
+        <!--Ring Browser Bookmark View Controller-->
         <scene sceneID="wxy-qb-6jI">
             <objects>
-                <viewController id="rQe-iX-EL0" sceneMemberID="viewController">
+                <viewController id="rQe-iX-EL0" customClass="RingBrowserBookmarkViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Bu-iJ-fQf"/>
                         <viewControllerLayoutGuide type="bottom" id="Rx0-pe-J2h"/>
@@ -693,6 +689,9 @@
                                         <state key="normal">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="backButtonTouchUpInside:" destination="rQe-iX-EL0" eventType="touchUpInside" id="M1W-Lo-4wP"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bookmark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkl-7f-Mly">
                                         <rect key="frame" x="124" y="30" width="79" height="21"/>

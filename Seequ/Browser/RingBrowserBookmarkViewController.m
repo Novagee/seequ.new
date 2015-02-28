@@ -34,4 +34,10 @@
 }
 */
 
+- (IBAction)backButtonTouchUpInside:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
 @end
