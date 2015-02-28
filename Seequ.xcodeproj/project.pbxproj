@@ -1,0 +1,820 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		81F9DCC71AA2391900A2ABFE /* RingBrowserBookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81F9DCC61AA2391900A2ABFE /* RingBrowserBookmarkViewController.m */; };
+		97CA6BA2F4599FB9D3DB5D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6499F497D3A3FAACA440F1D0 /* libPods.a */; };
+		9A1605151A894D5900E890DA /* RingAccountManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1605141A894D5900E890DA /* RingAccountManager.m */; };
+		9A16051E1A89591900E890DA /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16051B1A89591900E890DA /* UserInfo.m */; };
+		9A16051F1A89591900E890DA /* UserStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16051D1A89591900E890DA /* UserStatus.m */; };
+		9A1605221A895A2000E890DA /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1605211A895A2000E890DA /* Location.m */; };
+		9A1605251A895A5D00E890DA /* Language.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1605241A895A5D00E890DA /* Language.m */; };
+		9A1605281A895A9600E890DA /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1605271A895A9600E890DA /* Contact.m */; };
+		9A16052B1A895AA800E890DA /* Info.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A16052A1A895AA800E890DA /* Info.m */; };
+		9A7018A11A86CF3A008F35E5 /* loginButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018A01A86CF3A008F35E5 /* loginButton.m */; };
+		9A7018CB1A872B11008F35E5 /* App_StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018CA1A872B11008F35E5 /* App_StyleKit.m */; };
+		9A7018E71A87E2C0008F35E5 /* RingUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018E61A87E2C0008F35E5 /* RingUtility.m */; };
+		9A7018FC1A87E3FA008F35E5 /* footerBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018E91A87E3FA008F35E5 /* footerBackgroundView.m */; };
+		9A7018FD1A87E3FA008F35E5 /* footerLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018EB1A87E3FA008F35E5 /* footerLogo.m */; };
+		9A7018FE1A87E3FA008F35E5 /* forgetPasswordButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018ED1A87E3FA008F35E5 /* forgetPasswordButton.m */; };
+		9A7018FF1A87E3FA008F35E5 /* loginLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018EF1A87E3FA008F35E5 /* loginLogo.m */; };
+		9A7019011A87E3FA008F35E5 /* RingLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018F31A87E3FA008F35E5 /* RingLoginViewController.m */; };
+		9A7019051A87E3FA008F35E5 /* signupButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7018FB1A87E3FA008F35E5 /* signupButton.m */; };
+		9A70190A1A87E4C8008F35E5 /* RingMessageDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019071A87E4C8008F35E5 /* RingMessageDetailViewController.m */; };
+		9A70190B1A87E4C8008F35E5 /* RingMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019091A87E4C8008F35E5 /* RingMessageTableViewController.m */; };
+		9A70191F1A88052F008F35E5 /* signupLogo.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70191E1A88052F008F35E5 /* signupLogo.m */; };
+		9A7019281A880561008F35E5 /* createAccountButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019211A880561008F35E5 /* createAccountButton.m */; };
+		9A7019291A880561008F35E5 /* profileImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019231A880561008F35E5 /* profileImage.m */; };
+		9A70192A1A880561008F35E5 /* profileImageFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019251A880561008F35E5 /* profileImageFrame.m */; };
+		9A70192B1A880561008F35E5 /* signupCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019271A880561008F35E5 /* signupCancelButton.m */; };
+		9A70193C1A890BF3008F35E5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70193B1A890BF3008F35E5 /* Reachability.m */; };
+		9AE4F0D11A8AFB7300B201AD /* RingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4F0D01A8AFB7300B201AD /* RingMainViewController.m */; };
+		9AE4F0D41A8B176F00B201AD /* RingTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4F0D31A8B176F00B201AD /* RingTextField.m */; };
+		9AEFCBB01A9EFF670029FEFE /* RingLoginProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFCBAF1A9EFF670029FEFE /* RingLoginProgressViewController.m */; };
+		9AEFCBB31A9EFF850029FEFE /* progressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFCBB21A9EFF850029FEFE /* progressView.m */; };
+		9AEFCBC01A9F83330029FEFE /* RingBrowserNavBarTextfield.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEFCBBF1A9F83330029FEFE /* RingBrowserNavBarTextfield.m */; };
+		9AF94F361AA0CF0000E40E98 /* RingBrowserButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF94F351AA0CF0000E40E98 /* RingBrowserButton.m */; };
+		F218895E1A856CD1004C0205 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F218895D1A856CD1004C0205 /* main.m */; };
+		F21889611A856CD1004C0205 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F21889601A856CD1004C0205 /* AppDelegate.m */; };
+		F218896A1A856CD1004C0205 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F21889681A856CD1004C0205 /* Main.storyboard */; };
+		F218896C1A856CD1004C0205 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F218896B1A856CD1004C0205 /* Images.xcassets */; };
+		F218897B1A856CD1004C0205 /* SeequTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F218897A1A856CD1004C0205 /* SeequTests.m */; };
+		F21889861A856F9E004C0205 /* RingContactsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21889851A856F9E004C0205 /* RingContactsTableViewController.m */; };
+		F21889941A857168004C0205 /* RingBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21889931A857168004C0205 /* RingBrowserViewController.m */; };
+		F21889971A85718D004C0205 /* RingActivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21889961A85718D004C0205 /* RingActivityTableViewController.m */; };
+		F218899D1A85729A004C0205 /* RingTakesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F218899C1A85729A004C0205 /* RingTakesViewController.m */; };
+		F21889A11A8577AF004C0205 /* RingSignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F21889A01A8577AF004C0205 /* RingSignupViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F21889751A856CD1004C0205 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F21889501A856CD1004C0205 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F21889571A856CD1004C0205;
+			remoteInfo = Seequ;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6499F497D3A3FAACA440F1D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6742FD3AACC2F6DC1F32CDA3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		81F9DCC51AA2391900A2ABFE /* RingBrowserBookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBrowserBookmarkViewController.h; path = Browser/RingBrowserBookmarkViewController.h; sourceTree = "<group>"; };
+		81F9DCC61AA2391900A2ABFE /* RingBrowserBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingBrowserBookmarkViewController.m; path = Browser/RingBrowserBookmarkViewController.m; sourceTree = "<group>"; };
+		84A68423ECA64222D2CB412B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		9A1605131A894D5900E890DA /* RingAccountManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingAccountManager.h; path = Managers/RingAccountManager.h; sourceTree = "<group>"; };
+		9A1605141A894D5900E890DA /* RingAccountManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingAccountManager.m; path = Managers/RingAccountManager.m; sourceTree = "<group>"; };
+		9A16051A1A89591900E890DA /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserInfo.h; path = Model/Account/UserInfo.h; sourceTree = "<group>"; };
+		9A16051B1A89591900E890DA /* UserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserInfo.m; path = Model/Account/UserInfo.m; sourceTree = "<group>"; };
+		9A16051C1A89591900E890DA /* UserStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserStatus.h; path = Model/Account/UserStatus.h; sourceTree = "<group>"; };
+		9A16051D1A89591900E890DA /* UserStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserStatus.m; path = Model/Account/UserStatus.m; sourceTree = "<group>"; };
+		9A1605201A895A2000E890DA /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = Model/Account/Location.h; sourceTree = "<group>"; };
+		9A1605211A895A2000E890DA /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = Model/Account/Location.m; sourceTree = "<group>"; };
+		9A1605231A895A5D00E890DA /* Language.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Language.h; path = Model/Account/Language.h; sourceTree = "<group>"; };
+		9A1605241A895A5D00E890DA /* Language.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Language.m; path = Model/Account/Language.m; sourceTree = "<group>"; };
+		9A1605261A895A9600E890DA /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = Model/Account/Contact.h; sourceTree = "<group>"; };
+		9A1605271A895A9600E890DA /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = Model/Account/Contact.m; sourceTree = "<group>"; };
+		9A1605291A895AA800E890DA /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Info.h; path = Model/Account/Info.h; sourceTree = "<group>"; };
+		9A16052A1A895AA800E890DA /* Info.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Info.m; path = Model/Account/Info.m; sourceTree = "<group>"; };
+		9A70189F1A86CF3A008F35E5 /* loginButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loginButton.h; path = Accounts/loginButton.h; sourceTree = "<group>"; };
+		9A7018A01A86CF3A008F35E5 /* loginButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = loginButton.m; path = Accounts/loginButton.m; sourceTree = "<group>"; };
+		9A7018C91A872B11008F35E5 /* App_StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = App_StyleKit.h; path = App_UI/App_StyleKit.h; sourceTree = SOURCE_ROOT; };
+		9A7018CA1A872B11008F35E5 /* App_StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = App_StyleKit.m; path = App_UI/App_StyleKit.m; sourceTree = SOURCE_ROOT; };
+		9A7018E51A87E2C0008F35E5 /* RingUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingUtility.h; path = Utility/RingUtility.h; sourceTree = "<group>"; };
+		9A7018E61A87E2C0008F35E5 /* RingUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingUtility.m; path = Utility/RingUtility.m; sourceTree = "<group>"; };
+		9A7018E91A87E3FA008F35E5 /* footerBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = footerBackgroundView.m; path = Accounts/footerBackgroundView.m; sourceTree = "<group>"; };
+		9A7018EA1A87E3FA008F35E5 /* footerLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = footerLogo.h; path = Accounts/footerLogo.h; sourceTree = "<group>"; };
+		9A7018EB1A87E3FA008F35E5 /* footerLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = footerLogo.m; path = Accounts/footerLogo.m; sourceTree = "<group>"; };
+		9A7018EC1A87E3FA008F35E5 /* forgetPasswordButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = forgetPasswordButton.h; path = Accounts/forgetPasswordButton.h; sourceTree = "<group>"; };
+		9A7018ED1A87E3FA008F35E5 /* forgetPasswordButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = forgetPasswordButton.m; path = Accounts/forgetPasswordButton.m; sourceTree = "<group>"; };
+		9A7018EE1A87E3FA008F35E5 /* loginLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loginLogo.h; path = Accounts/loginLogo.h; sourceTree = "<group>"; };
+		9A7018EF1A87E3FA008F35E5 /* loginLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = loginLogo.m; path = Accounts/loginLogo.m; sourceTree = "<group>"; };
+		9A7018F21A87E3FA008F35E5 /* RingLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingLoginViewController.h; path = Accounts/RingLoginViewController.h; sourceTree = "<group>"; };
+		9A7018F31A87E3FA008F35E5 /* RingLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingLoginViewController.m; path = Accounts/RingLoginViewController.m; sourceTree = "<group>"; };
+		9A7018FA1A87E3FA008F35E5 /* signupButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = signupButton.h; path = Accounts/signupButton.h; sourceTree = "<group>"; };
+		9A7018FB1A87E3FA008F35E5 /* signupButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = signupButton.m; path = Accounts/signupButton.m; sourceTree = "<group>"; };
+		9A7019061A87E4C8008F35E5 /* RingMessageDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingMessageDetailViewController.h; path = Messages/RingMessageDetailViewController.h; sourceTree = "<group>"; };
+		9A7019071A87E4C8008F35E5 /* RingMessageDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingMessageDetailViewController.m; path = Messages/RingMessageDetailViewController.m; sourceTree = "<group>"; };
+		9A7019081A87E4C8008F35E5 /* RingMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingMessageTableViewController.h; path = Messages/RingMessageTableViewController.h; sourceTree = "<group>"; };
+		9A7019091A87E4C8008F35E5 /* RingMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingMessageTableViewController.m; path = Messages/RingMessageTableViewController.m; sourceTree = "<group>"; };
+		9A70191D1A88052F008F35E5 /* signupLogo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = signupLogo.h; path = Accounts/signupLogo.h; sourceTree = "<group>"; };
+		9A70191E1A88052F008F35E5 /* signupLogo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = signupLogo.m; path = Accounts/signupLogo.m; sourceTree = "<group>"; };
+		9A7019201A880561008F35E5 /* createAccountButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = createAccountButton.h; path = Accounts/createAccountButton.h; sourceTree = "<group>"; };
+		9A7019211A880561008F35E5 /* createAccountButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = createAccountButton.m; path = Accounts/createAccountButton.m; sourceTree = "<group>"; };
+		9A7019221A880561008F35E5 /* profileImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = profileImage.h; path = Accounts/profileImage.h; sourceTree = "<group>"; };
+		9A7019231A880561008F35E5 /* profileImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = profileImage.m; path = Accounts/profileImage.m; sourceTree = "<group>"; };
+		9A7019241A880561008F35E5 /* profileImageFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = profileImageFrame.h; path = Accounts/profileImageFrame.h; sourceTree = "<group>"; };
+		9A7019251A880561008F35E5 /* profileImageFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = profileImageFrame.m; path = Accounts/profileImageFrame.m; sourceTree = "<group>"; };
+		9A7019261A880561008F35E5 /* signupCancelButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = signupCancelButton.h; path = Accounts/signupCancelButton.h; sourceTree = "<group>"; };
+		9A7019271A880561008F35E5 /* signupCancelButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = signupCancelButton.m; path = Accounts/signupCancelButton.m; sourceTree = "<group>"; };
+		9A70193A1A890BF3008F35E5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Common/Reachability.h; sourceTree = "<group>"; };
+		9A70193B1A890BF3008F35E5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Common/Reachability.m; sourceTree = "<group>"; };
+		9AE4F0CF1A8AFB7300B201AD /* RingMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingMainViewController.h; sourceTree = "<group>"; };
+		9AE4F0D01A8AFB7300B201AD /* RingMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingMainViewController.m; sourceTree = "<group>"; };
+		9AE4F0D21A8B176F00B201AD /* RingTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingTextField.h; path = "General UI/RingTextField.h"; sourceTree = "<group>"; };
+		9AE4F0D31A8B176F00B201AD /* RingTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingTextField.m; path = "General UI/RingTextField.m"; sourceTree = "<group>"; };
+		9AEFCBAE1A9EFF670029FEFE /* RingLoginProgressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingLoginProgressViewController.h; path = Accounts/RingLoginProgressViewController.h; sourceTree = "<group>"; };
+		9AEFCBAF1A9EFF670029FEFE /* RingLoginProgressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingLoginProgressViewController.m; path = Accounts/RingLoginProgressViewController.m; sourceTree = "<group>"; };
+		9AEFCBB11A9EFF850029FEFE /* progressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = progressView.h; path = Accounts/progressView.h; sourceTree = "<group>"; };
+		9AEFCBB21A9EFF850029FEFE /* progressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = progressView.m; path = Accounts/progressView.m; sourceTree = "<group>"; };
+		9AEFCBBD1A9F7F650029FEFE /* footerBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = footerBackgroundView.h; path = Accounts/footerBackgroundView.h; sourceTree = "<group>"; };
+		9AEFCBBE1A9F83330029FEFE /* RingBrowserNavBarTextfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBrowserNavBarTextfield.h; path = Browser/RingBrowserNavBarTextfield.h; sourceTree = "<group>"; };
+		9AEFCBBF1A9F83330029FEFE /* RingBrowserNavBarTextfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingBrowserNavBarTextfield.m; path = Browser/RingBrowserNavBarTextfield.m; sourceTree = "<group>"; };
+		9AF94F341AA0CF0000E40E98 /* RingBrowserButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBrowserButton.h; path = Browser/RingBrowserButton.h; sourceTree = "<group>"; };
+		9AF94F351AA0CF0000E40E98 /* RingBrowserButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingBrowserButton.m; path = Browser/RingBrowserButton.m; sourceTree = "<group>"; };
+		D9537EBE1CDF551AC6D0F744 /* libPods-Seequ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Seequ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F21889581A856CD1004C0205 /* Seequ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Seequ.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F218895C1A856CD1004C0205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F218895D1A856CD1004C0205 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		F218895F1A856CD1004C0205 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		F21889601A856CD1004C0205 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		F21889691A856CD1004C0205 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F218896B1A856CD1004C0205 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		F21889741A856CD1004C0205 /* SeequTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SeequTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F21889791A856CD1004C0205 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F218897A1A856CD1004C0205 /* SeequTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SeequTests.m; sourceTree = "<group>"; };
+		F21889841A856F9E004C0205 /* RingContactsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingContactsTableViewController.h; path = Seequ/Contacts/RingContactsTableViewController.h; sourceTree = "<group>"; };
+		F21889851A856F9E004C0205 /* RingContactsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingContactsTableViewController.m; path = Seequ/Contacts/RingContactsTableViewController.m; sourceTree = "<group>"; };
+		F21889921A857168004C0205 /* RingBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingBrowserViewController.h; path = Browser/RingBrowserViewController.h; sourceTree = "<group>"; };
+		F21889931A857168004C0205 /* RingBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingBrowserViewController.m; path = Browser/RingBrowserViewController.m; sourceTree = "<group>"; };
+		F21889951A85718D004C0205 /* RingActivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingActivityTableViewController.h; path = Activity/RingActivityTableViewController.h; sourceTree = "<group>"; };
+		F21889961A85718D004C0205 /* RingActivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingActivityTableViewController.m; path = Activity/RingActivityTableViewController.m; sourceTree = "<group>"; };
+		F218899B1A85729A004C0205 /* RingTakesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingTakesViewController.h; path = Takes/RingTakesViewController.h; sourceTree = "<group>"; };
+		F218899C1A85729A004C0205 /* RingTakesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingTakesViewController.m; path = Takes/RingTakesViewController.m; sourceTree = "<group>"; };
+		F218899F1A8577AF004C0205 /* RingSignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingSignupViewController.h; path = Accounts/RingSignupViewController.h; sourceTree = "<group>"; };
+		F21889A01A8577AF004C0205 /* RingSignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingSignupViewController.m; path = Accounts/RingSignupViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F21889551A856CD1004C0205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97CA6BA2F4599FB9D3DB5D0C /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F21889711A856CD1004C0205 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A8C9C11D1A5F61C95D3BBCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6499F497D3A3FAACA440F1D0 /* libPods.a */,
+				D9537EBE1CDF551AC6D0F744 /* libPods-Seequ.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A1605121A894D2000E890DA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				9A1605131A894D5900E890DA /* RingAccountManager.h */,
+				9A1605141A894D5900E890DA /* RingAccountManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		9A1605181A8958C100E890DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9A1605191A8958DA00E890DA /* Account */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9A1605191A8958DA00E890DA /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				9A16051A1A89591900E890DA /* UserInfo.h */,
+				9A16051B1A89591900E890DA /* UserInfo.m */,
+				9A16051C1A89591900E890DA /* UserStatus.h */,
+				9A16051D1A89591900E890DA /* UserStatus.m */,
+				9A1605201A895A2000E890DA /* Location.h */,
+				9A1605211A895A2000E890DA /* Location.m */,
+				9A1605231A895A5D00E890DA /* Language.h */,
+				9A1605241A895A5D00E890DA /* Language.m */,
+				9A1605261A895A9600E890DA /* Contact.h */,
+				9A1605271A895A9600E890DA /* Contact.m */,
+				9A1605291A895AA800E890DA /* Info.h */,
+				9A16052A1A895AA800E890DA /* Info.m */,
+			);
+			name = Account;
+			sourceTree = "<group>";
+		};
+		9A7018C81A872B01008F35E5 /* App_UI */ = {
+			isa = PBXGroup;
+			children = (
+				9A7018C91A872B11008F35E5 /* App_StyleKit.h */,
+				9A7018CA1A872B11008F35E5 /* App_StyleKit.m */,
+			);
+			name = App_UI;
+			sourceTree = "<group>";
+		};
+		9A7018E11A87E259008F35E5 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9A7018E51A87E2C0008F35E5 /* RingUtility.h */,
+				9A7018E61A87E2C0008F35E5 /* RingUtility.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
+		9A7019151A880192008F35E5 /* login screen */ = {
+			isa = PBXGroup;
+			children = (
+				9AEFCBB11A9EFF850029FEFE /* progressView.h */,
+				9AEFCBB21A9EFF850029FEFE /* progressView.m */,
+				9AEFCBAE1A9EFF670029FEFE /* RingLoginProgressViewController.h */,
+				9AEFCBAF1A9EFF670029FEFE /* RingLoginProgressViewController.m */,
+				9A7018F21A87E3FA008F35E5 /* RingLoginViewController.h */,
+				9A7018F31A87E3FA008F35E5 /* RingLoginViewController.m */,
+				9AEFCBBD1A9F7F650029FEFE /* footerBackgroundView.h */,
+				9A7018E91A87E3FA008F35E5 /* footerBackgroundView.m */,
+				9A7018EA1A87E3FA008F35E5 /* footerLogo.h */,
+				9A7018EB1A87E3FA008F35E5 /* footerLogo.m */,
+				9A7018EC1A87E3FA008F35E5 /* forgetPasswordButton.h */,
+				9A7018ED1A87E3FA008F35E5 /* forgetPasswordButton.m */,
+				9A7018EE1A87E3FA008F35E5 /* loginLogo.h */,
+				9A7018EF1A87E3FA008F35E5 /* loginLogo.m */,
+				9A7018FA1A87E3FA008F35E5 /* signupButton.h */,
+				9A7018FB1A87E3FA008F35E5 /* signupButton.m */,
+				9A70189F1A86CF3A008F35E5 /* loginButton.h */,
+				9A7018A01A86CF3A008F35E5 /* loginButton.m */,
+			);
+			name = "login screen";
+			sourceTree = "<group>";
+		};
+		9A7019161A8801FD008F35E5 /* signup screen */ = {
+			isa = PBXGroup;
+			children = (
+				F218899F1A8577AF004C0205 /* RingSignupViewController.h */,
+				F21889A01A8577AF004C0205 /* RingSignupViewController.m */,
+				9A7019201A880561008F35E5 /* createAccountButton.h */,
+				9A7019211A880561008F35E5 /* createAccountButton.m */,
+				9A7019221A880561008F35E5 /* profileImage.h */,
+				9A7019231A880561008F35E5 /* profileImage.m */,
+				9A7019241A880561008F35E5 /* profileImageFrame.h */,
+				9A7019251A880561008F35E5 /* profileImageFrame.m */,
+				9A7019261A880561008F35E5 /* signupCancelButton.h */,
+				9A7019271A880561008F35E5 /* signupCancelButton.m */,
+				9A70191D1A88052F008F35E5 /* signupLogo.h */,
+				9A70191E1A88052F008F35E5 /* signupLogo.m */,
+			);
+			name = "signup screen";
+			sourceTree = "<group>";
+		};
+		9A7019321A881E32008F35E5 /* General UI */ = {
+			isa = PBXGroup;
+			children = (
+				9AE4F0D21A8B176F00B201AD /* RingTextField.h */,
+				9AE4F0D31A8B176F00B201AD /* RingTextField.m */,
+			);
+			name = "General UI";
+			sourceTree = "<group>";
+		};
+		9A7019391A890BC2008F35E5 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9A70193A1A890BF3008F35E5 /* Reachability.h */,
+				9A70193B1A890BF3008F35E5 /* Reachability.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		B0A34390D14E733126C99A55 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				84A68423ECA64222D2CB412B /* Pods.debug.xcconfig */,
+				6742FD3AACC2F6DC1F32CDA3 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F218894F1A856CD1004C0205 = {
+			isa = PBXGroup;
+			children = (
+				F218895A1A856CD1004C0205 /* Seequ */,
+				F21889771A856CD1004C0205 /* SeequTests */,
+				F21889591A856CD1004C0205 /* Products */,
+				B0A34390D14E733126C99A55 /* Pods */,
+				5A8C9C11D1A5F61C95D3BBCD /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F21889591A856CD1004C0205 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F21889581A856CD1004C0205 /* Seequ.app */,
+				F21889741A856CD1004C0205 /* SeequTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F218895A1A856CD1004C0205 /* Seequ */ = {
+			isa = PBXGroup;
+			children = (
+				9A1605181A8958C100E890DA /* Model */,
+				9A1605121A894D2000E890DA /* Managers */,
+				9A7019391A890BC2008F35E5 /* Common */,
+				9A7019321A881E32008F35E5 /* General UI */,
+				9A7018E11A87E259008F35E5 /* Utility */,
+				9A7018C81A872B01008F35E5 /* App_UI */,
+				F218899E1A85778F004C0205 /* Accounts */,
+				F21889871A857000004C0205 /* Contacts */,
+				F21889881A857027004C0205 /* Messages */,
+				F21889891A85702E004C0205 /* Browser */,
+				F218898B1A857051004C0205 /* Activity */,
+				F218898A1A857035004C0205 /* Takes */,
+				F218895F1A856CD1004C0205 /* AppDelegate.h */,
+				F21889601A856CD1004C0205 /* AppDelegate.m */,
+				9AE4F0CF1A8AFB7300B201AD /* RingMainViewController.h */,
+				9AE4F0D01A8AFB7300B201AD /* RingMainViewController.m */,
+				F218896B1A856CD1004C0205 /* Images.xcassets */,
+				F21889681A856CD1004C0205 /* Main.storyboard */,
+				F218895B1A856CD1004C0205 /* Supporting Files */,
+			);
+			path = Seequ;
+			sourceTree = "<group>";
+		};
+		F218895B1A856CD1004C0205 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F218895C1A856CD1004C0205 /* Info.plist */,
+				F218895D1A856CD1004C0205 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F21889771A856CD1004C0205 /* SeequTests */ = {
+			isa = PBXGroup;
+			children = (
+				F218897A1A856CD1004C0205 /* SeequTests.m */,
+				F21889781A856CD1004C0205 /* Supporting Files */,
+			);
+			path = SeequTests;
+			sourceTree = "<group>";
+		};
+		F21889781A856CD1004C0205 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F21889791A856CD1004C0205 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F21889871A857000004C0205 /* Contacts */ = {
+			isa = PBXGroup;
+			children = (
+				F21889841A856F9E004C0205 /* RingContactsTableViewController.h */,
+				F21889851A856F9E004C0205 /* RingContactsTableViewController.m */,
+			);
+			name = Contacts;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		F21889881A857027004C0205 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				9A7019061A87E4C8008F35E5 /* RingMessageDetailViewController.h */,
+				9A7019071A87E4C8008F35E5 /* RingMessageDetailViewController.m */,
+				9A7019081A87E4C8008F35E5 /* RingMessageTableViewController.h */,
+				9A7019091A87E4C8008F35E5 /* RingMessageTableViewController.m */,
+			);
+			name = Messages;
+			sourceTree = "<group>";
+		};
+		F21889891A85702E004C0205 /* Browser */ = {
+			isa = PBXGroup;
+			children = (
+				F21889921A857168004C0205 /* RingBrowserViewController.h */,
+				F21889931A857168004C0205 /* RingBrowserViewController.m */,
+				81F9DCC51AA2391900A2ABFE /* RingBrowserBookmarkViewController.h */,
+				81F9DCC61AA2391900A2ABFE /* RingBrowserBookmarkViewController.m */,
+				9AEFCBBE1A9F83330029FEFE /* RingBrowserNavBarTextfield.h */,
+				9AEFCBBF1A9F83330029FEFE /* RingBrowserNavBarTextfield.m */,
+				9AF94F341AA0CF0000E40E98 /* RingBrowserButton.h */,
+				9AF94F351AA0CF0000E40E98 /* RingBrowserButton.m */,
+			);
+			name = Browser;
+			sourceTree = "<group>";
+		};
+		F218898A1A857035004C0205 /* Takes */ = {
+			isa = PBXGroup;
+			children = (
+				F218899B1A85729A004C0205 /* RingTakesViewController.h */,
+				F218899C1A85729A004C0205 /* RingTakesViewController.m */,
+			);
+			name = Takes;
+			sourceTree = "<group>";
+		};
+		F218898B1A857051004C0205 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				F21889951A85718D004C0205 /* RingActivityTableViewController.h */,
+				F21889961A85718D004C0205 /* RingActivityTableViewController.m */,
+			);
+			name = Activity;
+			sourceTree = "<group>";
+		};
+		F218899E1A85778F004C0205 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				9A7019161A8801FD008F35E5 /* signup screen */,
+				9A7019151A880192008F35E5 /* login screen */,
+			);
+			name = Accounts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F21889571A856CD1004C0205 /* Seequ */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F218897E1A856CD1004C0205 /* Build configuration list for PBXNativeTarget "Seequ" */;
+			buildPhases = (
+				112874A5801E346AAAACAB3C /* Check Pods Manifest.lock */,
+				F21889541A856CD1004C0205 /* Sources */,
+				F21889551A856CD1004C0205 /* Frameworks */,
+				F21889561A856CD1004C0205 /* Resources */,
+				24AA98B6DABC0D39F35BB24E /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Seequ;
+			productName = Seequ;
+			productReference = F21889581A856CD1004C0205 /* Seequ.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F21889731A856CD1004C0205 /* SeequTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F21889811A856CD1004C0205 /* Build configuration list for PBXNativeTarget "SeequTests" */;
+			buildPhases = (
+				F21889701A856CD1004C0205 /* Sources */,
+				F21889711A856CD1004C0205 /* Frameworks */,
+				F21889721A856CD1004C0205 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F21889761A856CD1004C0205 /* PBXTargetDependency */,
+			);
+			name = SeequTests;
+			productName = SeequTests;
+			productReference = F21889741A856CD1004C0205 /* SeequTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F21889501A856CD1004C0205 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = Seequ;
+				TargetAttributes = {
+					F21889571A856CD1004C0205 = {
+						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 8A54585Y5H;
+					};
+					F21889731A856CD1004C0205 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = F21889571A856CD1004C0205;
+					};
+				};
+			};
+			buildConfigurationList = F21889531A856CD1004C0205 /* Build configuration list for PBXProject "Seequ" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F218894F1A856CD1004C0205;
+			productRefGroup = F21889591A856CD1004C0205 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F21889571A856CD1004C0205 /* Seequ */,
+				F21889731A856CD1004C0205 /* SeequTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F21889561A856CD1004C0205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F218896A1A856CD1004C0205 /* Main.storyboard in Resources */,
+				F218896C1A856CD1004C0205 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F21889721A856CD1004C0205 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		112874A5801E346AAAACAB3C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		24AA98B6DABC0D39F35BB24E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F21889541A856CD1004C0205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A7019011A87E3FA008F35E5 /* RingLoginViewController.m in Sources */,
+				9AEFCBC01A9F83330029FEFE /* RingBrowserNavBarTextfield.m in Sources */,
+				9A7019051A87E3FA008F35E5 /* signupButton.m in Sources */,
+				9A16051F1A89591900E890DA /* UserStatus.m in Sources */,
+				F21889971A85718D004C0205 /* RingActivityTableViewController.m in Sources */,
+				9A1605151A894D5900E890DA /* RingAccountManager.m in Sources */,
+				9A7019281A880561008F35E5 /* createAccountButton.m in Sources */,
+				9AF94F361AA0CF0000E40E98 /* RingBrowserButton.m in Sources */,
+				9AEFCBB31A9EFF850029FEFE /* progressView.m in Sources */,
+				9A70193C1A890BF3008F35E5 /* Reachability.m in Sources */,
+				9AE4F0D41A8B176F00B201AD /* RingTextField.m in Sources */,
+				9A70190A1A87E4C8008F35E5 /* RingMessageDetailViewController.m in Sources */,
+				F21889861A856F9E004C0205 /* RingContactsTableViewController.m in Sources */,
+				9A7018A11A86CF3A008F35E5 /* loginButton.m in Sources */,
+				F21889A11A8577AF004C0205 /* RingSignupViewController.m in Sources */,
+				9A7019291A880561008F35E5 /* profileImage.m in Sources */,
+				9A16052B1A895AA800E890DA /* Info.m in Sources */,
+				F218899D1A85729A004C0205 /* RingTakesViewController.m in Sources */,
+				9A70192B1A880561008F35E5 /* signupCancelButton.m in Sources */,
+				9A1605251A895A5D00E890DA /* Language.m in Sources */,
+				9A70192A1A880561008F35E5 /* profileImageFrame.m in Sources */,
+				9A7018FE1A87E3FA008F35E5 /* forgetPasswordButton.m in Sources */,
+				F21889611A856CD1004C0205 /* AppDelegate.m in Sources */,
+				9AE4F0D11A8AFB7300B201AD /* RingMainViewController.m in Sources */,
+				9A7018E71A87E2C0008F35E5 /* RingUtility.m in Sources */,
+				81F9DCC71AA2391900A2ABFE /* RingBrowserBookmarkViewController.m in Sources */,
+				9A7018FC1A87E3FA008F35E5 /* footerBackgroundView.m in Sources */,
+				9A16051E1A89591900E890DA /* UserInfo.m in Sources */,
+				F21889941A857168004C0205 /* RingBrowserViewController.m in Sources */,
+				9AEFCBB01A9EFF670029FEFE /* RingLoginProgressViewController.m in Sources */,
+				9A7018FF1A87E3FA008F35E5 /* loginLogo.m in Sources */,
+				9A70190B1A87E4C8008F35E5 /* RingMessageTableViewController.m in Sources */,
+				9A7018CB1A872B11008F35E5 /* App_StyleKit.m in Sources */,
+				F218895E1A856CD1004C0205 /* main.m in Sources */,
+				9A1605221A895A2000E890DA /* Location.m in Sources */,
+				9A1605281A895A9600E890DA /* Contact.m in Sources */,
+				9A70191F1A88052F008F35E5 /* signupLogo.m in Sources */,
+				9A7018FD1A87E3FA008F35E5 /* footerLogo.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F21889701A856CD1004C0205 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F218897B1A856CD1004C0205 /* SeequTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F21889761A856CD1004C0205 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F21889571A856CD1004C0205 /* Seequ */;
+			targetProxy = F21889751A856CD1004C0205 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F21889681A856CD1004C0205 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F21889691A856CD1004C0205 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F218897C1A856CD1004C0205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F218897D1A856CD1004C0205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F218897F1A856CD1004C0205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 84A68423ECA64222D2CB412B /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Seequ/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		F21889801A856CD1004C0205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6742FD3AACC2F6DC1F32CDA3 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = Seequ/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		F21889821A856CD1004C0205 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SeequTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seequ.app/Seequ";
+			};
+			name = Debug;
+		};
+		F21889831A856CD1004C0205 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SeequTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Seequ.app/Seequ";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F21889531A856CD1004C0205 /* Build configuration list for PBXProject "Seequ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F218897C1A856CD1004C0205 /* Debug */,
+				F218897D1A856CD1004C0205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F218897E1A856CD1004C0205 /* Build configuration list for PBXNativeTarget "Seequ" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F218897F1A856CD1004C0205 /* Debug */,
+				F21889801A856CD1004C0205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F21889811A856CD1004C0205 /* Build configuration list for PBXNativeTarget "SeequTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F21889821A856CD1004C0205 /* Debug */,
+				F21889831A856CD1004C0205 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F21889501A856CD1004C0205 /* Project object */;
+}
