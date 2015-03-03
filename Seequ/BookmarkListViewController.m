@@ -1,34 +1,33 @@
 //
-//  BookmarkViewController.m
+//  BookmarkListViewController.m
 //  Seequ
 //
-//  Created by Paul on 3/2/15.
+//  Created by Paul on 3/3/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import "BookmarkViewController.h"
 #import "BookmarkListViewController.h"
 #import "AddFolderViewController.h"
-#import "HistoryViewController.h"
 
-@interface BookmarkViewController ()<UITableViewDataSource, UITableViewDelegate>
-
-@property (strong, nonatomic) NSMutableArray *bookmarkFolders;
+@interface BookmarkListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *bookmarkFolders;
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
 @end
 
-@implementation BookmarkViewController
+@implementation BookmarkListViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     _bookmarkFolders = [[NSMutableArray alloc]init];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,22 +51,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1 + self.bookmarkFolders.count;
+    return self.bookmarkFolders.count;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FolderCell"
                                                                  forIndexPath:indexPath];
-    if (indexPath.row == 0) {
-        cell.textLabel.text = @"History";
-    }
-    else {
-        
-        cell.textLabel.text = self.bookmarkFolders[indexPath.row - 1];
-        
-    }
+    cell.textLabel.text = self.bookmarkFolders[indexPath.row];
+    
     return cell;
 }
 
@@ -75,30 +68,25 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
-        
+
         // Fetch the directory path for the folder which will delete
         //
-        NSString *folderName = self.bookmarkFolders[indexPath.row - 1];
-        NSString *folderDirectoryPath = [bookmarkDirectoryPath stringByAppendingPathComponent:folderName];
+        NSString *folderName = self.bookmarkFolders[indexPath.row];
+        NSString *folderDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:folderName];
         
         if ([[NSFileManager defaultManager]removeItemAtPath:folderDirectoryPath error:nil]) {
             
-            [_bookmarkFolders removeObjectAtIndex:indexPath.row - 1];
+            [_bookmarkFolders removeObjectAtIndex:indexPath.row];
             
         }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-
+        
     }
-    
+    [self.tableView reloadData];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row == 0) {
-        return NO;
-    }
     return YES;
 }
 
@@ -106,29 +94,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (! tableView.editing) {
-        
-        if (indexPath.row == 0) {
-            
-            HistoryViewController *historyViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"historyView"];
-            [self.navigationController pushViewController:historyViewController animated:YES];
-            
-        }
-        else {
-            
-            BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
-            
-            NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-            NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
-            
-            NSString *folderName = self.bookmarkFolders[indexPath.row - 1];
-            NSString *folderDirectoryPath = [bookmarkDirectoryPath stringByAppendingPathComponent:folderName];
-            bookmarkListViewController.currentBookmarkDirectoryPath = folderDirectoryPath;
-            
-            [self.navigationController pushViewController:bookmarkListViewController animated:YES];
-            
-        }
-    }
+    BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
+    
+    NSString *folderName = self.bookmarkFolders[indexPath.row];
+    NSString *bookmarkDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:folderName];
+    bookmarkListViewController.currentBookmarkDirectoryPath = bookmarkDirectoryPath;
+    
+    [self.navigationController pushViewController:bookmarkListViewController animated:YES];
     
 }
 
@@ -136,13 +108,10 @@
 
 - (void)configureBookmarkFolderList {
     
-    NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
-    
     [_bookmarkFolders removeAllObjects];
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *currentBookmarkFolders = [fileManager subpathsOfDirectoryAtPath:bookmarkDirectoryPath error:nil];
+    NSArray *currentBookmarkFolders = [fileManager subpathsOfDirectoryAtPath:self.currentBookmarkDirectoryPath error:nil];
     for (NSString *folder in currentBookmarkFolders) {
         
         if ([folder componentsSeparatedByString:@"/"].count == 1) {
@@ -150,7 +119,6 @@
             [_bookmarkFolders addObject:folder];
             
         }
-        
     }
     
     [self.tableView reloadData];
@@ -161,7 +129,7 @@
     
     _doneButton.hidden = finished;
     _addFolderButton.hidden = !finished;
-
+    
     // Switch to the edit mode
     //
     [_tableView setEditing:finished animated:YES];
@@ -171,6 +139,12 @@
 }
 
 #pragma mark - Control's Action
+
+- (IBAction)backButtonTouchUpInside:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
 
 - (IBAction)doneButtonTouchUpInside:(id)sender {
     
@@ -191,10 +165,8 @@
     
     AddFolderViewController *addFolderViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"editFolderView"];
     
-    NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-    NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
+    addFolderViewController.currentBookmarkDirectoryPath = self.currentBookmarkDirectoryPath;
     
-    addFolderViewController.currentBookmarkDirectoryPath = bookmarkDirectoryPath;
     [self.navigationController pushViewController:addFolderViewController animated:YES];
     
 }

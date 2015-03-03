@@ -1,5 +1,5 @@
 //
-//  AddFolderViewController.h
+//  BookmarkListViewController.h
 //  Seequ
 //
 //  Created by Paul on 3/3/15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddFolderViewController : UIViewController
+@interface BookmarkListViewController : UIViewController
 
 @property (strong, nonatomic) NSString *currentBookmarkDirectoryPath;
 

@@ -1,4 +1,4 @@
-//
+
 //  AddFolderViewController.m
 //  Seequ
 //
@@ -8,7 +8,7 @@
 
 #import "AddFolderViewController.h"
 
-@interface AddFolderViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface AddFolderViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -26,9 +26,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Table View DataSource
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 2;
+    return 1;
     
 }
 
@@ -40,17 +42,38 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-       return [self.tableView dequeueReusableCellWithIdentifier:@"EditTitle" forIndexPath:indexPath];
-    }
-    else {
-        return [self.tableView dequeueReusableCellWithIdentifier:@"EditTag" forIndexPath:indexPath];
-    }
+    return [self.tableView dequeueReusableCellWithIdentifier:@"EditTitle" forIndexPath:indexPath];
+    
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+#pragma mark - Text Field Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
+    if (textField.text.length == 0) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"Folder title should not be empty" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        [alertView show];
+    }
+    else {
+        
+        [textField resignFirstResponder];
+        
+        // Create new folder
+        //
+        NSString *folderDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:textField.text];
+        [[NSFileManager defaultManager]createDirectoryAtPath:folderDirectoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+    }
+    return YES;
+}
+
+- (IBAction)backButtonTouchUpInside:(id)sender {
     
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 

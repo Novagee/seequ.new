@@ -1,20 +1,19 @@
 //
-//  HistoryViewController.m
+//  BookmarkTagViewController.m
 //  Seequ
 //
 //  Created by Paul on 3/3/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import "HistoryViewController.h"
+#import "BookmarkTagViewController.h"
 
-@interface HistoryViewController ()
+@interface BookmarkTagViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @end
 
-@implementation HistoryViewController
+@implementation BookmarkTagViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,26 +23,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table View DataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 1;
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
-    
 }
 
 /*
@@ -59,12 +38,6 @@
 - (IBAction)backButtonTouchUpInside:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
-    
-}
-
-- (IBAction)doneButtonTouchUpInside:(id)sender {
-
-    [self dismissViewControllerAnimated:YES completion:nil];
     
 }
 

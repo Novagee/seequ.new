@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		817AF3001AA59DF3003EC041 /* BookmarkTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817AF2FF1AA59DF3003EC041 /* BookmarkTagViewController.m */; };
+		817AF3051AA5DBE1003EC041 /* BookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817AF3041AA5DBE1003EC041 /* BookmarkListViewController.m */; };
 		819522381AA45F7900ECC492 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819522371AA45F7900ECC492 /* BookmarkViewController.m */; };
 		8195223B1AA4DBE800ECC492 /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8195223A1AA4DBE800ECC492 /* AddFolderViewController.m */; };
 		819522411AA4DF2B00ECC492 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819522401AA4DF2B00ECC492 /* HistoryViewController.m */; };
@@ -67,6 +69,10 @@
 /* Begin PBXFileReference section */
 		6499F497D3A3FAACA440F1D0 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6742FD3AACC2F6DC1F32CDA3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		817AF2FE1AA59DF3003EC041 /* BookmarkTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookmarkTagViewController.h; path = Browser/BookmarkTagViewController.h; sourceTree = "<group>"; };
+		817AF2FF1AA59DF3003EC041 /* BookmarkTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkTagViewController.m; path = Browser/BookmarkTagViewController.m; sourceTree = "<group>"; };
+		817AF3031AA5DBE1003EC041 /* BookmarkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkListViewController.h; sourceTree = "<group>"; };
+		817AF3041AA5DBE1003EC041 /* BookmarkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkListViewController.m; sourceTree = "<group>"; };
 		819522361AA45F7900ECC492 /* BookmarkViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookmarkViewController.h; path = Browser/BookmarkViewController.h; sourceTree = "<group>"; };
 		819522371AA45F7900ECC492 /* BookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkViewController.m; path = Browser/BookmarkViewController.m; sourceTree = "<group>"; };
 		819522391AA4DBE800ECC492 /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFolderViewController.h; sourceTree = "<group>"; };
@@ -185,6 +191,19 @@
 				D9537EBE1CDF551AC6D0F744 /* libPods-Seequ.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		817AF3061AA5DC39003EC041 /* Browser UI */ = {
+			isa = PBXGroup;
+			children = (
+				9AEFCBBE1A9F83330029FEFE /* RingBrowserNavBarTextfield.h */,
+				9AEFCBBF1A9F83330029FEFE /* RingBrowserNavBarTextfield.m */,
+				9AF94F341AA0CF0000E40E98 /* RingBrowserButton.h */,
+				9AF94F351AA0CF0000E40E98 /* RingBrowserButton.m */,
+				9A266B3D1AA3026200A53468 /* RingBrowserRefreshButton.h */,
+				9A266B3E1AA3026200A53468 /* RingBrowserRefreshButton.m */,
+			);
+			name = "Browser UI";
 			sourceTree = "<group>";
 		};
 		9A1605121A894D2000E890DA /* Managers */ = {
@@ -408,20 +427,19 @@
 		F21889891A85702E004C0205 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				817AF3061AA5DC39003EC041 /* Browser UI */,
 				F21889921A857168004C0205 /* RingBrowserViewController.h */,
 				F21889931A857168004C0205 /* RingBrowserViewController.m */,
-				9AEFCBBE1A9F83330029FEFE /* RingBrowserNavBarTextfield.h */,
-				9AEFCBBF1A9F83330029FEFE /* RingBrowserNavBarTextfield.m */,
-				9AF94F341AA0CF0000E40E98 /* RingBrowserButton.h */,
-				9AF94F351AA0CF0000E40E98 /* RingBrowserButton.m */,
-				9A266B3D1AA3026200A53468 /* RingBrowserRefreshButton.h */,
-				9A266B3E1AA3026200A53468 /* RingBrowserRefreshButton.m */,
 				819522361AA45F7900ECC492 /* BookmarkViewController.h */,
 				819522371AA45F7900ECC492 /* BookmarkViewController.m */,
 				819522391AA4DBE800ECC492 /* AddFolderViewController.h */,
 				8195223A1AA4DBE800ECC492 /* AddFolderViewController.m */,
 				8195223F1AA4DF2B00ECC492 /* HistoryViewController.h */,
 				819522401AA4DF2B00ECC492 /* HistoryViewController.m */,
+				817AF2FE1AA59DF3003EC041 /* BookmarkTagViewController.h */,
+				817AF2FF1AA59DF3003EC041 /* BookmarkTagViewController.m */,
+				817AF3031AA5DBE1003EC041 /* BookmarkListViewController.h */,
+				817AF3041AA5DBE1003EC041 /* BookmarkListViewController.m */,
 			);
 			name = Browser;
 			sourceTree = "<group>";
@@ -596,6 +614,7 @@
 				819522411AA4DF2B00ECC492 /* HistoryViewController.m in Sources */,
 				9A1605151A894D5900E890DA /* RingAccountManager.m in Sources */,
 				9A7019281A880561008F35E5 /* createAccountButton.m in Sources */,
+				817AF3051AA5DBE1003EC041 /* BookmarkListViewController.m in Sources */,
 				9AF94F361AA0CF0000E40E98 /* RingBrowserButton.m in Sources */,
 				9AEFCBB31A9EFF850029FEFE /* progressView.m in Sources */,
 				9A70193C1A890BF3008F35E5 /* Reachability.m in Sources */,
@@ -617,6 +636,7 @@
 				9A7018E71A87E2C0008F35E5 /* RingUtility.m in Sources */,
 				9A7018FC1A87E3FA008F35E5 /* footerBackgroundView.m in Sources */,
 				9A16051E1A89591900E890DA /* UserInfo.m in Sources */,
+				817AF3001AA59DF3003EC041 /* BookmarkTagViewController.m in Sources */,
 				F21889941A857168004C0205 /* RingBrowserViewController.m in Sources */,
 				9AEFCBB01A9EFF670029FEFE /* RingLoginProgressViewController.m in Sources */,
 				9A7018FF1A87E3FA008F35E5 /* loginLogo.m in Sources */,
