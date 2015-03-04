@@ -6,13 +6,20 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import "RingActivityTableViewController.h"
+#import "RingActivityViewController.h"
+#import "ActivityCell.h"
 
-@interface RingActivityTableViewController ()
+@interface RingActivityViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (weak, nonatomic) IBOutlet UIButton *allButton;
+@property (weak, nonatomic) IBOutlet UIButton *callsButton;
+@property (weak, nonatomic) IBOutlet UIButton *requestButton;
 
 @end
 
-@implementation RingActivityTableViewController
+@implementation RingActivityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +29,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [_tableView registerNib:[UINib nibWithNibName:[ActivityCell cellIdentifier] bundle:nil]
+     forCellReuseIdentifier:[ActivityCell cellIdentifier]];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -33,23 +44,28 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 0;
+    return 15;
 }
 
-/*
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ActivityCell cellIdentifier] forIndexPath:indexPath];
     
-    // Configure the cell...
     
     return cell;
 }
-*/
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return [ActivityCell cellHeight];
+    
+}
 
 /*
 // Override to support conditional editing of the table view.
@@ -94,5 +110,38 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)segmentButtonTouchUpInside:(id)sender {
+    
+    UIButton *button = (UIButton*)sender;
+    
+    switch (button.tag) {
+        case 1: {
+
+            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_On"] forState:UIControlStateNormal];
+            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_Off"] forState:UIControlStateNormal];
+            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_Off"] forState:UIControlStateNormal];
+        }
+            break;
+        case 2: {
+
+            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_Off"] forState:UIControlStateNormal];
+            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_On"] forState:UIControlStateNormal];
+            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_Off"] forState:UIControlStateNormal];
+        }
+            break;
+        case 3: {
+
+            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_Off"] forState:UIControlStateNormal];
+            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_Off"] forState:UIControlStateNormal];
+            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_On"] forState:UIControlStateNormal];
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
 
 @end

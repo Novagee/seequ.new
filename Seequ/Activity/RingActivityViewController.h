@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RingActivityTableViewController : UITableViewController
+@interface RingActivityViewController : UIViewController
 
 @end
