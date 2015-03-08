@@ -11,6 +11,8 @@
 
 @interface RingMainViewController ()
 
+@property (strong, nonatomic) UIViewController *callViewController;
+
 @end
 
 @implementation RingMainViewController
@@ -38,6 +40,19 @@
     UITabBarItem *itemTakes = [self.tabBar.items objectAtIndex:4];
     itemTakes.image = [[App_StyleKit imageOfTab_bar_icon_takesWithPressed:NO notifications:4.0]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     itemTakes.selectedImage = [[App_StyleKit imageOfTab_bar_icon_takesWithPressed:YES notifications:0.0]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    
+    // Add a button for the dynamic tab item
+    //
+    UIButton *dynamicItemButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    dynamicItemButton.frame = CGRectMake(20, 200, 30, 30);
+    dynamicItemButton.backgroundColor = [UIColor blackColor];
+    [dynamicItemButton addTarget:self action:@selector(dynamicItemButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:dynamicItemButton];
+    
+    // Here is the code for dynamic tab
+    //
+    _callViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"callView"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,5 +60,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dynamicItemButtonTouchUpInside:(id)sender {
+    
+    NSMutableArray *viewControllers = [[NSMutableArray alloc]initWithArray:self.viewControllers];
+    
+    if (self.viewControllers.count == 5) {
+        
+        [viewControllers addObject:self.callViewController];
+        
+    }
+    else {
+        
+        [viewControllers removeLastObject];
+        
+    }
+    [self setViewControllers:viewControllers animated:YES];
+    
+    
+}
 
 @end
