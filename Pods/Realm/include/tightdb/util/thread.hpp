@@ -29,7 +29,6 @@
 
 #include <cerrno>
 #include <cstddef>
-#include <string>
 
 #include <tightdb/util/features.h>
 #include <tightdb/util/assert.hpp>
@@ -40,6 +39,7 @@
 #ifdef TIGHTDB_HAVE_CXX11_ATOMIC
 #  include <atomic>
 #endif
+
 
 namespace tightdb {
 namespace util {
@@ -121,7 +121,6 @@ protected:
     TIGHTDB_NORETURN static void lock_failed(int) TIGHTDB_NOEXCEPT;
 
     friend class CondVar;
-    friend class PlatformSpecificCondVar;
 };
 
 
@@ -134,7 +133,6 @@ public:
 private:
     Mutex& m_mutex;
     friend class CondVar;
-    friend class PlatformSpecificCondVar;
 };
 
 
@@ -259,7 +257,6 @@ private:
 
 
 
-
 /// Condition variable for use in synchronization monitors.
 class CondVar {
 public:
@@ -299,9 +296,6 @@ private:
     TIGHTDB_NORETURN static void destroy_failed(int) TIGHTDB_NOEXCEPT;
     void handle_wait_error(int error);
 };
-
-
-
 
 
 
@@ -500,9 +494,6 @@ inline void RobustMutex::unlock() TIGHTDB_NOEXCEPT
 }
 
 
-
-
-
 inline CondVar::CondVar()
 {
     int r = pthread_cond_init(&m_impl, 0);
@@ -570,9 +561,6 @@ inline void CondVar::notify_all() TIGHTDB_NOEXCEPT
     TIGHTDB_ASSERT(r == 0);
     static_cast<void>(r);
 }
-
-
-
 
 
 // Support for simple atomic variables, inspired by C++11 atomics, but incomplete.

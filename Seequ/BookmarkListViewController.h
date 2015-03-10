@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Folder;
+
 @interface BookmarkListViewController : UIViewController
 
-@property (strong, nonatomic) NSString *currentBookmarkDirectoryPath;
+@property (strong, nonatomic) Folder *currentFolder;
 
 @end

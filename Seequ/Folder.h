@@ -16,7 +16,7 @@ RLM_ARRAY_TYPE(Bookmark)
 
 @interface Folder : RLMObject
 
-@property NSString *_id;
+@property int _id;
 @property NSString *name;
 @property NSString *ancestorName;
 @property RLMArray<Folder> *folders;

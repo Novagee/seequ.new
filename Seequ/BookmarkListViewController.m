@@ -8,11 +8,12 @@
 
 #import "BookmarkListViewController.h"
 #import "AddFolderViewController.h"
+#import "RealmUtility.h"
 
 @interface BookmarkListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSMutableArray *bookmarkFolders;
+@property (strong, nonatomic) NSMutableArray *folderList;
 
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
@@ -26,7 +27,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _bookmarkFolders = [[NSMutableArray alloc]init];
+    _folderList = [[NSMutableArray alloc]init];
     
 }
 
@@ -51,15 +52,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.bookmarkFolders.count;
+    return self.folderList.count;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FolderCell"
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
                                                                  forIndexPath:indexPath];
-    cell.textLabel.text = self.bookmarkFolders[indexPath.row];
+    
+    RLMObject *rlmObject = self.folderList[indexPath.row];
+    
+    if ([rlmObject isKindOfClass:[Bookmark class]]) {
+        cell.textLabel.text = ((Bookmark *)self.folderList[indexPath.row]).name;
+    }
+    else {
+        cell.textLabel.text = ((Folder *)self.folderList[indexPath.row]).name;
+    }
     
     return cell;
 }
@@ -71,14 +80,10 @@
 
         // Fetch the directory path for the folder which will delete
         //
-        NSString *folderName = self.bookmarkFolders[indexPath.row];
-        NSString *folderDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:folderName];
+        RLMObject *object = self.folderList[indexPath.row];
+        [_folderList removeObject:object];
+        [RealmUtility deleteObject:object];
         
-        if ([[NSFileManager defaultManager]removeItemAtPath:folderDirectoryPath error:nil]) {
-            
-            [_bookmarkFolders removeObjectAtIndex:indexPath.row];
-            
-        }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
     }
@@ -95,11 +100,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
-    
-    NSString *folderName = self.bookmarkFolders[indexPath.row];
-    NSString *bookmarkDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:folderName];
-    bookmarkListViewController.currentBookmarkDirectoryPath = bookmarkDirectoryPath;
-    
     [self.navigationController pushViewController:bookmarkListViewController animated:YES];
     
 }
@@ -108,17 +108,24 @@
 
 - (void)configureBookmarkFolderList {
     
-    [_bookmarkFolders removeAllObjects];
+    [_folderList removeAllObjects];
     
-    NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSArray *currentBookmarkFolders = [fileManager subpathsOfDirectoryAtPath:self.currentBookmarkDirectoryPath error:nil];
-    for (NSString *folder in currentBookmarkFolders) {
+    // Fetch current list
+    //
+    RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderName = '%@'", self.currentFolder.name]];
+    for (NSUInteger index = 0; index < bookmarks.count; index++) {
         
-        if ([folder componentsSeparatedByString:@"/"].count == 1) {
-            
-            [_bookmarkFolders addObject:folder];
-            
-        }
+        Bookmark *bookmark = [bookmarks objectAtIndex:index];
+        [_folderList addObject:bookmark];
+        
+    }
+    
+    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorName = '%@'", self.currentFolder.name]];
+    for (NSUInteger index = 0; index < folders.count; index++) {
+        
+        Folder *folder = [folders objectAtIndex:index];
+        [_folderList addObject:folder];
+        
     }
     
     [self.tableView reloadData];
@@ -164,8 +171,7 @@
 - (IBAction)addFolderTouchUpInside:(id)sender {
     
     AddFolderViewController *addFolderViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"editFolderView"];
-    
-
+    addFolderViewController.currentFolder = self.currentFolder;
     
     [self.navigationController pushViewController:addFolderViewController animated:YES];
     

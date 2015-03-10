@@ -1288,12 +1288,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfk-oE-5fp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3733" y="-390"/>
+            <point key="canvasLocation" x="3727" y="-400"/>
         </scene>
-        <!--Bookmark Tag View Controller-->
+        <!--Bookmark List View Controller-->
         <scene sceneID="bBc-0c-hXB">
             <objects>
-                <viewController id="x7q-xV-ukA" customClass="BookmarkTagViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bookmarkListView" id="x7q-xV-ukA" userLabel="Bookmark List View Controller" customClass="BookmarkListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NKB-7a-GX9"/>
                         <viewControllerLayoutGuide type="bottom" id="FxK-00-jbJ"/>
@@ -1329,45 +1329,122 @@
                                             <action selector="backButtonTouchUpInside:" destination="x7q-xV-ukA" eventType="touchUpInside" id="4rT-wc-zwa"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NG2-B1-guZ">
+                                        <rect key="frame" x="266" y="26" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="0T5-he-1ap"/>
+                                            <constraint firstAttribute="width" constant="46" id="ZCz-Ic-VD9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Done">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="doneButtonTouchUpInside:" destination="x7q-xV-ukA" eventType="touchUpInside" id="TAx-ZD-FtO"/>
+                                            <action selector="doneButtonTouchUpInside:" destination="Yqm-Jf-mWF" eventType="touchUpInside" id="c7u-MZ-aWw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.51764705879999995" green="0.73725490199999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="n6Z-Bi-eTq" firstAttribute="top" secondItem="Rrw-I4-tqJ" secondAttribute="top" constant="34" id="22m-tp-A9e"/>
+                                    <constraint firstItem="NG2-B1-guZ" firstAttribute="top" secondItem="Rrw-I4-tqJ" secondAttribute="top" constant="26" id="MrY-PZ-hQJ"/>
                                     <constraint firstAttribute="height" constant="64" id="X4n-Cd-by2"/>
+                                    <constraint firstAttribute="trailing" secondItem="NG2-B1-guZ" secondAttribute="trailing" constant="8" id="YCr-7g-CRY"/>
                                     <constraint firstAttribute="centerY" secondItem="s24-FB-Dq7" secondAttribute="centerY" constant="-2.5" id="csc-km-FSL"/>
                                     <constraint firstItem="n6Z-Bi-eTq" firstAttribute="leading" secondItem="Rrw-I4-tqJ" secondAttribute="leading" constant="8" id="i9m-et-Saf"/>
                                     <constraint firstAttribute="centerX" secondItem="s24-FB-Dq7" secondAttribute="centerX" constant="-0.5" id="tVc-Gu-BnM"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="GvF-O9-AX6">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zue-Hl-1DR">
+                                <rect key="frame" x="0.0" y="64" width="320" height="454"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Bookmark" id="jnI-vA-gFU">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="jnI-vA-gFU" id="DBf-QO-H6w">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="x7q-xV-ukA" id="wvA-yt-CUb"/>
-                                    <outlet property="delegate" destination="x7q-xV-ukA" id="d7a-ky-Qd2"/>
+                                    <outlet property="dataSource" destination="x7q-xV-ukA" id="Hyf-5t-2us"/>
+                                    <outlet property="delegate" destination="x7q-xV-ukA" id="gf3-xJ-4nl"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="asy-1y-HU8" userLabel="NavBar">
+                                <rect key="frame" x="0.0" y="518" width="320" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zBy-DE-sGQ">
+                                        <rect key="frame" x="0.0" y="10" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="8Tp-Lr-u4Y"/>
+                                            <constraint firstAttribute="width" constant="46" id="wtW-9V-1JX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Edit">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="editButtonTouchUpInside:" destination="x7q-xV-ukA" eventType="touchUpInside" id="fyJ-Kh-0lW"/>
+                                            <action selector="editButtonTouchUpInside:" destination="Yqm-Jf-mWF" eventType="touchUpInside" id="iAT-4V-jGW"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DKQ-JI-arJ">
+                                        <rect key="frame" x="223" y="10" width="90" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="90" id="DH1-HE-Bvu"/>
+                                            <constraint firstAttribute="height" constant="30" id="jBV-Xz-9VX"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="New folder">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addFolderTouchUpInside:" destination="Yqm-Jf-mWF" eventType="touchUpInside" id="ddc-lM-fCa"/>
+                                            <action selector="addFolderTouchUpInside:" destination="x7q-xV-ukA" eventType="touchUpInside" id="dsg-Dx-qyx"/>
+                                            <action selector="editButtonTouchUpInside:" destination="Yqm-Jf-mWF" eventType="touchUpInside" id="giV-Qq-nL9"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.73725490199999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="zBy-DE-sGQ" firstAttribute="leading" secondItem="asy-1y-HU8" secondAttribute="leading" id="GnP-UX-jVe"/>
+                                    <constraint firstAttribute="bottom" secondItem="DKQ-JI-arJ" secondAttribute="bottom" constant="10" id="Gov-p5-hZN"/>
+                                    <constraint firstAttribute="trailing" secondItem="DKQ-JI-arJ" secondAttribute="trailing" constant="7" id="V1I-11-OO2"/>
+                                    <constraint firstAttribute="height" constant="50" id="fjc-By-yek"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="jcF-n8-jJ4"/>
+                                    <constraint firstAttribute="bottom" secondItem="zBy-DE-sGQ" secondAttribute="bottom" constant="10" id="nd8-bC-utv"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="asy-1y-HU8" secondAttribute="trailing" id="2CR-rW-2Nz"/>
+                            <constraint firstItem="asy-1y-HU8" firstAttribute="top" secondItem="zue-Hl-1DR" secondAttribute="bottom" id="338-CF-GA3"/>
                             <constraint firstItem="Rrw-I4-tqJ" firstAttribute="top" secondItem="8MI-xt-6eC" secondAttribute="top" id="5tq-Hr-pas"/>
-                            <constraint firstItem="GvF-O9-AX6" firstAttribute="top" secondItem="Rrw-I4-tqJ" secondAttribute="bottom" id="9Z1-LD-bCe"/>
-                            <constraint firstAttribute="trailing" secondItem="GvF-O9-AX6" secondAttribute="trailing" id="Jkc-q8-3jU"/>
+                            <constraint firstItem="asy-1y-HU8" firstAttribute="leading" secondItem="8MI-xt-6eC" secondAttribute="leading" id="DUr-Sz-j7E"/>
+                            <constraint firstItem="FxK-00-jbJ" firstAttribute="top" secondItem="asy-1y-HU8" secondAttribute="bottom" id="Gde-ML-8AP"/>
+                            <constraint firstAttribute="trailing" secondItem="zue-Hl-1DR" secondAttribute="trailing" id="KZi-SE-HY6"/>
+                            <constraint firstItem="zue-Hl-1DR" firstAttribute="top" secondItem="Rrw-I4-tqJ" secondAttribute="bottom" id="Qgo-WY-40S"/>
                             <constraint firstAttribute="trailing" secondItem="Rrw-I4-tqJ" secondAttribute="trailing" id="T3d-Rh-ugS"/>
-                            <constraint firstItem="FxK-00-jbJ" firstAttribute="top" secondItem="GvF-O9-AX6" secondAttribute="bottom" id="TPi-N6-vHv"/>
                             <constraint firstItem="Rrw-I4-tqJ" firstAttribute="leading" secondItem="8MI-xt-6eC" secondAttribute="leading" id="jbN-2k-dHK"/>
-                            <constraint firstItem="GvF-O9-AX6" firstAttribute="leading" secondItem="8MI-xt-6eC" secondAttribute="leading" id="rTN-JP-YdN"/>
-                            <constraint firstItem="GvF-O9-AX6" firstAttribute="top" secondItem="Rrw-I4-tqJ" secondAttribute="bottom" id="ujd-8y-G0P"/>
+                            <constraint firstItem="zue-Hl-1DR" firstAttribute="leading" secondItem="8MI-xt-6eC" secondAttribute="leading" id="mgn-MR-2jY"/>
+                            <constraint firstItem="asy-1y-HU8" firstAttribute="top" secondItem="zue-Hl-1DR" secondAttribute="bottom" id="spX-E1-qQU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="OAZ-eu-pIX"/>
                     <connections>
-                        <outlet property="tableView" destination="GvF-O9-AX6" id="R8u-Vd-VPf"/>
+                        <outlet property="addFolderButton" destination="DKQ-JI-arJ" id="Rrf-Y7-9ZM"/>
+                        <outlet property="doneButton" destination="NG2-B1-guZ" id="Tjr-wj-HKC"/>
+                        <outlet property="editButton" destination="zBy-DE-sGQ" id="rUg-jj-u82"/>
+                        <outlet property="tableView" destination="zue-Hl-1DR" id="Vou-3H-Zj3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eyi-a4-MD9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4128" y="-402"/>
+            <point key="canvasLocation" x="2932" y="282"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CZr-jQ-0Ti">

@@ -16,6 +16,7 @@
 		817685721AAF35C40001DEF1 /* DCNetworkReactor.m in Sources */ = {isa = PBXBuildFile; fileRef = 817685711AAF35C40001DEF1 /* DCNetworkReactor.m */; };
 		817685761AAF45600001DEF1 /* Folder.m in Sources */ = {isa = PBXBuildFile; fileRef = 817685751AAF45600001DEF1 /* Folder.m */; };
 		817685791AAF45BB0001DEF1 /* Bookmark.m in Sources */ = {isa = PBXBuildFile; fileRef = 817685781AAF45BB0001DEF1 /* Bookmark.m */; };
+		8176857C1AAF73BF0001DEF1 /* RealmUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8176857B1AAF73BF0001DEF1 /* RealmUtility.m */; };
 		9A1096091AA6129600A31F26 /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1096061AA6129600A31F26 /* AddFolderViewController.m */; };
 		9A10960A1AA6129600A31F26 /* BookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A1096081AA6129600A31F26 /* BookmarkListViewController.m */; };
 		9A1096111AA612D600A31F26 /* BookmarkTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A10960C1AA612D600A31F26 /* BookmarkTagViewController.m */; };
@@ -96,6 +97,8 @@
 		817685751AAF45600001DEF1 /* Folder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Folder.m; sourceTree = "<group>"; };
 		817685771AAF45BB0001DEF1 /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		817685781AAF45BB0001DEF1 /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
+		8176857A1AAF73BF0001DEF1 /* RealmUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RealmUtility.h; sourceTree = "<group>"; };
+		8176857B1AAF73BF0001DEF1 /* RealmUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RealmUtility.m; sourceTree = "<group>"; };
 		9A1096051AA6129600A31F26 /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFolderViewController.h; sourceTree = "<group>"; };
 		9A1096061AA6129600A31F26 /* AddFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFolderViewController.m; sourceTree = "<group>"; };
 		9A1096071AA6129600A31F26 /* BookmarkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkListViewController.h; sourceTree = "<group>"; };
@@ -309,6 +312,8 @@
 			children = (
 				9A7018E51A87E2C0008F35E5 /* RingUtility.h */,
 				9A7018E61A87E2C0008F35E5 /* RingUtility.m */,
+				8176857A1AAF73BF0001DEF1 /* RealmUtility.h */,
+				8176857B1AAF73BF0001DEF1 /* RealmUtility.m */,
 			);
 			name = Utility;
 			sourceTree = "<group>";
@@ -680,6 +685,7 @@
 				9A7019051A87E3FA008F35E5 /* signupButton.m in Sources */,
 				F21889971A85718D004C0205 /* RingActivityTableViewController.m in Sources */,
 				9A1096131AA612D600A31F26 /* HistoryViewController.m in Sources */,
+				8176857C1AAF73BF0001DEF1 /* RealmUtility.m in Sources */,
 				9A1605151A894D5900E890DA /* RingAccountManager.m in Sources */,
 				9A7019281A880561008F35E5 /* createAccountButton.m in Sources */,
 				9AF94F361AA0CF0000E40E98 /* RingBrowserButton.m in Sources */,

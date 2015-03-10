@@ -6,9 +6,7 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import <Realm/Realm.h>
-#import "Folder.h"
-#import "Bookmark.h"
+#import "RealmUtility.h"
 
 #import "BookmarkViewController.h"
 #import "BookmarkListViewController.h"
@@ -57,16 +55,13 @@
     _rootFolder = [Folder objectsWhere:@"ancestorName = '/'"].lastObject;
 
     if (! self.rootFolder) {
-        
-        RLMRealm *realm = [RLMRealm defaultRealm];
 
         _rootFolder = [[Folder alloc]init];
         _rootFolder.name = @"root";
         _rootFolder.ancestorName = @"/";
+        _rootFolder._id = 0;
         
-        [realm beginWriteTransaction];
-        [realm addObject:_rootFolder];
-        [realm commitWriteTransaction];
+        [RealmUtility insertObject:_rootFolder];
         
     }
     
@@ -111,19 +106,10 @@
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-        NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
+        RLMObject *object = self.folderList[indexPath.row - 1];
+        [self.folderList removeObject:object];
+        [RealmUtility deleteObject:object];
         
-        // Fetch the directory path for the folder which will delete
-        //
-        NSString *folderName = self.folderList[indexPath.row - 1];
-        NSString *folderDirectoryPath = [bookmarkDirectoryPath stringByAppendingPathComponent:folderName];
-        
-        if ([[NSFileManager defaultManager]removeItemAtPath:folderDirectoryPath error:nil]) {
-            
-            [_folderList removeObjectAtIndex:indexPath.row - 1];
-            
-        }
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
     }
@@ -152,16 +138,21 @@
         }
         else {
             
-            BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
+            RLMObject *rlmObject = self.folderList[indexPath.row - 1];
             
-            NSString *documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;
-            NSString *bookmarkDirectoryPath = [documentsDirectory stringByAppendingPathComponent:@"Bookmarks"];
-            
-            NSString *folderName = self.folderList[indexPath.row - 1];
-            NSString *folderDirectoryPath = [bookmarkDirectoryPath stringByAppendingPathComponent:folderName];
-            bookmarkListViewController.currentBookmarkDirectoryPath = folderDirectoryPath;
-            
-            [self.navigationController pushViewController:bookmarkListViewController animated:YES];
+            if ([rlmObject isKindOfClass:[Bookmark class]]) {
+                
+            }
+            else {
+                
+                BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
+
+                Folder *folder = self.folderList[indexPath.row - 1];
+                bookmarkListViewController.currentFolder = folder;
+                
+                [self.navigationController pushViewController:bookmarkListViewController animated:YES];
+                
+            }
             
         }
     }
@@ -179,20 +170,21 @@
     RLMResults *bookmarks = [Bookmark objectsWhere:@"folderName = 'root'"];
     
     for (NSUInteger index = 0; index < bookmarks.count; index++) {
+        
         Bookmark *bookmark = [bookmarks objectAtIndex:index];
         [_folderList addObject:bookmark];
         
-        NSLog(@"Primary key: %@", bookmark._id);
+        NSLog(@"Bookmark primary key: %d", bookmark._id);
     }
     
     RLMResults *folders = [Folder objectsWhere:@"ancestorName = 'root'"];
     for (NSUInteger index = 0; index < folders.count; index++) {
+        
         Folder *folder = [folders objectAtIndex:index];
-
         [_folderList addObject:folder];
-        NSLog(@"Primary key: %@", folder._id);
+        
+        NSLog(@"Folder primary key: %d", folder._id);
     }
-    
     
     [self.tableView reloadData];
     

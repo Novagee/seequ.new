@@ -10,8 +10,4 @@
 
 @implementation Bookmark
 
-+ (NSString *)primaryKey {
-    return @"_id";
-}
-
 @end

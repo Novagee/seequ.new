@@ -10,8 +10,4 @@
 
 @implementation Folder
 
-+ (NSString *)primaryKey {
-    return @"_id";
-}
-
 @end

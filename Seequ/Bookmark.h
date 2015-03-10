@@ -11,7 +11,7 @@
 
 @interface Bookmark : RLMObject
 
-@property NSString *_id;
+@property int _id;
 @property NSString *url;
 @property NSString *name;
 @property NSDate *saveData;

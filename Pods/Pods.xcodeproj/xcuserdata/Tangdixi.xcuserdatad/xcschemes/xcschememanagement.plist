@@ -4,25 +4,125 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-Realm.xcscheme</key>
+		<key>Pods-Seequ-AFNetworking.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-Seequ-BlocksKit.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-Canvas.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-EventEmitter.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-JSQMessagesViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-JSQSystemSoundPlayer.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-MQTTKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-Realm.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-UUIDShortener.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ-YLMoment.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Seequ.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>YLMoment-iOS.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>5AC7DC58F1D0ED9013028AD5</key>
+		<key>39F84B5C0BC3DB9379B0A1D1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C5655F3477173DA2EFF20456</key>
+		<key>59097B14E95F9F465E83CF9F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>63F7903C1FD3396DA94012DE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>78B67E18B0B29CB7C60935FF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7E8FFDCC3B8E4887B0D44C24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>93E9F892B3F9236E345A3CCE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9EF92267842F11FCC25D1AF1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A2A76D61AF553D43E35DF93F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C383D5B895C1D4F7EA4A96A7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D2E5F60E3FCF22781F2CB2BE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E1F92C9BFB39DFAF2EEE52A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC4E3EB7919A2D029707F429</key>
 		<dict>
 			<key>primary</key>
 			<true/>

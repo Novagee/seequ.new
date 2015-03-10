@@ -6,10 +6,7 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import <Realm/Realm.h>
-#import "Folder.h"
-#import "Bookmark.h"
-
+#import "RealmUtility.h"
 #import "AddFolderViewController.h"
 
 @interface AddFolderViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
@@ -59,6 +56,7 @@
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"Folder title should not be empty" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         
         [alertView show];
+        
     }
     else {
         
@@ -69,11 +67,8 @@
         Folder *folder = [[Folder alloc]init];
         folder.name = textField.text;
         folder.ancestorName = self.currentFolder.name;
-        
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
-        [realm addObject:folder];
-        [realm commitWriteTransaction];
+        folder._id = [RealmUtility validIndexFrom:[Folder class]];
+        [RealmUtility insertObject:folder];
         
         [self.navigationController popViewControllerAnimated:YES];
         
