@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		810182921AA7703F00520AF5 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 810182901AA7703F00520AF5 /* ActivityCell.m */; };
 		810182931AA7703F00520AF5 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 810182911AA7703F00520AF5 /* ActivityCell.xib */; };
+		8156E62A1AACCB9700B0E526 /* CallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8156E6291AACCB9700B0E526 /* CallViewController.m */; };
 		817AF3001AA59DF3003EC041 /* BookmarkTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817AF2FF1AA59DF3003EC041 /* BookmarkTagViewController.m */; };
 		817AF3051AA5DBE1003EC041 /* BookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 817AF3041AA5DBE1003EC041 /* BookmarkListViewController.m */; };
 		819522381AA45F7900ECC492 /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 819522371AA45F7900ECC492 /* BookmarkViewController.m */; };
@@ -75,6 +76,8 @@
 		8101828F1AA7703F00520AF5 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityCell.h; path = Activity/ActivityCell.h; sourceTree = "<group>"; };
 		810182901AA7703F00520AF5 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityCell.m; path = Activity/ActivityCell.m; sourceTree = "<group>"; };
 		810182911AA7703F00520AF5 /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ActivityCell.xib; path = Activity/ActivityCell.xib; sourceTree = "<group>"; };
+		8156E6281AACCB9700B0E526 /* CallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallViewController.h; sourceTree = "<group>"; };
+		8156E6291AACCB9700B0E526 /* CallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallViewController.m; sourceTree = "<group>"; };
 		817AF2FE1AA59DF3003EC041 /* BookmarkTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookmarkTagViewController.h; path = Browser/BookmarkTagViewController.h; sourceTree = "<group>"; };
 		817AF2FF1AA59DF3003EC041 /* BookmarkTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkTagViewController.m; path = Browser/BookmarkTagViewController.m; sourceTree = "<group>"; };
 		817AF3031AA5DBE1003EC041 /* BookmarkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkListViewController.h; sourceTree = "<group>"; };
@@ -196,6 +199,15 @@
 				D9537EBE1CDF551AC6D0F744 /* libPods-Seequ.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8156E6271AACCB7400B0E526 /* Call */ = {
+			isa = PBXGroup;
+			children = (
+				8156E6281AACCB9700B0E526 /* CallViewController.h */,
+				8156E6291AACCB9700B0E526 /* CallViewController.m */,
+			);
+			name = Call;
 			sourceTree = "<group>";
 		};
 		817AF3061AA5DC39003EC041 /* Browser UI */ = {
@@ -359,6 +371,7 @@
 		F218895A1A856CD1004C0205 /* Seequ */ = {
 			isa = PBXGroup;
 			children = (
+				8156E6271AACCB7400B0E526 /* Call */,
 				9A1605181A8958C100E890DA /* Model */,
 				9A1605121A894D2000E890DA /* Managers */,
 				9A7019391A890BC2008F35E5 /* Common */,
@@ -645,6 +658,7 @@
 				9AE4F0D11A8AFB7300B201AD /* RingMainViewController.m in Sources */,
 				9A7018E71A87E2C0008F35E5 /* RingUtility.m in Sources */,
 				9A7018FC1A87E3FA008F35E5 /* footerBackgroundView.m in Sources */,
+				8156E62A1AACCB9700B0E526 /* CallViewController.m in Sources */,
 				9A16051E1A89591900E890DA /* UserInfo.m in Sources */,
 				817AF3001AA59DF3003EC041 /* BookmarkTagViewController.m in Sources */,
 				F21889941A857168004C0205 /* RingBrowserViewController.m in Sources */,
