@@ -9,11 +9,11 @@
 #import "RingSignupViewController.h"
 #import "RingTextField.h"
 #import "RingAccountManager.h"
-#import "UserInfo.h"
+#import "DCNetworkReactor.h"
 
 #define kSignUpProgressSegueID @"signupProgress"
 
-@interface RingSignupViewController ()
+@interface RingSignupViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
 
 - (IBAction)cancelButtonClicked:(id)sender;
 - (IBAction)createAccountClicked:(id)sender;
@@ -23,6 +23,10 @@
 @property (weak, nonatomic) IBOutlet RingTextField *emailTextfield;
 @property (weak, nonatomic) IBOutlet RingTextField *passwordTextfield;
 @property (weak, nonatomic) IBOutlet RingTextField *confirmPasswordTextfield;
+
+@property (strong, nonatomic) UIImagePickerController *imagePickerController;
+@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+
 @end
 
 @implementation RingSignupViewController
@@ -32,7 +36,31 @@
     // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
+    // Init image picker
+    //
+    _imagePickerController = [[UIImagePickerController alloc]init];
+    _imagePickerController.delegate = self;
+    
+}
 
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,6 +68,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+//Hide keyboard when user taps on open space
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    [super touchesBegan:touches withEvent:event];
+    [self.view endEditing:YES];
+}
 
 - (IBAction)cancelButtonClicked:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -55,33 +88,105 @@
         [alert show];
 
     } else {
-        [[RingAccountManager sharedInstance] registerWithEmail:self.emailTextfield.text Password:self.passwordTextfield.text success:^(id successResponse) {
-
+        [[RingAccountManager sharedInstance] signUpWithFirstName:self.firstNameTextfield.text lastName:self.lastNameTextfield.text email:self.emailTextfield.text password:self.passwordTextfield.text success:^(id successResponse) {
             NSLog(@"Registion Success.");
-            UserInfo *seequUser = (UserInfo *)successResponse;
-            
-            dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-            dispatch_async(queue, ^{
-                
-                // Get realm and table instances for this thread
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                [realm beginWriteTransaction];
-                [realm addObject:seequUser];
-                // Commit the write transaction
-                // to make this data available to other threads
-                [realm commitWriteTransaction];
-            });
-
             [self performSegueWithIdentifier:kSignUpProgressSegueID sender:self];
-            
+
         } failure:^(id failureResponse, NSError *error) {
-            
             NSLog(@"Registration Failure.");
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry something is wrong, please come back in a moment." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
-            
+
         }];
     }
 }
+
+#pragma mark - Keyboard Notifications
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    CGRect keyboardFrame = [[notification.userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    [self moveMainViewToPoint:CGPointMake(self.view.frame.origin.x, -keyboardFrame.size.height)];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    [self moveMainViewToPoint:CGPointMake(self.view.frame.origin.x, 0)];
+}
+
+#pragma mark - Move View
+
+static const NSTimeInterval kAnimationDuration = 0.4;
+
+- (void)moveMainViewToPoint:(CGPoint)location {
+    
+    [UIView animateWithDuration:kAnimationDuration
+                          delay:0
+                        options:UIViewAnimationOptionCurveEaseOut
+                     animations:^{
+                         self.view.frame = CGRectMake(location.x,
+                                                      location.y,
+                                                      self.view.frame.size.width,
+                                                      self.view.frame.size.height);
+                     }
+                     completion:^(BOOL finished) {
+                     }
+     ];
+}
+
+
+
+- (IBAction)uploadPhotoButtobTouchUpInside:(id
+                                            )sender {
+    
+    UIActionSheet *avatarTypeSheet = [[UIActionSheet alloc]initWithTitle:@"Choose you photo from" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Photo Library", @"Take Photo", nil];
+    [avatarTypeSheet showInView:self.view];
+    
+}
+
+#pragma mark - UIActionSheet Delegate Method
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    // Configure the photo choose
+    //
+    if (buttonIndex == 0) {
+        _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    else {
+        _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    [self presentViewController:self.imagePickerController animated:YES completion:nil];
+}
+
+#pragma mark - UIPickerViewController Delegate Method
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+    // Configure the avatar
+    //
+    _avatarImageView.image = info[UIImagePickerControllerOriginalImage];
+
+    // Handle upload stuff here
+    //
+#warning Upload image code here, PLZ fill it because I dont know the Server address
+    [[DCNetworkReactor shareDCNetworkReactor]POST:@"upload address"
+                                        withImage:self.avatarImageView.image
+                               withAvatarDominate:@""
+                                   withParameters:@{}
+                                          success:^(id responseObject) {
+        
+                                        }
+                                          failure:^(NSError *error) {
+        
+                                          }];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
 
 @end

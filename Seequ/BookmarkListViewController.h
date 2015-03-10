@@ -2,7 +2,7 @@
 //  BookmarkListViewController.h
 //  Seequ
 //
-//  Created by Paul on 3/3/15.
+//  Created by Peng Wan on 3/3/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 

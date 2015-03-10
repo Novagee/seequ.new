@@ -2,9 +2,13 @@
 //  AddFolderViewController.m
 //  Seequ
 //
-//  Created by Paul on 3/3/15.
+//  Created by Peng Wan on 3/3/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
+
+#import <Realm/Realm.h>
+#import "Folder.h"
+#import "Bookmark.h"
 
 #import "AddFolderViewController.h"
 
@@ -60,10 +64,16 @@
         
         [textField resignFirstResponder];
         
-        // Create new folder
+        // Insert a folder
         //
-        NSString *folderDirectoryPath = [self.currentBookmarkDirectoryPath stringByAppendingPathComponent:textField.text];
-        [[NSFileManager defaultManager]createDirectoryAtPath:folderDirectoryPath withIntermediateDirectories:YES attributes:nil error:nil];
+        Folder *folder = [[Folder alloc]init];
+        folder.name = textField.text;
+        folder.ancestorName = self.currentFolder.name;
+        
+        RLMRealm *realm = [RLMRealm defaultRealm];
+        [realm beginWriteTransaction];
+        [realm addObject:folder];
+        [realm commitWriteTransaction];
         
         [self.navigationController popViewControllerAnimated:YES];
         

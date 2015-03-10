@@ -1,13 +1,10 @@
-//
-//  RingContactsTableViewController.h
-//  Seequ
-//
-//  Created by Jose Correa on 2/6/15.
-//  Copyright (c) 2015 Seequ. All rights reserved.
-//
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+@import Foundation;
+
 
 @interface RingContactsTableViewController : UITableViewController
+
+@property (nonatomic, copy) NSArray *model; //Array of RingAddressBookContact objects
 
 @end

@@ -6,17 +6,16 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "RingAPIManager.h"
 
-typedef void (^SignInSuccess) (id successResponse);
-typedef void (^SignInFailure) (id failureResponse, NSError *error);
-
-@interface RingAccountManager : NSObject
+@interface RingAccountManager : RingAPIManager
 
 +(instancetype)sharedInstance;
 
-- (void)loginWithSeequID:(NSString*)seequID Password:(NSString*)password success:(SignInSuccess)successBlk failure:(SignInFailure)failureBlk;
-
-- (void)registerWithEmail:(NSString*)email Password:(NSString*)password success:(SignInSuccess)successBlk failure:(SignInFailure)failureBlk;
+//Authentication
+-(void)signInWithEmail:(NSString*)email password:(NSString*)password success:(Success)success failure:(Failure)failure;
+-(void)signUpWithFirstName:(NSString*)firstName lastName:(NSString *)lastName email:(NSString*)email password:(NSString*)password success:(Success)success failure:(Failure)failure;
+-(void)signOutWithSuccess:(Success)success failure:(Failure)failure;
+-(void)resetPasswordForEmail:(NSString *)email success:(Success)success failure:(Failure)failure;
 
 @end

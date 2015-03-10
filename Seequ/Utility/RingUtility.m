@@ -22,6 +22,22 @@
     return [UIScreen mainScreen].bounds.size;
 }
 
++ (BOOL)isValidEmail:(NSString *)email {
+    
+    NSString *expression = @"^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$";
+    NSError *error;
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
+                                                                           options:NSRegularExpressionCaseInsensitive
+                                                                             error:&error];
+    if (error) {
+        return NO;
+    } else {
+        NSUInteger numberOfMatches = [regex numberOfMatchesInString:email
+                                                            options:0
+                                                              range:NSMakeRange(0, email.length)];
+        return numberOfMatches > 0;
+    }
+}
 
 
 @end

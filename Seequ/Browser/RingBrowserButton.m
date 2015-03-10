@@ -27,7 +27,7 @@ static NSInteger const bookmark_button_tag = 30006;
     // Drawing code
     switch (self.tag) {
         case reload_button_tag:
-            [App_StyleKit drawBrowser_url_reload_button];
+            [App_StyleKit drawBrowser_url_reload_buttonWithPressed:self.isPressed];
             break;
             
         case cancel_button_tag:

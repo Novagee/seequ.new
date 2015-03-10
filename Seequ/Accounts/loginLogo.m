@@ -13,7 +13,7 @@
 
 - (void)drawRect:(CGRect)rect {
 
-    [App_StyleKit drawLogin_logo];
+    [App_StyleKit drawLogin_logoWithProgressPercent:100];
 }
 
 @end

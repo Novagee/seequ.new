@@ -10,20 +10,20 @@
 #import "RingBrowserNavBarTextfield.h"
 #import "RingBrowserButton.h"
 #import "RingBrowserRefreshButton.h"
-
 #import <WebKit/WebKit.h>
+#import "BookmarkViewController.h"
 
 static CGFloat const navBarHeight = 66.0f;
 static CGFloat const tabBarHeight = 49.0f;
 
-@interface RingBrowserViewController ()
+@interface RingBrowserViewController () <UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet RingBrowserButton *prevArrowButton;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *nextArrowButton;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *buddyBrowserButton;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *bookmarkButton;
-
 @property (strong, nonatomic) WKWebView *webView;
 @property (weak, nonatomic) IBOutlet RingBrowserNavBarTextfield *browserURLTextfield;
+@property (strong, nonatomic) RingBrowserRefreshButton *refreshButton;
 @end
 
 @implementation RingBrowserViewController
@@ -31,48 +31,27 @@ static CGFloat const tabBarHeight = 49.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    // Add Main View, aka a web view
-    //
-    _webView = [[WKWebView alloc] initWithFrame: CGRectMake(0, navBarHeight, self.view.frame.size.width, self.view.frame.size.height - navBarHeight - tabBarHeight)];
-    
-    // Load the "CNN.com" in default
-    //
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
+    self.webView = [[WKWebView alloc] initWithFrame: CGRectMake(0, navBarHeight, self.view.frame.size.width, self.view.frame.size.height - navBarHeight - tabBarHeight)];
+                          
     NSURL *url = [NSURL URLWithString:@"http://cnn.com"];
     NSURLRequest *request = [[NSURLRequest alloc] initWithURL:url];
     [self.webView loadRequest:request];
-    [self.view addSubview:_webView];
+    [self.view addSubview:self.webView];
     
-    // Load the "CNN.com" in default
-    //
-    UIButton *refreshButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    refreshButton.frame = CGRectMake(0, 0, 12, 12);
-    [refreshButton setImage:[UIImage imageNamed:@"brower_refresh"] forState:UIControlStateNormal];
-    [refreshButton addTarget:self action:@selector(browserURLTextfieldRefreshButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+    self.refreshButton = [[RingBrowserRefreshButton alloc] initWithFrame:CGRectMake(0, 0, 13, 12)];
+    [self.refreshButton addTarget:self action:@selector(browserURLTextfieldRefreshButtonTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
 
-    // Configure url text field
-    //
-    self.browserURLTextfield.rightView = refreshButton;
+    self.browserURLTextfield.rightView = self.refreshButton;
     self.browserURLTextfield.text = @"http://www.cnn.com";
     self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
     
-    
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
-
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-}
-
-#pragma mark - Control's Actions
-
-- (void)browserURLTextfieldRefreshButtonTouchUpInside:(id)sender {
-    
-    [self.webView reload];
-    
 }
 
 #pragma mark - HTTP Request Stuff
@@ -107,6 +86,14 @@ static CGFloat const tabBarHeight = 49.0f;
     
 }
 
+#pragma mark - Control's Actions
+
+- (void)browserURLTextfieldRefreshButtonTouchUpInside:(id)sender {
+    
+    [self.webView reload];
+    
+}
+
 - (IBAction)prevArrowClick:(id)sender {
     [self.webView stopLoading];
     [self.webView goBack];
@@ -115,8 +102,6 @@ static CGFloat const tabBarHeight = 49.0f;
 - (IBAction)nextArrowClick:(id)sender {
     [self.webView stopLoading];
     [self.webView goForward];
-}
-- (IBAction)bookmarkClick:(id)sender {
 }
 
 @end

@@ -14,4 +14,6 @@
 +(void)setupStatusBarForView:(UIView *)superView;
 +(CGSize) screenSize;
 
++ (BOOL)isValidEmail:(NSString*)email;
+
 @end

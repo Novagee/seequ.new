@@ -9,7 +9,7 @@
 #import "RingLoginProgressViewController.h"
 #import "progressView.h"
 #import "RingAccountManager.h"
-#import "UserInfo.h"
+#import "RingContactAPIManager.h"
 
 #define loginSuccessSegueID @"kLoginSuccessSegueID"
 
@@ -49,24 +49,38 @@
 -(void)loginAction
 {
         __weak RingLoginProgressViewController *weakSelf = self;
-        [[RingAccountManager sharedInstance] loginWithSeequID:self.email Password:self.password success:^(id successResponse) {
+    
+        [[RingAccountManager sharedInstance] signInWithEmail:self.email password:self.password success:^(id successResponse) {
             
-            NSLog(@"Signin Success");
-            UserInfo *seequUser = (UserInfo *)successResponse;
-#warning put seequUser into memory singleton or in memory realm?
             weakSelf.progressView.percentage = 100;
             [weakSelf.progressView setNeedsDisplay];
-            [weakSelf performSelector:@selector(pushToMainScreen) withObject:nil afterDelay:0.5];
+            
+            [[RingContactAPIManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
+                [weakSelf performSelector:@selector(pushToMainScreen) withObject:nil afterDelay:0.5];
+            
+            } failure:^(id failureResponse, NSError *error) {
+                NSLog(@"Group List Failure");
+                 [self didFail];
+            }];
+        
         } failure:^(id failure, NSError *error) {
             NSLog(@"Signin Failure");
-            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Sorry something is wrong, please come back in a moment." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
+            [self didFail];
         }];
 }
 
 -(void) pushToMainScreen
 {
     [self performSegueWithIdentifier:loginSuccessSegueID sender:self];
+}
+
+- (void)didFail {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
+                                                   message:@"Sorry something is wrong, please come back in a moment."
+                                                  delegate:self
+                                         cancelButtonTitle:@"OK"
+                                         otherButtonTitles:nil, nil];
+    [alert show];
 }
 
 @end

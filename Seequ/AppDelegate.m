@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "Reachability.h"
 
+#import "SeequLib.h"
+
 @interface AppDelegate ()
 
 @property (nonatomic, strong) Reachability* internetReach;
@@ -26,7 +28,27 @@
     self.internetReach = [Reachability reachabilityForInternetConnection];
     [self.internetReach startNotifier];
 
+//    [SeequLib signInWithEmail:@"johndoe@seequ.com" password:@"secret" success:^(id successResponse) {
+//        NSLog(@"%@", successResponse);
+//    } failure:^(id failureResponse, NSError *error) {
+//        NSLog(@"ERROR: %@", error);
+//    }];
 
+//    [SeequLib signupWithName:@"John Doe" email:@"johndoe@seequ.com" password:@"secret" success:^(id successResponse) {
+//        // Token has been stored, but you can find it in successResponse
+//        // do something
+//    } failure:^(id failureResponse, NSError *error) {
+//        // or not
+//    }];
+    
+//    [SeequLib me:^(id successResponse) {
+//        //    {"_id":"54f4d993c37e6ce88d528575","name":"Jose Correa","email":"soulcorrea@gmail.com","role":"admin"}
+//    } failure:^(id failureResponse, NSError *error) {
+//        // or error
+//    }];
+//    
+//    [SeequLib signOut];
+    
     return YES;
 }
 
