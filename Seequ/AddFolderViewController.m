@@ -65,9 +65,15 @@
         // Insert a folder
         //
         Folder *folder = [[Folder alloc]init];
+
+        folder._id = [RealmUtility validIndexFrom:[Folder class]];
         folder.name = textField.text;
         folder.ancestorName = self.currentFolder.name;
-        folder._id = [RealmUtility validIndexFrom:[Folder class]];
+        folder.ancestorID = self.currentFolder._id;
+        folder.saveDate = [NSDate date];
+        
+        // Commit the change
+        //
         [RealmUtility insertObject:folder];
         
         [self.navigationController popViewControllerAnimated:YES];

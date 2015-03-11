@@ -12,6 +12,10 @@
 #import "Folder.h"
 #import "Bookmark.h"
 
+#define kRootAncestorID 0
+#define kRootFolderID 1
+#define kHistoryFolderID 2
+
 @interface RealmUtility : NSObject
 
 + (int)validIndexFrom:(Class)realmModelClass ;

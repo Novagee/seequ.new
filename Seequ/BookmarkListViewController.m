@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *folderList;
 
+@property (weak, nonatomic) IBOutlet UILabel *navigationBarTitle;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
@@ -28,6 +29,12 @@
     // Do any additional setup after loading the view.
     
     _folderList = [[NSMutableArray alloc]init];
+    _navigationBarTitle.text = self.currentFolder.name;
+    
+    if (self.insertMode) {
+        _editButton.hidden = YES;
+        _addFolderButton.hidden = YES;
+    }
     
 }
 
@@ -58,19 +65,24 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
-                                                                 forIndexPath:indexPath];
-    
+    //BookmarkFolderCell
     RLMObject *rlmObject = self.folderList[indexPath.row];
     
-    if ([rlmObject isKindOfClass:[Bookmark class]]) {
+    if ([rlmObject isKindOfClass:[Bookmark class]] && ! self.insertMode) {
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell"
+                                                                     forIndexPath:indexPath];
         cell.textLabel.text = ((Bookmark *)self.folderList[indexPath.row]).name;
+        cell.detailTextLabel.text = ((Bookmark *)self.folderList[indexPath.row]).url;
+        return cell;
     }
     else {
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
+                                                                     forIndexPath:indexPath];
         cell.textLabel.text = ((Folder *)self.folderList[indexPath.row]).name;
+        return cell;
     }
     
-    return cell;
+
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -99,8 +111,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
-    [self.navigationController pushViewController:bookmarkListViewController animated:YES];
+    RLMObject *rlmObject = self.folderList[indexPath.row];
+    
+    if ([rlmObject isKindOfClass:[Bookmark class]] && ! self.insertMode) {
+        
+        NSString *urlString = ((Bookmark *)rlmObject).url;
+    
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"SeeNotificationLoadURL"
+                                                           object:nil
+                                                         userInfo:@{
+                                                                    @"url": urlString
+                                                                    }];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else {
+        BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
+        
+        bookmarkListViewController.currentFolder = (Folder *)rlmObject;
+        bookmarkListViewController.insertMode = self.insertMode;
+        
+        [self.navigationController pushViewController:bookmarkListViewController animated:YES];
+    }
+    
     
 }
 
@@ -112,19 +144,24 @@
     
     // Fetch current list
     //
-    RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderName = '%@'", self.currentFolder.name]];
-    for (NSUInteger index = 0; index < bookmarks.count; index++) {
-        
-        Bookmark *bookmark = [bookmarks objectAtIndex:index];
-        [_folderList addObject:bookmark];
-        
+    if (!self.insertMode) {
+        RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderID = %d", self.currentFolder._id]];
+        for (NSUInteger index = 0; index < bookmarks.count; index++) {
+            
+            Bookmark *bookmark = [bookmarks objectAtIndex:index];
+            [_folderList addObject:bookmark];
+            
+        }
     }
     
-    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorName = '%@'", self.currentFolder.name]];
+    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorID = %d", self.currentFolder._id]];
     for (NSUInteger index = 0; index < folders.count; index++) {
         
         Folder *folder = [folders objectAtIndex:index];
-        [_folderList addObject:folder];
+        
+        if (! [folder.name isEqualToString:@"History"]) {
+            [_folderList addObject:folder];
+        }
         
     }
     
@@ -155,7 +192,21 @@
 
 - (IBAction)doneButtonTouchUpInside:(id)sender {
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.insertMode) {
+        
+        [[NSNotificationCenter defaultCenter]postNotificationName:@"SeeNotificationAddBookmarkFolder"
+                                                           object:nil
+                                                         userInfo:@{
+                                                                    @"folder": self.currentFolder
+                                                                        }];
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+    }
+    else {
+        
+        [self dismissViewControllerAnimated:YES completion:nil];
+        
+    }
     
 }
 

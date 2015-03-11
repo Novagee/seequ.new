@@ -18,7 +18,12 @@ RLM_ARRAY_TYPE(Bookmark)
 
 @property int _id;
 @property NSString *name;
+
 @property NSString *ancestorName;
+@property int ancestorID;
+
+@property NSDate *saveDate;
+
 @property RLMArray<Folder> *folders;
 @property RLMArray<Bookmark> *bookmarks;
 

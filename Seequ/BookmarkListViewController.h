@@ -13,5 +13,6 @@
 @interface BookmarkListViewController : UIViewController
 
 @property (strong, nonatomic) Folder *currentFolder;
+@property (nonatomic) BOOL insertMode;
 
 @end

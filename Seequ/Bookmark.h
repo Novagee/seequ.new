@@ -12,9 +12,10 @@
 @interface Bookmark : RLMObject
 
 @property int _id;
+@property int folderID;
+
 @property NSString *url;
 @property NSString *name;
-@property NSDate *saveData;
-@property NSString *folderName;
+@property NSDate *saveDate;
 
 @end

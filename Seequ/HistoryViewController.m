@@ -6,11 +6,13 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
+#import "RealmUtility.h"
 #import "HistoryViewController.h"
 
-@interface HistoryViewController ()
+@interface HistoryViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) NSMutableArray *bookmarkList;
 
 @end
 
@@ -19,11 +21,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _bookmarkList = [[NSMutableArray alloc]init];
+    
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    [self configureBookmarkList];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)configureBookmarkList {
+    
+    [_bookmarkList removeAllObjects];
+    
+    RLMResults *bookmarks = [Bookmark objectsWhere:@"folderID = 2"];
+    
+    for (NSUInteger index = 0; index < bookmarks.count; index++) {
+        
+        Bookmark *bookmark = [bookmarks objectAtIndex:index];
+        [_bookmarkList addObject:bookmark];
+    
+    }
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table View DataSource
@@ -36,14 +63,29 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 1;
+    return self.bookmarkList.count;
     
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    return [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
+    cell.textLabel.text = ((Bookmark *)self.bookmarkList[indexPath.row]).url;
+    cell.detailTextLabel.text = ((Bookmark *)self.bookmarkList[indexPath.row]).name;
     
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *urlString = ((Bookmark *)self.bookmarkList[indexPath.row]).url;
+    
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"SeeNotificationLoadURL"
+                                                       object:nil
+                                                     userInfo:@{
+                                                                @"url": urlString
+                                                                }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*

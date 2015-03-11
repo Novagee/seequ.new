@@ -33,9 +33,7 @@
     
     // Configure root folder
     //
-    [self configureRootFolder];
-    
-    _folderList = [[NSMutableArray alloc]init];
+    [self configureFolderSetting];
     
 }
 
@@ -50,20 +48,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)configureRootFolder {
+- (void)configureFolderSetting {
+
+    // Fetch the root folder
+    //
+    _rootFolder = [Folder objectsWhere:@"ancestorID = 0"].lastObject;
     
-    _rootFolder = [Folder objectsWhere:@"ancestorName = '/'"].lastObject;
-
-    if (! self.rootFolder) {
-
-        _rootFolder = [[Folder alloc]init];
-        _rootFolder.name = @"root";
-        _rootFolder.ancestorName = @"/";
-        _rootFolder._id = 0;
-        
-        [RealmUtility insertObject:_rootFolder];
-        
-    }
+    // Init the list
+    //
+    _folderList = [[NSMutableArray alloc]init];
     
 }
 
@@ -83,23 +76,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
-                                                                 forIndexPath:indexPath];
+
     if (indexPath.row == 0) {
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
+                                                                     forIndexPath:indexPath];
         cell.textLabel.text = @"History";
+        return cell;
     }
     else {
         RLMObject *rlmObject = self.folderList[indexPath.row - 1];
         
         if ([rlmObject isKindOfClass:[Bookmark class]]) {
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell"
+                                                                         forIndexPath:indexPath];
             cell.textLabel.text = ((Bookmark *)self.folderList[indexPath.row - 1]).name;
+            cell.detailTextLabel.text = ((Bookmark *)self.folderList[indexPath.row - 1]).url;
+            return cell;
         }
         else {
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"Bookmark"
+                                                                         forIndexPath:indexPath];
             cell.textLabel.text = ((Folder *)self.folderList[indexPath.row - 1]).name;
+            return cell;
         }
-        
     }
-    return cell;
+
+    
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,16 +144,21 @@
             
             if ([rlmObject isKindOfClass:[Bookmark class]]) {
                 
+                NSString *urlString = ((Bookmark *)rlmObject).url;
+                
+                [[NSNotificationCenter defaultCenter]postNotificationName:@"SeeNotificationLoadURL"
+                                                                   object:nil
+                                                                 userInfo:@{
+                                                                            @"url": urlString
+                                                                            }];
+                [self dismissViewControllerAnimated:YES completion:nil];
             }
             else {
-                
                 BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
-
-                Folder *folder = self.folderList[indexPath.row - 1];
-                bookmarkListViewController.currentFolder = folder;
+                
+                bookmarkListViewController.currentFolder = (Folder *)rlmObject;
                 
                 [self.navigationController pushViewController:bookmarkListViewController animated:YES];
-                
             }
             
         }
@@ -167,7 +174,7 @@
     
     // Fetch current list
     //
-    RLMResults *bookmarks = [Bookmark objectsWhere:@"folderName = 'root'"];
+    RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderID = %d", self.rootFolder._id]];
     
     for (NSUInteger index = 0; index < bookmarks.count; index++) {
         
@@ -177,11 +184,14 @@
         NSLog(@"Bookmark primary key: %d", bookmark._id);
     }
     
-    RLMResults *folders = [Folder objectsWhere:@"ancestorName = 'root'"];
+    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorID = %d", self.rootFolder._id]];
     for (NSUInteger index = 0; index < folders.count; index++) {
         
         Folder *folder = [folders objectAtIndex:index];
-        [_folderList addObject:folder];
+        
+        if (! [folder.name isEqualToString:@"History"]) {
+            [_folderList addObject:folder];    
+        }
         
         NSLog(@"Folder primary key: %d", folder._id);
     }
