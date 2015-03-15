@@ -7,14 +7,14 @@
 //
 
 #import "RingTextField.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation RingTextField
 
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawResizable_text_field_backgroundWithFrame:rect error:self.isError];
+    [RingStyleKit drawResizable_text_field_backgroundWithFrame:rect error:self.isError];
 }
 
 @end

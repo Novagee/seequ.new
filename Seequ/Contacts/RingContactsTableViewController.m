@@ -1,11 +1,23 @@
+//
+//  RingContactsTableViewController.m
+//  Seequ
+//
+//  Created by JB DeLima on 3/9/15.
+//  Copyright (c) 2015 Seequ. All rights reserved.
+//
+
 
 #import "RingContactsTableViewController.h"
 #import "RingGenericContact.h"
+#import "RingContactsTableViewCell.h"
 
 
 @interface RingContactsTableViewController ()
 
 @end
+
+
+static const CGFloat kCellHeight = 64.0;
 
 
 @implementation RingContactsTableViewController
@@ -18,6 +30,12 @@
     }
 }
 
+#pragma mark - 
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return kCellHeight;
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -28,15 +46,17 @@
     
     static NSString *const kCellIndentifier = @"kContactsTableViewCellIndetifier";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIndentifier];
+    RingContactsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kCellIndentifier];
     RingGenericContact *contact = self.model[indexPath.row];
     
-    cell.textLabel.text = contact.fullName;
-    cell.detailTextLabel.text = contact.email;
-    
-    cell.imageView.image = contact.thumbnailImage;
-    cell.imageView.layer.cornerRadius = cell.imageView.image.size.height/2.0;
-    cell.imageView.layer.masksToBounds = YES;
+    cell.firstName = contact.firstName;
+    cell.lastName  = contact.lastName;
+    cell.company = contact.company;
+    cell.jobTitle = contact.jobTitle;
+    cell.favorite  = contact.type;
+    cell.profileImage = contact.thumbnailImage;
+    cell.numberOfNotifications = contact.numberOfNotifications;
+    cell.favorite = contact.favorite;
     
     return cell;
 }

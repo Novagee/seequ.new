@@ -7,13 +7,13 @@
 //
 
 #import "footerLogo.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation footerLogo
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-        [App_StyleKit drawLogin_footer_logo];
+        [RingStyleKit drawLogin_footer_logo];
 }
 
 @end

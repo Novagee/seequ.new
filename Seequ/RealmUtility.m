@@ -2,7 +2,7 @@
 //  RealmUtility.m
 //  Seequ
 //
-//  Created by Paul on 3/11/15.
+//  Created by Peng Wan on 3/11/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 

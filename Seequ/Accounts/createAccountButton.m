@@ -7,7 +7,7 @@
 //
 
 #import "createAccountButton.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @interface createAccountButton ()
 @property (assign, nonatomic) BOOL isPressed;
@@ -17,9 +17,9 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     if (self.isPressed) {
-        [App_StyleKit drawRegistration_footer_create_account_buttonWithPressed:YES];
+        [RingStyleKit drawRegistration_footer_create_account_buttonWithPressed:YES];
     } else
-        [App_StyleKit drawRegistration_footer_create_account_buttonWithPressed:NO];
+        [RingStyleKit drawRegistration_footer_create_account_buttonWithPressed:NO];
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

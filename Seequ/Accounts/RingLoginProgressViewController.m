@@ -8,8 +8,9 @@
 
 #import "RingLoginProgressViewController.h"
 #import "progressView.h"
-#import "RingAccountManager.h"
-#import "RingContactAPIManager.h"
+#import "RingAccountNetworkingManager.h"
+#import "RingContactNetworkingManager.h"
+#import "RingRealmManager.h"
 
 #define loginSuccessSegueID @"kLoginSuccessSegueID"
 
@@ -50,12 +51,19 @@
 {
         __weak RingLoginProgressViewController *weakSelf = self;
     
-        [[RingAccountManager sharedInstance] signInWithEmail:self.email password:self.password success:^(id successResponse) {
+        [[RingAccountNetworkingManager sharedInstance] signInWithEmail:self.email password:self.password success:^(id successResponse) {
+            
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *token = successResponse[@"token"];
+            [userDefaults setObject:token forKey:@"SeequUserToken"];
+            
+            RingRealmManager *realmManager = [RingRealmManager sharedRealmManager];
+            [realmManager createOrUpdateUserWithServerData:successResponse];
             
             weakSelf.progressView.percentage = 100;
             [weakSelf.progressView setNeedsDisplay];
             
-            [[RingContactAPIManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
+            [[RingContactNetworkingManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
                 [weakSelf performSelector:@selector(pushToMainScreen) withObject:nil afterDelay:0.5];
             
             } failure:^(id failureResponse, NSError *error) {

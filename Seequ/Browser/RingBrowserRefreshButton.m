@@ -7,7 +7,7 @@
 //
 
 #import "RingBrowserRefreshButton.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @interface RingBrowserRefreshButton ()
 @property (assign, nonatomic) BOOL isPressed;
@@ -16,7 +16,7 @@
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawBrowser_url_reload_buttonWithPressed:self.isPressed];
+    [RingStyleKit drawBrowser_url_reload_buttonWithPressed:self.isPressed];
 }
      
      -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

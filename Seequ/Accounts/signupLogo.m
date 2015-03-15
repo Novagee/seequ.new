@@ -7,13 +7,13 @@
 //
 
 #import "signupLogo.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation signupLogo
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawRegistration_footer_logo];
+    [RingStyleKit drawRegistration_footer_logo];
 }
 
 @end

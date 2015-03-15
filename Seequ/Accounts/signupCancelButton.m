@@ -7,7 +7,7 @@
 //
 
 #import "signupCancelButton.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @interface signupCancelButton ()
 @property (assign, nonatomic) BOOL isPressed;
@@ -18,9 +18,9 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
     if (self.isPressed) {
-        [App_StyleKit drawRegistration_footer_cancel_buttonWithPressed:YES];
+        [RingStyleKit drawRegistration_footer_cancel_buttonWithPressed:YES];
     } else
-        [App_StyleKit drawRegistration_footer_cancel_buttonWithPressed:NO];
+        [RingStyleKit drawRegistration_footer_cancel_buttonWithPressed:NO];
 }
 
 -(void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event

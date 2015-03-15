@@ -1,8 +1,17 @@
+//
+//  RingContactsViewController.m
+//  Seequ
+//
+//  Created by JB DeLima on 3/9/15.
+//  Copyright (c) 2015 Seequ. All rights reserved.
+//
+
 
 #import "RingContactsViewController.h"
 #import "RingContactsTableViewController.h"
 #import "RingGenericContact.h"
 #import "Contact.h"
+#import "RingStyleKit.h"
 #import <Realm/Realm.h>
 @import AddressBook;
 
@@ -38,6 +47,17 @@ static NSString *const kAddressBookAccessNotAuthorized = @"This application is n
     }
 }
 
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    navBar.translucent = NO;
+    navBar.barTintColor = [RingStyleKit seequFoam];
+    navBar.titleTextAttributes = @{NSForegroundColorAttributeName:[RingStyleKit white]};
+    self.dataSourceSegmentControl.tintColor = [RingStyleKit seequFoam];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
@@ -62,6 +82,7 @@ static NSString *const kAddressBookAccessNotAuthorized = @"This application is n
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [RLMRealm.defaultRealm removeNotification:self.realmNotification];
     self.realmNotification = nil;
 }
 
@@ -152,17 +173,24 @@ static NSString *const kAddressBookAccessNotAuthorized = @"This application is n
         
         NSString *fName = (__bridge NSString *)ABRecordCopyValue(contact, kABPersonCompositeNameFormatFirstNameFirst);
         NSString *lName = (__bridge NSString *)ABRecordCopyValue(contact, kABPersonCompositeNameFormatLastNameFirst);
+        NSString *company = (__bridge NSString *)ABRecordCopyValue(contact, kABPersonOrganizationProperty);
+        NSString *jobTitle = (__bridge NSString *)ABRecordCopyValue(contact, kABPersonJobTitleProperty);
         
         ABMultiValueRef emails = ABRecordCopyValue(contact, kABPersonEmailProperty);
         
         for (NSUInteger i = 0; i < ABMultiValueGetCount(emails); i++) {
-            CFStringRef email = ABMultiValueCopyValueAtIndex(emails, i);
+            NSString *email = (__bridge NSString *) ABMultiValueCopyValueAtIndex(emails, i);
             NSError *error = nil;
-            RingGenericContact *c = [RingGenericContact genericContactWithFirstName:fName ? fName : @""
-                                                                           lastName:lName ? lName : @""
-                                                                       emailAddress:(__bridge NSString *)email
-                                                                  andThumbnailImage:resizedThumbnail
-                                                                              error:&error];
+            RingGenericContact *c = [RingGenericContact genericContactWithType:RingGenericContactTypeAddressBook
+                                                                  andFirstName:fName ? fName : @""
+                                                                      lastName:lName ? lName : @""
+                                                                andCompanyName:company ? company : @""
+                                                                   andJobTitle:jobTitle ? jobTitle : @""
+                                                                  emailAddress:email ? email : @""
+                                                             andThumbnailImage:resizedThumbnail
+                                                                      favorite:NO
+                                                         numberOfNotifications:0
+                                                                         error:&error];
             if (!error) {
                 [contacts addObject:c];
             }

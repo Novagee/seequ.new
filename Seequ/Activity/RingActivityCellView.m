@@ -7,7 +7,7 @@
 //
 
 #import "RingActivityCellView.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @interface RingActivityCellView ()
 
@@ -19,7 +19,7 @@
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawActivity_rowWithFrame:CGRectMake(39.58, 5.42, 72.77, 39) activity_row_frame:CGRectMake(0, 0, self.frame.size.width, 64) contact_profile_placeholder:[UIImage imageNamed:@"contact_profile_photo_placeholder"] pressed:self.isPressed notifications:20 firstName:@"Peng" lastName:@"Wan" favorite:YES timestamp_text:@"04/01/15"];
+    [RingStyleKit drawActivity_rowWithFrame:CGRectMake(39.58, 5.42, 72.77, 39) activity_row_frame:CGRectMake(0, 0, self.frame.size.width, 64) contact_profile_placeholder:[UIImage imageNamed:@"contact_profile_photo_placeholder"] pressed:self.isPressed notifications:20 firstName:@"Peng" lastName:@"Wan" favorite:YES timestamp_text:@"04/01/15"];
 
 }
 

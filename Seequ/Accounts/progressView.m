@@ -7,13 +7,13 @@
 //
 
 #import "progressView.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation progressView
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawLogin_progress_graphWithProgressPercent:self.percentage];
+    [RingStyleKit drawLogin_progress_graphWithProgressPercent:self.percentage];
 
 }
 

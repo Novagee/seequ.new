@@ -7,13 +7,13 @@
 //
 
 #import "loginLogo.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation loginLogo
 
 - (void)drawRect:(CGRect)rect {
 
-    [App_StyleKit drawLogin_logoWithProgressPercent:100];
+    [RingStyleKit drawLogin_logoWithProgressPercent:100];
 }
 
 @end

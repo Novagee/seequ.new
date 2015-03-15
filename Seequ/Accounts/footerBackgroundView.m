@@ -7,13 +7,13 @@
 //
 
 #import "footerBackgroundView.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation footerBackgroundView
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [[App_StyleKit seequFoam] setFill];
+    [[RingStyleKit seequFoam] setFill];
     CGContextFillRect(UIGraphicsGetCurrentContext(), rect);
 
 }

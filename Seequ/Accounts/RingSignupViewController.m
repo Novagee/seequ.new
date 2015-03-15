@@ -8,12 +8,11 @@
 
 #import "RingSignupViewController.h"
 #import "RingTextField.h"
-#import "RingAccountManager.h"
-#import "DCNetworkReactor.h"
+#import "RingAccountNetworkingManager.h"
 
 #define kSignUpProgressSegueID @"signupProgress"
 
-@interface RingSignupViewController ()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIActionSheetDelegate>
+@interface RingSignupViewController ()
 
 - (IBAction)cancelButtonClicked:(id)sender;
 - (IBAction)createAccountClicked:(id)sender;
@@ -23,10 +22,6 @@
 @property (weak, nonatomic) IBOutlet RingTextField *emailTextfield;
 @property (weak, nonatomic) IBOutlet RingTextField *passwordTextfield;
 @property (weak, nonatomic) IBOutlet RingTextField *confirmPasswordTextfield;
-
-@property (strong, nonatomic) UIImagePickerController *imagePickerController;
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
-
 @end
 
 @implementation RingSignupViewController
@@ -36,11 +31,7 @@
     // Do any additional setup after loading the view.
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
-    // Init image picker
-    //
-    _imagePickerController = [[UIImagePickerController alloc]init];
-    _imagePickerController.delegate = self;
-    
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -88,7 +79,7 @@
         [alert show];
 
     } else {
-        [[RingAccountManager sharedInstance] signUpWithFirstName:self.firstNameTextfield.text lastName:self.lastNameTextfield.text email:self.emailTextfield.text password:self.passwordTextfield.text success:^(id successResponse) {
+        [[RingAccountNetworkingManager sharedInstance] signUpWithFirstName:self.firstNameTextfield.text lastName:self.lastNameTextfield.text email:self.emailTextfield.text password:self.passwordTextfield.text success:^(id successResponse) {
             NSLog(@"Registion Success.");
             [self performSegueWithIdentifier:kSignUpProgressSegueID sender:self];
 
@@ -131,62 +122,5 @@ static const NSTimeInterval kAnimationDuration = 0.4;
                      }
      ];
 }
-
-
-
-- (IBAction)uploadPhotoButtobTouchUpInside:(id
-                                            )sender {
-    
-    UIActionSheet *avatarTypeSheet = [[UIActionSheet alloc]initWithTitle:@"Choose you photo from" delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"Photo Library", @"Take Photo", nil];
-    [avatarTypeSheet showInView:self.view];
-    
-}
-
-#pragma mark - UIActionSheet Delegate Method
-
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    // Configure the photo choose
-    //
-    if (buttonIndex == 0) {
-        _imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-    else {
-        _imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-    }
-    [self presentViewController:self.imagePickerController animated:YES completion:nil];
-}
-
-#pragma mark - UIPickerViewController Delegate Method
-
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-    // Configure the avatar
-    //
-    _avatarImageView.image = info[UIImagePickerControllerOriginalImage];
-
-    // Handle upload stuff here
-    //
-#warning Upload image code here, PLZ fill it because I dont know the Server address
-    [[DCNetworkReactor shareDCNetworkReactor]POST:@"upload address"
-                                        withImage:self.avatarImageView.image
-                               withAvatarDominate:@""
-                                   withParameters:@{}
-                                          success:^(id responseObject) {
-        
-                                        }
-                                          failure:^(NSError *error) {
-        
-                                          }];
-}
-
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
 
 @end

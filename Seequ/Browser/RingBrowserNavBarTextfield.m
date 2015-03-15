@@ -7,14 +7,14 @@
 //
 
 #import "RingBrowserNavBarTextfield.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation RingBrowserNavBarTextfield
 
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawBrowser_url_field_backgroundWithFrame:rect];
+    [RingStyleKit drawBrowser_url_field_backgroundWithFrame:rect];
 }
 
 @end

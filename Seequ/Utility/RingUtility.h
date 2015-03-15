@@ -11,8 +11,9 @@
 
 @interface RingUtility : NSObject
 
-+(void)setupStatusBarForView:(UIView *)superView;
-+(CGSize) screenSize;
++ (void)setupStatusBarForView:(UIView *)superView;
+
++ (CGSize) screenSize;
 
 + (BOOL)isValidEmail:(NSString*)email;
 

@@ -7,7 +7,7 @@
 //
 
 #import "profileImageFrame.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @implementation profileImageFrame
 
@@ -15,7 +15,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [App_StyleKit drawRegistration_profile_photo_frame];
+    [RingStyleKit drawRegistration_profile_photo_frame];
 }
 
 @end

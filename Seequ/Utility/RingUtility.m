@@ -7,13 +7,13 @@
 //
 
 #import "RingUtility.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 @implementation RingUtility
 
 +(void)setupStatusBarForView:(UIView *)superView
 {
     UIView *statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [RingUtility screenSize].width, 22)];
-    statusBarView.backgroundColor = [App_StyleKit seequFoam];
+    statusBarView.backgroundColor = [RingStyleKit seequFoam];
     [superView addSubview:statusBarView];
 }
 
@@ -22,9 +22,11 @@
     return [UIScreen mainScreen].bounds.size;
 }
 
+static NSString *const kRegexStringForValidatingEmail = @"^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$";
+
 + (BOOL)isValidEmail:(NSString *)email {
     
-    NSString *expression = @"^([^@\\s]+)@((?:[-a-z0-9]+\\.)+[a-z]{2,})$";
+    NSString *expression = kRegexStringForValidatingEmail;
     NSError *error;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:expression
                                                                            options:NSRegularExpressionCaseInsensitive
@@ -38,6 +40,5 @@
         return numberOfMatches > 0;
     }
 }
-
 
 @end

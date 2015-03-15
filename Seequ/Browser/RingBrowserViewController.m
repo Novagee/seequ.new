@@ -37,6 +37,7 @@ static CGFloat const tabBarHeight = 49.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [[self navigationController] setNavigationBarHidden:YES animated:YES];
     
     // Add a observer
     //
@@ -58,7 +59,6 @@ static CGFloat const tabBarHeight = 49.0f;
     self.browserURLTextfield.text = @"http://www.cnn.com";
     self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
     
-
 }
 
 - (void)didReceiveMemoryWarning {

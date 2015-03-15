@@ -7,7 +7,7 @@
 //
 
 #import "RingBrowserButton.h"
-#import "App_StyleKit.h"
+#import "RingStyleKit.h"
 
 @interface RingBrowserButton ()
 @property (assign, nonatomic) BOOL isPressed;
@@ -27,31 +27,31 @@ static NSInteger const bookmark_button_tag = 30006;
     // Drawing code
     switch (self.tag) {
         case reload_button_tag:
-            [App_StyleKit drawBrowser_url_reload_buttonWithPressed:self.isPressed];
+            [RingStyleKit drawBrowser_url_reload_buttonWithPressed:self.isPressed];
             break;
             
         case cancel_button_tag:
-            [App_StyleKit drawBrowser_url_cancel_button];
+            [RingStyleKit drawBrowser_url_cancel_button];
             break;
             
         case next_arrow_tag:
-            [App_StyleKit drawBrowser_next_arrowWithPressed:self.isPressed active:self.enabled];
+            [RingStyleKit drawBrowser_next_arrowWithPressed:self.isPressed active:self.enabled];
             break;
             
         case prev_arrow_tag:
-            [App_StyleKit drawBrowser_prev_arrowWithPressed:self.isPressed active:self.enabled];
+            [RingStyleKit drawBrowser_prev_arrowWithPressed:self.isPressed active:self.enabled];
             break;
             
         case browser_button_tag:
-            [App_StyleKit drawBrowser_buddy_browser_buttonWithPressed:self.isPressed buddybrowse:YES];
+            [RingStyleKit drawBrowser_buddy_browser_buttonWithPressed:self.isPressed buddybrowse:YES];
             break;
             
         case share_button_tag:
-            [App_StyleKit drawBrowser_share_menu_buttonWithPressed:self.isPressed];
+            [RingStyleKit drawBrowser_share_menu_buttonWithPressed:self.isPressed];
             break;
             
         case bookmark_button_tag:
-            [App_StyleKit drawBrowser_bookmark_buttonWithPressed:self.isPressed];
+            [RingStyleKit drawBrowser_bookmark_buttonWithPressed:self.isPressed];
             break;
             
         default:

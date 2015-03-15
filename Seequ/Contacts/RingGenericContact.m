@@ -1,3 +1,11 @@
+//
+//  RingGenericContact.m
+//  Seequ
+//
+//  Created by JB DeLima on 3/9/15.
+//  Copyright (c) 2015 Seequ. All rights reserved.
+//
+
 
 #import "RingGenericContact.h"
 #import "RingUtility.h"
@@ -8,24 +16,38 @@
 @property (nonatomic, strong, readwrite) NSString *firstName;
 @property (nonatomic, strong, readwrite) NSString *lastName;
 @property (nonatomic, strong, readwrite) NSString *email;
+@property (nonatomic, strong, readwrite) NSString *company;
+@property (nonatomic, strong, readwrite) NSString *jobTitle;
 @property (nonatomic, strong, readwrite) UIImage *thumbnailImage;
+@property (nonatomic, readwrite) RingGenericContactType type;
+@property (nonatomic, readwrite) BOOL favorite;
 
 @end
 
 
 @implementation RingGenericContact
 
-+ (instancetype)genericContactWithFirstName:(NSString *)firstName
-                                   lastName:(NSString *)lastName
-                               emailAddress:(NSString *)email
-                          andThumbnailImage:(UIImage *)thumbnailImage
-                                      error:(NSError **)error {
++ (instancetype)genericContactWithType:(RingGenericContactType)type
+                          andFirstName:(NSString *)firstName
+                              lastName:(NSString *)lastName
+                        andCompanyName:(NSString *)company
+                           andJobTitle:(NSString *)jobTitle
+                          emailAddress:(NSString *)email
+                     andThumbnailImage:(UIImage *)thumbnailImage
+                              favorite:(BOOL)favorite
+                 numberOfNotifications:(NSUInteger)numberOfNotifications
+                                 error:(NSError **)error {
     
     RingGenericContact *contact = [[RingGenericContact alloc] init];
     
+    contact.type = type;
     contact.firstName = firstName;
     contact.lastName = lastName;
+    contact.company = company;
+    contact.jobTitle = jobTitle;
     contact.thumbnailImage = thumbnailImage;
+    contact.favorite = favorite;
+    contact.numberOfNotifications = numberOfNotifications;
     
     if ([RingUtility isValidEmail:email]) {
         contact.email = email;
@@ -42,6 +64,8 @@
 - (NSString *)fullName {
     return [NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName];
 }
+
+#pragma mark - isEqual, Hash & Compare
 
 - (BOOL)isEqual:(id)object {
     

@@ -2,7 +2,7 @@ platform :ios, '8.0'
 
 target 'Seequ' do
     pod 'MQTTKit', :git => 'https://github.com/mobile-web-messaging/MQTTKit.git'
-    pod 'Realm', '~> 0.90.5'
+    pod 'Realm', '~> 0.91.1'
     pod 'JSQMessagesViewController', '~> 6.1'
     pod 'BlocksKit', '~> 2.2'
     pod 'YLMoment', '~> 0.5.1'
