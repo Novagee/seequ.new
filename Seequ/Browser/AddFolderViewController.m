@@ -9,10 +9,9 @@
 #import "RealmUtility.h"
 #import "AddFolderViewController.h"
 
-@interface AddFolderViewController ()<UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
+@interface AddFolderViewController ()< UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
+@property (weak, nonatomic) IBOutlet UITextField *folderTextField;
 @end
 
 @implementation AddFolderViewController
@@ -20,31 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [_folderTextField becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table View DataSource
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    
-    return 1;
-    
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return 1;
-    
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return [self.tableView dequeueReusableCellWithIdentifier:@"EditTitle" forIndexPath:indexPath];
-    
 }
 
 #pragma mark - Text Field Delegate
@@ -64,17 +45,7 @@
         
         // Insert a folder
         //
-        Folder *folder = [[Folder alloc]init];
-
-        folder._id = [RealmUtility validIndexFrom:[Folder class]];
-        folder.name = textField.text;
-        folder.ancestorName = self.currentFolder.name;
-        folder.ancestorID = self.currentFolder._id;
-        folder.saveDate = [NSDate date];
-        
-        // Commit the change
-        //
-        [RealmUtility insertObject:folder];
+        [self insertFolderWith:textField.text];
         
         [self.navigationController popViewControllerAnimated:YES];
         
@@ -82,7 +53,31 @@
     return YES;
 }
 
+- (void)insertFolderWith:(NSString *)folderTitle {
+    
+    Folder *folder = [[Folder alloc]init];
+    
+    folder._id = [RealmUtility validIndexFrom:[Folder class]];
+    folder.name = folderTitle;
+    folder.ancestorName = self.currentFolder.name;
+    folder.ancestorID = self.currentFolder._id;
+    folder.saveDate = [NSDate date];
+    
+    // Commit the change
+    //
+    [RealmUtility insertObject:folder];
+    
+}
+
 - (IBAction)backButtonTouchUpInside:(id)sender {
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+- (IBAction)addButtonTouchUpInside:(id)sender {
+
+    [self insertFolderWith:self.folderTextField.text];
     
     [self.navigationController popViewControllerAnimated:YES];
     

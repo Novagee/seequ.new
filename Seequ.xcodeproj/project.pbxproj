@@ -119,8 +119,6 @@
 		9A13F8311AB50EE20098298B /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		9A13F8321AB50EE20098298B /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 		9A13F8391AB50FF00098298B /* AddBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBookmarkViewController.m; path = Browser/AddBookmarkViewController.m; sourceTree = "<group>"; };
-		9A13F83A1AB50FF00098298B /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFolderViewController.h; path = Browser/AddFolderViewController.h; sourceTree = "<group>"; };
-		9A13F83B1AB50FF00098298B /* BookmarkTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkTagViewController.m; path = Browser/BookmarkTagViewController.m; sourceTree = "<group>"; };
 		9A13F83E1AB510140098298B /* AddBookmarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddBookmarkViewController.h; path = Browser/AddBookmarkViewController.h; sourceTree = "<group>"; };
 		9A1605131A894D5900E890DA /* RingAccountNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingAccountNetworkingManager.h; path = Managers/RingAccountNetworkingManager.h; sourceTree = "<group>"; };
 		9A1605141A894D5900E890DA /* RingAccountNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingAccountNetworkingManager.m; path = Managers/RingAccountNetworkingManager.m; sourceTree = "<group>"; };
@@ -552,8 +550,6 @@
 			children = (
 				9A13F83E1AB510140098298B /* AddBookmarkViewController.h */,
 				9A13F8391AB50FF00098298B /* AddBookmarkViewController.m */,
-				9A13F83A1AB50FF00098298B /* AddFolderViewController.h */,
-				9A13F83B1AB50FF00098298B /* BookmarkTagViewController.m */,
 				9A13F8271AB50CA90098298B /* HistoryViewController.h */,
 				9A13F8281AB50CA90098298B /* HistoryViewController.m */,
 				9A13F81B1AB50C900098298B /* AddFolderViewController.h */,
@@ -654,10 +650,11 @@
 				TargetAttributes = {
 					F21889571A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = BR98P99FAH;
+						DevelopmentTeam = 5A88JF7M74;
 					};
 					F21889731A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5A88JF7M74;
 						TestTargetID = F21889571A856CD1004C0205;
 					};
 				};

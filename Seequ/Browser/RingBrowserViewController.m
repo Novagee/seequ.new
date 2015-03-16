@@ -183,6 +183,12 @@ static CGFloat const tabBarHeight = 49.0f;
 
 #pragma mark - Text Field Delegate
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.browserURLTextfield.rightView = nil;
+    self.browserURLTextfield.clearButtonMode = UITextFieldViewModeAlways;
+    
+}
+
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     [self.webView stopLoading];
@@ -194,6 +200,11 @@ static CGFloat const tabBarHeight = 49.0f;
     // Save bookmark
     //
     [self saveBookmark];
+    
+    self.browserURLTextfield.clearButtonMode = UITextFieldViewModeNever;
+    self.browserURLTextfield.rightView = self.refreshButton;
+    self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
+
     
     [textField resignFirstResponder];
     return YES;
