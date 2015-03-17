@@ -12,6 +12,7 @@
 @interface AddFolderViewController ()< UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *folderTextField;
+
 @end
 
 @implementation AddFolderViewController
@@ -76,10 +77,22 @@
 }
 
 - (IBAction)addButtonTouchUpInside:(id)sender {
-
-    [self insertFolderWith:self.folderTextField.text];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (![self.folderTextField.text isEqualToString:@""]) {
+        [self insertFolderWith:self.folderTextField.text];
+        [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please enter the folder name." preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:nil];
+
+    }
+
     
 }
 

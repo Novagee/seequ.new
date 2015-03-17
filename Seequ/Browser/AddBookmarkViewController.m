@@ -9,14 +9,12 @@
 #import "AddBookmarkViewController.h"
 #import "BookmarkListViewController.h"
 
-@interface AddBookmarkViewController ()<UITextFieldDelegate>
+@interface AddBookmarkViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @property (strong, nonatomic) Folder *currentFolder;
-
-@property (weak, nonatomic) IBOutlet UITextField *bookmarkTextField;
-@property (weak, nonatomic) IBOutlet UILabel *urlLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-@property (weak, nonatomic) IBOutlet UIButton *folderButton;
+@property (weak, nonatomic) IBOutlet UITextField *bookmarkField;
 
 @end
 
@@ -32,8 +30,6 @@
     //
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeAddBookmarkFolder:) name:@"SeeNotificationAddBookmarkFolder" object:nil];
     
-    [self configureBasicInfo];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,28 +43,72 @@
     
 }
 
-- (void)configureBasicInfo {
-    
-    _urlLabel.text = self.urlString;
-    
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-    [dateFormatter setDateFormat:@"YYYY-MM-DD hh:mm:ss"];
-    _dateLabel.text = [dateFormatter stringFromDate:[NSDate date]];
-    
-    [_folderButton setTitle:@"Bookmark"
-                   forState:UIControlStateNormal];
-    _folderButton.titleLabel.textAlignment = NSTextAlignmentLeft;
-    
-    [_bookmarkTextField becomeFirstResponder];
-}
-
 - (void)changeAddBookmarkFolder:(NSNotification *)notification {
     
     NSDictionary *userInfo = notification.userInfo;
     _currentFolder = userInfo[@"folder"];
     
-    [_folderButton setTitle:self.currentFolder.name
-                   forState:UIControlStateNormal];
+    [self.tableView reloadData];
+}
+
+#pragma mark - Table View Delegate
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    
+    if (section == 0) {
+        return 2;
+    }
+    return 1;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    return 2;
+    
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        if (indexPath.row == 0) {
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"EditTitleCell"
+                                                                          forIndexPath:indexPath];
+            return cell;
+        }
+        else {
+            UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"HistoryCell" forIndexPath:indexPath];
+            cell.textLabel.text = self.urlString;
+            cell.detailTextLabel.text = [NSDate date].description;
+            
+            return cell;
+        }
+    }
+    else {
+        
+        UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"FolderCell"
+                                                                     forIndexPath:indexPath];
+        cell.textLabel.text = (self.currentFolder.name.length != 0? self.currentFolder.name : self.rootFolder.name);
+        return cell;
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            
+            BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
+            
+            bookmarkListViewController.currentFolder = self.rootFolder;
+            bookmarkListViewController.insertMode = YES;
+            
+            [self.navigationController pushViewController:bookmarkListViewController animated:YES];
+            
+        }
+    }
+    
 }
 
 #pragma mark - TextField Delegate Method
@@ -88,9 +128,18 @@
         
         // Insert a folder
         //
-        [self insertBookmarkWithTitle:textField.text];
+        Bookmark *bookmark = [[Bookmark alloc]init];
         
-        [textField resignFirstResponder];
+        bookmark.name = textField.text;
+        bookmark.url = self.urlString;
+        bookmark._id = [RealmUtility validIndexFrom:[Bookmark class]];
+        bookmark.saveDate = [NSDate date];
+        bookmark.folderID = self.currentFolder._id;
+        
+        // Commit the change
+        //
+        [RealmUtility insertObject:bookmark];
+     
         [self dismissViewControllerAnimated:YES completion:nil];
         
     }
@@ -98,42 +147,9 @@
     
 }
 
-- (void)insertBookmarkWithTitle:(NSString *)bookmarkTitle {
-    
-    Bookmark *bookmark = [[Bookmark alloc]init];
-    
-    bookmark.name = bookmarkTitle;
-    bookmark.url = self.urlString;
-    bookmark._id = [RealmUtility validIndexFrom:[Bookmark class]];
-    bookmark.saveDate = [NSDate date];
-    bookmark.folderID = self.currentFolder._id;
-    
-    // Commit the change
-    //
-    [RealmUtility insertObject:bookmark];
-
-}
-
 - (IBAction)cancelButtonTouchUpInside:(id)sender {
     
     [self dismissViewControllerAnimated:YES completion:nil];
-    
-}
-
-- (IBAction)addButtonTouchUpInside:(id)sender {
-    
-    [self insertBookmarkWithTitle:self.bookmarkTextField.text];
-    
-}
-
-- (IBAction)folderButtonTouchUpInside:(id)sender {
-
-    BookmarkListViewController *bookmarkListViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"bookmarkListView"];
-    
-    bookmarkListViewController.currentFolder = self.rootFolder;
-    bookmarkListViewController.insertMode = YES;
-    
-    [self.navigationController pushViewController:bookmarkListViewController animated:YES];
     
 }
 

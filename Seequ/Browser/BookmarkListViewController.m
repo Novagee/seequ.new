@@ -9,14 +9,12 @@
 #import "BookmarkListViewController.h"
 #import "AddFolderViewController.h"
 #import "RealmUtility.h"
-#import "RingBrowserButton.h"
 
 @interface BookmarkListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *folderList;
 
-@property (weak, nonatomic) IBOutlet RingBrowserButton *backButton;
 @property (weak, nonatomic) IBOutlet UILabel *navigationBarTitle;
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
@@ -36,7 +34,6 @@
     if (self.insertMode) {
         _editButton.hidden = YES;
         _addFolderButton.hidden = YES;
-        _backButton.hidden = YES;
     }
     
 }
