@@ -204,7 +204,7 @@ static CGFloat const tabBarHeight = 49.0f;
     self.browserURLTextfield.clearButtonMode = UITextFieldViewModeNever;
     self.browserURLTextfield.rightView = self.refreshButton;
     self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
-    
+
     
     [textField resignFirstResponder];
     return YES;

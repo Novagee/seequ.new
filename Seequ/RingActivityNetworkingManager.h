@@ -12,7 +12,4 @@
 
 +(instancetype)sharedInstance;
 
--(void) getActivityListWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
--(void) getActivityWithID:(NSString *)activityID success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
-
 @end

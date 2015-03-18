@@ -8,7 +8,6 @@
 
 #import "RingActivityTableViewController.h"
 #import "ActivityCell.h"
-#import "RingActivityNetworkingManager.h"
 
 @interface RingActivityTableViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -16,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *allButton;
 @property (weak, nonatomic) IBOutlet UIButton *callsButton;
 @property (weak, nonatomic) IBOutlet UIButton *requestButton;
-@property (strong, nonatomic) NSArray *activityArray;
+
 @end
 
 @implementation RingActivityTableViewController
@@ -33,6 +32,12 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:[ActivityCell cellIdentifier] bundle:nil]
      forCellReuseIdentifier:[ActivityCell cellIdentifier]];
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -136,24 +141,6 @@
         default:
             break;
     }
-    
-}
-
--(void) fetchActivityList
-{
-    [[RingActivityNetworkingManager sharedInstance] getActivityListWithSuccess:^(id successResponse) {
-        self.activityArray = (NSArray *)successResponse;
-        
-    } failure:^(id failureResponse, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
-                                                       message:@"Sorry something is wrong, please come back in a moment."
-                                                      delegate:self
-                                             cancelButtonTitle:@"OK"
-                                             otherButtonTitles:nil, nil];
-        [alert show];
-    }];
-    
-    
     
 }
 

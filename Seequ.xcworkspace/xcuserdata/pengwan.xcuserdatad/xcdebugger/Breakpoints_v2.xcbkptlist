@@ -102,6 +102,52 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Seequ/Accounts/RingLoginProgressViewController.m"
+            timestampString = "447555461.948685"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
+            landmarkName = "-loginAction"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[RingLoginProgressViewController loginAction]_block_invoke"
+                  moduleName = "Seequ"
+                  urlString = "file:///Users/pengwan/Documents/Seequ/NEW/Seequ.New/Seequ/Accounts/RingLoginProgressViewController.m"
+                  timestampString = "447620775.752283"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "306">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[RingLoginProgressViewController loginAction]_block_invoke_2"
+                  moduleName = "Seequ"
+                  urlString = "file:///Users/pengwan/Documents/Seequ/NEW/Seequ.New/Seequ/Accounts/RingLoginProgressViewController.m"
+                  timestampString = "447620775.75261"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "58"
+                  endingLineNumber = "58"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -127,7 +173,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "187"
             endingLineNumber = "187"
-            landmarkName = "-textFieldDidBeginEditing:"
+            landmarkName = "-textFieldShouldReturn:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

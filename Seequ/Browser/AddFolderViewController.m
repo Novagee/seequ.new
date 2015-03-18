@@ -12,7 +12,6 @@
 @interface AddFolderViewController ()< UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *folderTextField;
-
 @end
 
 @implementation AddFolderViewController
@@ -48,13 +47,20 @@
         //
         [self insertFolderWith:textField.text];
         
-        [self.navigationController popViewControllerAnimated:YES];
-        
     }
     return YES;
 }
 
 - (void)insertFolderWith:(NSString *)folderTitle {
+    
+    if (folderTitle.length == 0) {
+        
+        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:@"" message:@"Folder title should not be empty" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        
+        [alertView show];
+        
+        return ;
+    }
     
     Folder *folder = [[Folder alloc]init];
     
@@ -68,6 +74,7 @@
     //
     [RealmUtility insertObject:folder];
     
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)backButtonTouchUpInside:(id)sender {
@@ -77,22 +84,8 @@
 }
 
 - (IBAction)addButtonTouchUpInside:(id)sender {
-    
-    if (![self.folderTextField.text isEqualToString:@""]) {
-        [self insertFolderWith:self.folderTextField.text];
-        [self.navigationController popViewControllerAnimated:YES];
-    } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:@"Please enter the folder name." preferredStyle:UIAlertControllerStyleAlert];
-        
-        UIAlertAction *okAction = [UIAlertAction
-                                   actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                                   style:UIAlertActionStyleDefault
-                                   handler:nil];
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:nil];
 
-    }
-
+    [self insertFolderWith:self.folderTextField.text];
     
 }
 

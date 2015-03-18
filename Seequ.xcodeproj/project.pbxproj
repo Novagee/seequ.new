@@ -18,6 +18,7 @@
 		79F624521AABE2B9002A6172 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F624511AABE2B9002A6172 /* Contact.m */; };
 		9A13F8141AADF9420098298B /* RingActivityNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8131AADF9420098298B /* RingActivityNetworkingManager.m */; };
 		9A13F8171AAE06FE0098298B /* RingActivityCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8161AAE06FE0098298B /* RingActivityCellView.m */; };
+		9A13F8231AB50C900098298B /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F81C1AB50C900098298B /* AddFolderViewController.m */; };
 		9A13F8241AB50C900098298B /* BookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F81E1AB50C900098298B /* BookmarkListViewController.m */; };
 		9A13F8251AB50C900098298B /* BookmarkTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8201AB50C900098298B /* BookmarkTagViewController.m */; };
 		9A13F8261AB50C900098298B /* BookmarkViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8221AB50C900098298B /* BookmarkViewController.m */; };
@@ -46,7 +47,6 @@
 		9A70192B1A880561008F35E5 /* signupCancelButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A7019271A880561008F35E5 /* signupCancelButton.m */; };
 		9A70193C1A890BF3008F35E5 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A70193B1A890BF3008F35E5 /* Reachability.m */; };
 		9A9C3E8E1AB5188B00134CE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A9C3E8C1AB5188B00134CE6 /* Main.storyboard */; };
-		9A9C3E911AB7E08400134CE6 /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A9C3E901AB7E08400134CE6 /* AddFolderViewController.m */; };
 		9AB253D41AAA2B130045B5F7 /* ActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AB253D21AAA2B130045B5F7 /* ActivityCell.m */; };
 		9AB253D51AAA2B130045B5F7 /* ActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AB253D31AAA2B130045B5F7 /* ActivityCell.xib */; };
 		9AE4F0D11A8AFB7300B201AD /* RingMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE4F0D01A8AFB7300B201AD /* RingMainViewController.m */; };
@@ -102,6 +102,8 @@
 		9A13F8131AADF9420098298B /* RingActivityNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingActivityNetworkingManager.m; sourceTree = "<group>"; };
 		9A13F8151AAE06FE0098298B /* RingActivityCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingActivityCellView.h; path = Activity/RingActivityCellView.h; sourceTree = "<group>"; };
 		9A13F8161AAE06FE0098298B /* RingActivityCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingActivityCellView.m; path = Activity/RingActivityCellView.m; sourceTree = "<group>"; };
+		9A13F81B1AB50C900098298B /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddFolderViewController.h; path = Browser/AddFolderViewController.h; sourceTree = "<group>"; };
+		9A13F81C1AB50C900098298B /* AddFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddFolderViewController.m; path = Browser/AddFolderViewController.m; sourceTree = "<group>"; };
 		9A13F81D1AB50C900098298B /* BookmarkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookmarkListViewController.h; path = Browser/BookmarkListViewController.h; sourceTree = "<group>"; };
 		9A13F81E1AB50C900098298B /* BookmarkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkListViewController.m; path = Browser/BookmarkListViewController.m; sourceTree = "<group>"; };
 		9A13F81F1AB50C900098298B /* BookmarkTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BookmarkTagViewController.h; path = Browser/BookmarkTagViewController.h; sourceTree = "<group>"; };
@@ -117,7 +119,6 @@
 		9A13F8311AB50EE20098298B /* Bookmark.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bookmark.h; sourceTree = "<group>"; };
 		9A13F8321AB50EE20098298B /* Bookmark.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Bookmark.m; sourceTree = "<group>"; };
 		9A13F8391AB50FF00098298B /* AddBookmarkViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddBookmarkViewController.m; path = Browser/AddBookmarkViewController.m; sourceTree = "<group>"; };
-		9A13F83B1AB50FF00098298B /* BookmarkTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BookmarkTagViewController.m; path = Browser/BookmarkTagViewController.m; sourceTree = "<group>"; };
 		9A13F83E1AB510140098298B /* AddBookmarkViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AddBookmarkViewController.h; path = Browser/AddBookmarkViewController.h; sourceTree = "<group>"; };
 		9A1605131A894D5900E890DA /* RingAccountNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingAccountNetworkingManager.h; path = Managers/RingAccountNetworkingManager.h; sourceTree = "<group>"; };
 		9A1605141A894D5900E890DA /* RingAccountNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingAccountNetworkingManager.m; path = Managers/RingAccountNetworkingManager.m; sourceTree = "<group>"; };
@@ -157,8 +158,6 @@
 		9A70193A1A890BF3008F35E5 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Common/Reachability.h; sourceTree = "<group>"; };
 		9A70193B1A890BF3008F35E5 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Common/Reachability.m; sourceTree = "<group>"; };
 		9A9C3E8D1AB5188B00134CE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A9C3E8F1AB7E08400134CE6 /* AddFolderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddFolderViewController.h; sourceTree = "<group>"; };
-		9A9C3E901AB7E08400134CE6 /* AddFolderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddFolderViewController.m; sourceTree = "<group>"; };
 		9AB253D11AAA2B130045B5F7 /* ActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityCell.h; sourceTree = "<group>"; };
 		9AB253D21AAA2B130045B5F7 /* ActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityCell.m; sourceTree = "<group>"; };
 		9AB253D31AAA2B130045B5F7 /* ActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityCell.xib; sourceTree = "<group>"; };
@@ -295,7 +294,6 @@
 			isa = PBXGroup;
 			children = (
 				F218896B1A856CD1004C0205 /* Images.xcassets */,
-				9A9C3E8C1AB5188B00134CE6 /* Main.storyboard */,
 				9A7018C91A872B11008F35E5 /* RingStyleKit.h */,
 				9A7018CA1A872B11008F35E5 /* RingStyleKit.m */,
 				9AE4F0D21A8B176F00B201AD /* RingTextField.h */,
@@ -354,6 +352,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9A13F82A1AB50EAF0098298B /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				9A13F82B1AB50EB80098298B /* RealmUtility.h */,
+				9A13F82C1AB50EB80098298B /* RealmUtility.m */,
+			);
+			name = Utility;
+			sourceTree = "<group>";
+		};
 		9A13F8341AB50EF00098298B /* Bookmark */ = {
 			isa = PBXGroup;
 			children = (
@@ -404,8 +411,6 @@
 		9A7018E11A87E259008F35E5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				9A13F82B1AB50EB80098298B /* RealmUtility.h */,
-				9A13F82C1AB50EB80098298B /* RealmUtility.m */,
 				9A7018E51A87E2C0008F35E5 /* RingUtility.h */,
 				9A7018E61A87E2C0008F35E5 /* RingUtility.m */,
 			);
@@ -479,6 +484,7 @@
 		F218895A1A856CD1004C0205 /* Seequ */ = {
 			isa = PBXGroup;
 			children = (
+				9A13F82A1AB50EAF0098298B /* Utility */,
 				9A1605181A8958C100E890DA /* Model */,
 				25C3256E1AAF641200BBD95E /* View */,
 				25C3256F1AAF644A00BBD95E /* Controller */,
@@ -490,6 +496,7 @@
 		F218895B1A856CD1004C0205 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9A9C3E8C1AB5188B00134CE6 /* Main.storyboard */,
 				F218895C1A856CD1004C0205 /* Info.plist */,
 				F218895D1A856CD1004C0205 /* main.m */,
 			);
@@ -541,13 +548,12 @@
 		F21889891A85702E004C0205 /* Browser */ = {
 			isa = PBXGroup;
 			children = (
-				9A9C3E8F1AB7E08400134CE6 /* AddFolderViewController.h */,
-				9A9C3E901AB7E08400134CE6 /* AddFolderViewController.m */,
 				9A13F83E1AB510140098298B /* AddBookmarkViewController.h */,
 				9A13F8391AB50FF00098298B /* AddBookmarkViewController.m */,
-				9A13F83B1AB50FF00098298B /* BookmarkTagViewController.m */,
 				9A13F8271AB50CA90098298B /* HistoryViewController.h */,
 				9A13F8281AB50CA90098298B /* HistoryViewController.m */,
+				9A13F81B1AB50C900098298B /* AddFolderViewController.h */,
+				9A13F81C1AB50C900098298B /* AddFolderViewController.m */,
 				9A13F81D1AB50C900098298B /* BookmarkListViewController.h */,
 				9A13F81E1AB50C900098298B /* BookmarkListViewController.m */,
 				9A13F81F1AB50C900098298B /* BookmarkTagViewController.h */,
@@ -644,10 +650,11 @@
 				TargetAttributes = {
 					F21889571A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = BR98P99FAH;
+						DevelopmentTeam = 5A88JF7M74;
 					};
 					F21889731A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5A88JF7M74;
 						TestTargetID = F21889571A856CD1004C0205;
 					};
 				};
@@ -729,6 +736,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A13F8231AB50C900098298B /* AddFolderViewController.m in Sources */,
 				25AB339C1AA910430007055B /* RingGenericContact.m in Sources */,
 				9A7019011A87E3FA008F35E5 /* RingLoginViewController.m in Sources */,
 				9AEFCBC01A9F83330029FEFE /* RingBrowserNavBarTextfield.m in Sources */,
@@ -741,7 +749,6 @@
 				9A13F8261AB50C900098298B /* BookmarkViewController.m in Sources */,
 				259CB6E71AB0FABD00863456 /* RingRealmManager.m in Sources */,
 				9A7019051A87E3FA008F35E5 /* signupButton.m in Sources */,
-				9A9C3E911AB7E08400134CE6 /* AddFolderViewController.m in Sources */,
 				F21889971A85718D004C0205 /* RingActivityTableViewController.m in Sources */,
 				9A1605151A894D5900E890DA /* RingAccountNetworkingManager.m in Sources */,
 				9A7019281A880561008F35E5 /* createAccountButton.m in Sources */,
