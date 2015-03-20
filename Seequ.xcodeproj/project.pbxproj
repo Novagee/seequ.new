@@ -16,6 +16,7 @@
 		796E8AE91AACD47C00AFCDD0 /* RingContactNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 796E8AE81AACD47C00AFCDD0 /* RingContactNetworkingManager.m */; };
 		79F6244F1AABE112002A6172 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F6244E1AABE112002A6172 /* User.m */; };
 		79F624521AABE2B9002A6172 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F624511AABE2B9002A6172 /* Contact.m */; };
+		81D2047D1ABC512D002C75E9 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D2047C1ABC512D002C75E9 /* TestViewController.m */; };
 		9A13F8141AADF9420098298B /* RingActivityNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8131AADF9420098298B /* RingActivityNetworkingManager.m */; };
 		9A13F8171AAE06FE0098298B /* RingActivityCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8161AAE06FE0098298B /* RingActivityCellView.m */; };
 		9A13F8231AB50C900098298B /* AddFolderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F81C1AB50C900098298B /* AddFolderViewController.m */; };
@@ -98,6 +99,8 @@
 		79F6244E1AABE112002A6172 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		79F624501AABE2B9002A6172 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = Model/Contact.h; sourceTree = "<group>"; };
 		79F624511AABE2B9002A6172 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = Model/Contact.m; sourceTree = "<group>"; };
+		81D2047B1ABC512D002C75E9 /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		81D2047C1ABC512D002C75E9 /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		9A13F8121AADF9420098298B /* RingActivityNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingActivityNetworkingManager.h; sourceTree = "<group>"; };
 		9A13F8131AADF9420098298B /* RingActivityNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingActivityNetworkingManager.m; sourceTree = "<group>"; };
 		9A13F8151AAE06FE0098298B /* RingActivityCellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingActivityCellView.h; path = Activity/RingActivityCellView.h; sourceTree = "<group>"; };
@@ -235,6 +238,8 @@
 				2583BB741AB1F032005DD3D3 /* Browser */,
 				2583BB751AB1F03D005DD3D3 /* Activity */,
 				2583BB761AB1F051005DD3D3 /* Takes */,
+				81D2047B1ABC512D002C75E9 /* TestViewController.h */,
+				81D2047C1ABC512D002C75E9 /* TestViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -765,6 +770,7 @@
 				F21889A11A8577AF004C0205 /* RingSignupViewController.m in Sources */,
 				9A7019291A880561008F35E5 /* profileImage.m in Sources */,
 				25AB33991AA906E30007055B /* RingContactsViewController.m in Sources */,
+				81D2047D1ABC512D002C75E9 /* TestViewController.m in Sources */,
 				F218899D1A85729A004C0205 /* RingTakesViewController.m in Sources */,
 				9A13F8171AAE06FE0098298B /* RingActivityCellView.m in Sources */,
 				9A70192B1A880561008F35E5 /* signupCancelButton.m in Sources */,
