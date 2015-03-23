@@ -12,5 +12,4 @@
 -(void)addContacts:(NSArray*)contacts toGroup:(NSString*)groupId success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
 -(void)createGroupWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
 
-
 @end

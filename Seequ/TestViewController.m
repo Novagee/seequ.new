@@ -7,11 +7,13 @@
 //
 
 #import "TestViewController.h"
+#import "RingContactNetworkingManager.h"
+#import "User.h"
 
 @interface TestViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
-@property (strong, nonatomic) NSMutableArray *collectionItems;
+@property (strong, nonatomic) NSMutableArray *contacts;
 
 @end
 
@@ -21,7 +23,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _collectionItems = [[NSMutableArray alloc]init];
+    _contacts =[[NSMutableArray alloc]init];
+    
+    // Hard code for test
+    //
+    NSMutableArray *colors = [[NSMutableArray alloc]init];;
+    UIColor *color = [UIColor redColor];
+    [colors addObject:color];
+
+    [_contacts addObject:colors];
+    
+    //[self fetchContantDataFromRemote];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,45 +42,82 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)fetchContantDataFromRemote {
+    
+    _contacts = [[NSMutableArray alloc]init];
+    
+    [[RingContactNetworkingManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
+        
+        [_contacts addObjectsFromArray:successResponse[0][@"contacts"]];
+        
+        [self.collectionView reloadData];
+        
+    } failure:^(id failureResponse, NSError *error) {
+        
+    }];
+    
 }
-*/
+
+#pragma mark - Collection View Data Source
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.collectionItems.count + 1;
+    
+    // Hard code for test
+    //
+    if (self.contacts.count > 0 && section < self.contacts.count) {
+        return ((NSArray *)self.contacts[section]).count + 1;
+    }
+    return  1;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 1;
+    return self.contacts.count + 1;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 
+    if (indexPath.section == self.contacts.count) {
+        
+        UICollectionViewCell *collectionCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"addGroupCell" forIndexPath:indexPath];
+        return collectionCell;
+        
+    }
+    
     if (indexPath.row == 0) {
-        UICollectionViewCell *collectionCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"addButtonCell" forIndexPath:indexPath];
-        collectionCell.backgroundColor = [UIColor redColor];
+        UICollectionViewCell *collectionCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"addContactCell" forIndexPath:indexPath];
         return collectionCell;
     }
+    
     UICollectionViewCell *collectionCell = [self.collectionView dequeueReusableCellWithReuseIdentifier:@"contantCell" forIndexPath:indexPath];
-    collectionCell.backgroundColor = self.collectionItems[indexPath.row - 1];
+    collectionCell.backgroundColor = [UIColor cyanColor];
     return collectionCell;
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
+    if(indexPath.section == self.contacts.count){
+        
+        // Add new group code here
+        //
+        // ......
+        
+        NSMutableArray *colors = [[NSMutableArray alloc]init];;
+        [_contacts addObject:colors];
+        
+        [_collectionView reloadData];
+    }
     if (indexPath.row == 0) {
         
-        UIColor *randomColor = [UIColor colorWithWhite:random()%1 alpha:1.0];
-        [_collectionItems addObject:randomColor];
-        [_collectionView reloadData];
+        // Add new contact code here
+        //
+        // ......
         
+        NSMutableArray *colors = self.contacts[indexPath.section];
+        UIColor *color = [UIColor redColor];
+        [colors addObject:color];
+        
+        [_collectionView reloadData];
         
     }
     

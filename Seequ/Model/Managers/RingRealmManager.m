@@ -24,7 +24,6 @@
     return sharedManager;
 }
 
-
 static NSString *const kUserPath = @"user";
 static NSString *const kUserIDPath = @"user._id";
 

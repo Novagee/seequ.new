@@ -49,33 +49,34 @@
 
 -(void)loginAction
 {
-//        __weak RingLoginProgressViewController *weakSelf = self;
-//    
-//        [[RingAccountNetworkingManager sharedInstance] signInWithEmail:self.email password:self.password success:^(id successResponse) {
-//            
-//            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-//            NSString *token = successResponse[@"token"];
-//            [userDefaults setObject:token forKey:@"SeequUserToken"];
-//            
-//            RingRealmManager *realmManager = [RingRealmManager sharedRealmManager];
-//            [realmManager createOrUpdateUserWithServerData:successResponse];
-//            
-//            weakSelf.progressView.percentage = 100;
-//            [weakSelf.progressView setNeedsDisplay];
-//            
-//            [[RingContactNetworkingManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
-//                [weakSelf performSelector:@selector(pushToMainScreen) withObject:nil afterDelay:0.5];
-//            
-//            } failure:^(id failureResponse, NSError *error) {
-//                NSLog(@"Group List Failure");
-//                 [self didFail];
-//            }];
-//        
-//        } failure:^(id failure, NSError *error) {
-//            NSLog(@"Signin Failure");
-//            [self didFail];
-//        }];
-    [self performSelectorOnMainThread:@selector(pushToMainScreen) withObject:nil waitUntilDone:YES];
+        __weak RingLoginProgressViewController *weakSelf = self;
+    
+        [[RingAccountNetworkingManager sharedInstance] signInWithEmail:self.email password:self.password success:^(id successResponse) {
+            
+            NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+            NSString *token = successResponse[@"token"];
+            [userDefaults setObject:token forKey:@"SeequUserToken"];
+            
+            RingRealmManager *realmManager = [RingRealmManager sharedRealmManager];
+            [realmManager createOrUpdateUserWithServerData:successResponse];
+            
+            weakSelf.progressView.percentage = 100;
+            [weakSelf.progressView setNeedsDisplay];
+            
+            [[RingContactNetworkingManager sharedInstance] getGroupListWithSuccess:^(id successResponse) {
+                [weakSelf performSelector:@selector(pushToMainScreen) withObject:nil afterDelay:0.5];
+            
+            } failure:^(id failureResponse, NSError *error) {
+                NSLog(@"Group List Failure");
+                 [self didFail];
+            }];
+        
+        } failure:^(id failure, NSError *error) {
+            NSLog(@"Signin Failure");
+            [self didFail];
+            
+        }];
+//    [self performSelectorOnMainThread:@selector(pushToMainScreen) withObject:nil waitUntilDone:YES];
 }
 
 -(void) pushToMainScreen

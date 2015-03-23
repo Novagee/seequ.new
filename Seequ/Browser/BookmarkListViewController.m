@@ -85,7 +85,6 @@
         return cell;
     }
     
-
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,6 +95,10 @@
         // Fetch the directory path for the folder which will delete
         //
         RLMObject *object = self.folderList[indexPath.row];
+
+        if ([object isKindOfClass:[Folder class]]) {
+            [self recursiveDeleteFolder:(Folder *)object];
+        }
         [_folderList removeObject:object];
         [RealmUtility deleteObject:object];
         
@@ -108,6 +111,35 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return YES;
+}
+
+- (void)recursiveDeleteFolder:(Folder *)currentFolder {
+    
+    RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderID = %d", currentFolder._id]];
+    for (NSUInteger index = 0; index < bookmarks.count; index++) {
+        
+        Bookmark *bookmark = [bookmarks objectAtIndex:index];
+        [RealmUtility deleteObject:bookmark];
+        
+        NSLog(@"Delete bookmark: %@", bookmark);
+        
+    }
+    
+    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorID = %d", currentFolder._id]];
+    for (NSUInteger index = 0; index < folders.count; index++) {
+        
+        Folder *folder = [folders objectAtIndex:index];
+        
+        if (! [folder.name isEqualToString:@"History"]) {
+            
+            [self recursiveDeleteFolder:folder];
+            [RealmUtility deleteObject:folder];
+            
+            NSLog(@"Delete folder: %@", folder);
+            
+        }
+    }
+    
 }
 
 #pragma mark - Table View Delegate
@@ -135,7 +167,6 @@
         
         [self.navigationController pushViewController:bookmarkListViewController animated:YES];
     }
-    
     
 }
 
