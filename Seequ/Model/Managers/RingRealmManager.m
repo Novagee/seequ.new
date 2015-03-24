@@ -13,21 +13,12 @@
 
 @implementation RingRealmManager
 
-+ (instancetype)sharedRealmManager {
-    
-    static dispatch_once_t onceToken;
-    static RingRealmManager *sharedManager;
-    dispatch_once(&onceToken, ^{
-        sharedManager = [[RingRealmManager alloc] init];
-    });
-    
-    return sharedManager;
-}
+#pragma mark - Operations on Single Objects
 
 static NSString *const kUserPath = @"user";
 static NSString *const kUserIDPath = @"user._id";
 
-- (void)createOrUpdateUserWithServerData:(NSDictionary *)serverData {
++ (void)createOrUpdateUserWithServerData:(NSDictionary *)serverData {
     
     RLMRealm *realm = [RLMRealm defaultRealm];
     User *currentUser = [[User allObjects] firstObject];
@@ -42,6 +33,27 @@ static NSString *const kUserIDPath = @"user._id";
         [realm commitWriteTransaction];
     }
     NSLog(@"@Users in Realm: %@", [User allObjects]);
+}
+
++ (void)addObject:(RLMObject *)object {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm addObject:object];
+    [realm commitWriteTransaction];
+}
+
++ (void)deleteObject:(RLMObject *)object {
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm beginWriteTransaction];
+    [realm deleteObject:object];
+    [realm commitWriteTransaction];
+}
+
++ (int)validIndexFrom:(Class)realmModelClass {
+    RLMResults *result = [realmModelClass allObjects];
+    NSNumber *maxIndex = [result maxOfProperty:@"_id"];
+    int _id = [maxIndex intValue] + 1;
+    return _id;
 }
 
 @end

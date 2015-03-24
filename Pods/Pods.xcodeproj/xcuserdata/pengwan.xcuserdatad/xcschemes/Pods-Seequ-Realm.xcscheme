@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2CBA0A5DB707CB316FBAC244"
+               BlueprintIdentifier = "95B479775F9FD406F349B8A0"
                BuildableName = "libPods-Seequ-Realm.a"
                BlueprintName = "Pods-Seequ-Realm"
                ReferencedContainer = "container:Pods.xcodeproj">

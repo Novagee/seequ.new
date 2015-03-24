@@ -41,9 +41,9 @@ PODS:
     - JSQSystemSoundPlayer (~> 2.0.1)
   - JSQSystemSoundPlayer (2.0.1)
   - MQTTKit (0.1.0-next)
-  - Realm (0.90.5):
-    - Realm/Headers (= 0.90.5)
-  - Realm/Headers (0.90.5)
+  - Realm (0.91.1):
+    - Realm/Headers (= 0.91.1)
+  - Realm/Headers (0.91.1)
   - UUIDShortener (1.0.1)
   - YLMoment (0.5.1)
 
@@ -54,7 +54,7 @@ DEPENDENCIES:
   - EventEmitter (~> 0.1.1)
   - JSQMessagesViewController (~> 6.1)
   - MQTTKit (from `https://github.com/mobile-web-messaging/MQTTKit.git`)
-  - Realm (~> 0.90.5)
+  - Realm (~> 0.91.1)
   - UUIDShortener
   - YLMoment (~> 0.5.1)
 
@@ -75,7 +75,7 @@ SPEC CHECKSUMS:
   JSQMessagesViewController: e93a288a9662d4519c95a28a8c0eec10beae1bfc
   JSQSystemSoundPlayer: 55528c699a283aae2220d3ae7b8b527d2ecef4b4
   MQTTKit: eca7270c24d16fe7865143d3e86f393f3275c544
-  Realm: aea25534b97be77995650c2339aa6ed010dfcc8a
+  Realm: 81adfc7f43f9301f40bbc46d5e8a10aaf71b9504
   UUIDShortener: 571035d553c2a432ed0409dbf58d85bdec38d108
   YLMoment: a5e6733c66490fd736db325f5d339cb511bdfb54
 

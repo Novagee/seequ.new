@@ -17,9 +17,31 @@
 
 @implementation RingActivityCellView
 
+
+typedef NS_ENUM(NSUInteger, RingStyleKitContactStatus) {
+    RingStyleKitContactStatusActive = 1,
+    RingStyleKitContactStatusAway,
+    RingStyleKitContactStatusBusy,
+    RingStyleKitContactStatusUnkown
+};
+
+
+
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [RingStyleKit drawActivity_rowWithFrame:CGRectMake(39.58, 5.42, 72.77, 39) activity_row_frame:CGRectMake(0, 0, self.frame.size.width, 64) contact_profile_placeholder:[UIImage imageNamed:@"contact_profile_photo_placeholder"] pressed:self.isPressed notifications:20 firstName:@"Peng" lastName:@"Wan" favorite:YES timestamp_text:@"04/01/15"];
+    [RingStyleKit drawActivity_rowWithActivity_row_frame:CGRectMake(39.58, 5.42, 72.77, 39)
+                             contact_profile_placeholder:[UIImage imageNamed:@"contact_profile_photo_placeholder"]
+                                                 pressed:self.isPressed
+                                           notifications:20
+                                               firstName:@"Peng"
+                                                lastName:@"Wan"
+                                                    away:NO
+                                            contactgroup:NO
+                                                    busy:NO
+                                                  active:YES
+                                                 unknown:NO
+                                                favorite:YES
+                                          timestamp_text:@"04/01/15"];
 
 }
 

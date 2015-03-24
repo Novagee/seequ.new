@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1DBEAF2094EF1EE0C8A40F36"
+               BlueprintIdentifier = "863F7FF63138ABE56018E86A"
                BuildableName = "libPods-Seequ-MQTTKit.a"
                BlueprintName = "Pods-Seequ-MQTTKit"
                ReferencedContainer = "container:Pods.xcodeproj">

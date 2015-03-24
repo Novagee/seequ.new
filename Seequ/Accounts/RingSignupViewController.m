@@ -66,9 +66,7 @@
 }
 
 - (IBAction)cancelButtonClicked:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
-    
-    
+    [self.navigationController popViewControllerAnimated:YES];    
 }
 
 - (IBAction)createAccountClicked:(id)sender {

@@ -8,12 +8,19 @@
 
 
 #import <Foundation/Foundation.h>
+#import <Realm/Realm.h>
 
 
 @interface RingRealmManager : NSObject
 
-+ (instancetype)sharedRealmManager;
+/*
+All operations below use the default realm ([RLMRealm defaultRealm])
+*/
 
-- (void)createOrUpdateUserWithServerData:(NSDictionary *)serverData; //When creating a new user, we first delete all data currently in the database
++ (void)createOrUpdateUserWithServerData:(NSDictionary *)serverData; //When creating a new user, we first delete all data currently in the database
+
++ (void)addObject:(RLMObject *)object;
++ (void)deleteObject:(RLMObject *)object;
++ (int)validIndexFrom:(Class)realmModelClass;
 
 @end

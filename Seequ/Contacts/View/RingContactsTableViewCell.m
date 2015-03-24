@@ -14,7 +14,6 @@
 @interface RingContactsTableViewCell ()
 
 @property (nonatomic) CGRect kCellFrame;
-@property (nonatomic) CGRect kNotificationBadgeFrame;
 
 @end
 
@@ -70,19 +69,20 @@
     if (CGRectIsEmpty(self.kCellFrame)) {
         self.kCellFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
     }
-    if (CGRectIsEmpty(self.kNotificationBadgeFrame)) {
-        self.kNotificationBadgeFrame = CGRectMake(39.58, 5.42, 72.77, 39); //Hardcoded for now - to be changed in Paint Code
-    }
     
-    [RingStyleKit drawContact_rowWithFrame:self.kNotificationBadgeFrame
-                         contact_row_frame:self.kCellFrame
-               contact_profile_placeholder:self.profileImage
-                             notifications:self.numberOfNotifications
-                                 firstName:self.firstName
-                                  lastName:self.lastName
-                                     title:self.jobTitle
-                                   company:self.company
-                                  favorite:self.favorite];
+    [RingStyleKit drawContact_rowWithContact_row_frame:self.kCellFrame
+                           contact_profile_placeholder:self.profileImage
+                                         notifications:self.numberOfNotifications
+                                             firstName:self.firstName
+                                              lastName:self.lastName
+                                                 title:self.jobTitle
+                                               company:self.company
+                                                  away:NO
+                                          contactgroup:NO
+                                                  busy:NO
+                                                active:NO
+                                               unknown:YES
+                                              favorite:self.favorite];
 }
 
 @end

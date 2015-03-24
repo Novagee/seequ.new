@@ -127,7 +127,6 @@ static NSString *const kAddressBookAccessNotAuthorized = @"This application is n
 - (void)fetchAddressBookContacts {
     
     if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
-        
         [self adddressBookAccessGranted];
     
     } else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3C069C5FB86192E3A86BD391"
+               BlueprintIdentifier = "4414CA7EB9C5C1B4712C6A16"
                BuildableName = "libPods-Seequ-Canvas.a"
                BlueprintName = "Pods-Seequ-Canvas"
                ReferencedContainer = "container:Pods.xcodeproj">

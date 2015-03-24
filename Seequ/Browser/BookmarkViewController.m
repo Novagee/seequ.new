@@ -6,12 +6,12 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import "RealmUtility.h"
-
 #import "BookmarkViewController.h"
 #import "BookmarkListViewController.h"
 #import "AddFolderViewController.h"
 #import "HistoryViewController.h"
+#import "Folder.h"
+#import "RingRealmManager.h"
 
 @interface BookmarkViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -23,13 +23,14 @@
 @property (weak, nonatomic) IBOutlet UIButton *editButton;
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
+
+@property (nonatomic, strong) RingRealmManager *realmManager;
+
 @end
 
 @implementation BookmarkViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     // Configure root folder
     //
@@ -109,13 +110,8 @@
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
         RLMObject *object = self.folderList[indexPath.row - 1];
-        
-        if ([object isKindOfClass:[Folder class]]) {
-            [self recursiveDeleteFolder:(Folder *)object];
-        }
-        
         [self.folderList removeObject:object];
-        [RealmUtility deleteObject:object];
+        [RingRealmManager deleteObject:object];
         
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
 
@@ -173,34 +169,6 @@
 
 #pragma mark - Bookmark List Stuff
 
-- (void)recursiveDeleteFolder:(Folder *)currentFolder {
-    
-    RLMResults *bookmarks = [Bookmark objectsWhere:[NSString stringWithFormat:@"folderID = %d", currentFolder._id]];
-    for (NSUInteger index = 0; index < bookmarks.count; index++) {
-        
-        Bookmark *bookmark = [bookmarks objectAtIndex:index];
-        [RealmUtility deleteObject:bookmark];
-        
-        NSLog(@"Delete bookmark: %@", bookmark);
-    }
-    
-    RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorID = %d", currentFolder._id]];
-    for (NSUInteger index = 0; index < folders.count; index++) {
-        
-        Folder *folder = [folders objectAtIndex:index];
-        
-        if (! [folder.name isEqualToString:@"History"]) {
-            
-            [self recursiveDeleteFolder:folder];
-            [RealmUtility deleteObject:folder];
-            
-            NSLog(@"Delete folder: %@", folder);
-            
-        }
-    }
-    
-}
-
 - (void)configureBookmarkFolderList {
     
     [_folderList removeAllObjects];
@@ -214,6 +182,7 @@
         Bookmark *bookmark = [bookmarks objectAtIndex:index];
         [_folderList addObject:bookmark];
         
+        NSLog(@"Bookmark primary key: %d", bookmark._id);
     }
     
     RLMResults *folders = [Folder objectsWhere:[NSString stringWithFormat:@"ancestorID = %d", self.rootFolder._id]];
@@ -225,6 +194,7 @@
             [_folderList addObject:folder];    
         }
         
+        NSLog(@"Folder primary key: %d", folder._id);
     }
     
     [self.tableView reloadData];

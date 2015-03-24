@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3AD27C8460FE9C6B61B9A090"
+               BlueprintIdentifier = "3043E1997788C7EF7EFD9622"
                BuildableName = "libPods-Seequ-EventEmitter.a"
                BlueprintName = "Pods-Seequ-EventEmitter"
                ReferencedContainer = "container:Pods.xcodeproj">

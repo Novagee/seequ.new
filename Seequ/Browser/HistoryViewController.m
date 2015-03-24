@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 
-#import "RealmUtility.h"
 #import "HistoryViewController.h"
+#import "Bookmark.h"
 
 @interface HistoryViewController ()<UITableViewDataSource, UITableViewDelegate>
 

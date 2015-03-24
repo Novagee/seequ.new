@@ -12,13 +12,21 @@
 #import "RingBrowserRefreshButton.h"
 #import <WebKit/WebKit.h>
 #import "BookmarkViewController.h"
-#import "RealmUtility.h"
 #import "AddBookmarkViewController.h"
+#import "RingRealmManager.h"
+#import "Bookmark.h"
+#import "Folder.h"
+#import "RingStyleKit.h"
 
 static CGFloat const navBarHeight = 66.0f;
 static CGFloat const tabBarHeight = 49.0f;
 
+#define kRootAncestorID 0
+#define kRootFolderID 1
+#define kHistoryFolderID 2
+
 @interface RingBrowserViewController () <UITextFieldDelegate, WKNavigationDelegate>
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *prevArrowButton;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *nextArrowButton;
 @property (weak, nonatomic) IBOutlet RingBrowserButton *buddyBrowserButton;
@@ -29,6 +37,7 @@ static CGFloat const tabBarHeight = 49.0f;
 
 @property (strong, nonatomic) Folder *rootFolder;
 @property (strong, nonatomic) Folder *historyFolder;
+@property (nonatomic, strong) RingRealmManager *realmManager;
 
 @end
 
@@ -58,7 +67,8 @@ static CGFloat const tabBarHeight = 49.0f;
     self.browserURLTextfield.rightView = self.refreshButton;
     self.browserURLTextfield.text = @"http://www.cnn.com";
     self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
-    
+        
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,11 +128,11 @@ static CGFloat const tabBarHeight = 49.0f;
     
     bookmark.name = currentDateString;
     bookmark.url = urlString;
-    bookmark._id = [RealmUtility validIndexFrom:[Bookmark class]];
+    bookmark._id = [RingRealmManager validIndexFrom:[Bookmark class]];
     bookmark.saveDate = [NSDate date];
     bookmark.folderID = self.historyFolder._id;
     
-    [RealmUtility insertObject:bookmark];
+    [RingRealmManager addObject:bookmark];
     
 }
 
@@ -154,7 +164,7 @@ static CGFloat const tabBarHeight = 49.0f;
         rootFolder.ancestorID = kRootAncestorID;
         rootFolder.saveDate = [NSDate date];
         rootFolder._id = kRootFolderID;
-        [RealmUtility insertObject:rootFolder];
+        [RingRealmManager addObject:rootFolder];
      
         _rootFolder = rootFolder;
         
@@ -167,7 +177,7 @@ static CGFloat const tabBarHeight = 49.0f;
         historyFolder.ancestorName = @"Bookmark";
         historyFolder._id = kHistoryFolderID;
         historyFolder.saveDate = [NSDate date];
-        [RealmUtility insertObject:historyFolder];
+        [RingRealmManager addObject:historyFolder];
         
         _historyFolder = historyFolder;
         
@@ -204,7 +214,8 @@ static CGFloat const tabBarHeight = 49.0f;
     self.browserURLTextfield.clearButtonMode = UITextFieldViewModeNever;
     self.browserURLTextfield.rightView = self.refreshButton;
     self.browserURLTextfield.rightViewMode = UITextFieldViewModeAlways;
-
+    
+    
     [textField resignFirstResponder];
     return YES;
     

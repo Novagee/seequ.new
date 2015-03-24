@@ -57,8 +57,7 @@
             NSString *token = successResponse[@"token"];
             [userDefaults setObject:token forKey:@"SeequUserToken"];
             
-            RingRealmManager *realmManager = [RingRealmManager sharedRealmManager];
-            [realmManager createOrUpdateUserWithServerData:successResponse];
+            [RingRealmManager createOrUpdateUserWithServerData:successResponse];
             
             weakSelf.progressView.percentage = 100;
             [weakSelf.progressView setNeedsDisplay];
@@ -74,9 +73,7 @@
         } failure:^(id failure, NSError *error) {
             NSLog(@"Signin Failure");
             [self didFail];
-            
         }];
-//    [self performSelectorOnMainThread:@selector(pushToMainScreen) withObject:nil waitUntilDone:YES];
 }
 
 -(void) pushToMainScreen

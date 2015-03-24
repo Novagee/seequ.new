@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3728A402BDB46EDB917D8784"
+               BlueprintIdentifier = "74E0F3BBB0D3DFDB27BFFAD1"
                BuildableName = "libPods-Seequ-YLMoment.a"
                BlueprintName = "Pods-Seequ-YLMoment"
                ReferencedContainer = "container:Pods.xcodeproj">

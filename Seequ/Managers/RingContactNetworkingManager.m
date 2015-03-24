@@ -47,9 +47,9 @@
     }];
 }
 
--(void)createGroupWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
+-(void)createGroupWithName:(NSString *)groupName success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
 {
-    [RingNetworkingLib postToPath:RING_NETWORKING_LIB_GROUP_PATH body:@{} success:^(id successResponse) {
+    [RingNetworkingLib postToPath:RING_NETWORKING_LIB_GROUP_PATH body:@{@"name":groupName} success:^(id successResponse) {
         NSLog(@"%@",successResponse);
         success(successResponse);
     } failure:^(id failureResponse, NSError *error) {
