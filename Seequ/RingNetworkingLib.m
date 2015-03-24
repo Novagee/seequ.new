@@ -86,6 +86,30 @@
     [manager.operationQueue addOperation:operation];
 }
 
++(void)deleteToPath:(NSString*)path body:(NSDictionary*)body success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
+{
+    // Create manager
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSString *url = [NSString stringWithFormat:@"%@/%@", RING_NETWORKING_LIB_BASE_URL, path];
+    
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [userDefaults objectForKey:@"SeequUserToken"];
+    NSString *header = [NSString stringWithFormat:@"Bearer %@", token];
+    
+    NSMutableURLRequest* request = [[AFJSONRequestSerializer serializer] requestWithMethod:@"DELETE" URLString:url parameters:body error:NULL];
+    [request setValue:header forHTTPHeaderField:@"Authorization"];
+    // NSLog(@"Request: %@", [[NSString alloc] initWithData:request.HTTPBody encoding:kCFStringEncodingUTF8]);
+    
+    // Fetch Request
+    AFHTTPRequestOperation *operation = [manager HTTPRequestOperationWithRequest:request
+                                                                         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+                                                                             success(responseObject);
+                                                                         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                                                                             failure(operation.responseObject, error);
+                                                                         }];
+    [manager.operationQueue addOperation:operation];
+}
+
 +(void)group:(NSString*)groupId addContacts:(NSArray*)contacts success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
 {
     // Create manager

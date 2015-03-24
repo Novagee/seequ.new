@@ -12,7 +12,11 @@
 
 +(instancetype)sharedInstance;
 
--(void) getActivityListWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
+-(void) getActivityListWithBody:(NSDictionary *)body success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
 -(void) getActivityWithID:(NSString *)activityID success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
+
+- (void)addActivityWithBody:(NSDictionary *)body success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
+
+- (void)deleteActivityWithID:(NSString *)activityID body:(NSDictionary *)body success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure;
 
 @end

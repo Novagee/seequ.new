@@ -90,6 +90,12 @@
 #define COCOAPODS_VERSION_MINOR_Canvas 1
 #define COCOAPODS_VERSION_PATCH_Canvas 2
 
+// DejalActivityView
+#define COCOAPODS_POD_AVAILABLE_DejalActivityView
+#define COCOAPODS_VERSION_MAJOR_DejalActivityView 1
+#define COCOAPODS_VERSION_MINOR_DejalActivityView 2
+#define COCOAPODS_VERSION_PATCH_DejalActivityView 0
+
 // EventEmitter
 #define COCOAPODS_POD_AVAILABLE_EventEmitter
 #define COCOAPODS_VERSION_MAJOR_EventEmitter 0

@@ -10,6 +10,7 @@ target 'Seequ' do
     pod 'EventEmitter', '~> 0.1.1'
     pod 'AFNetworking'
     pod 'Canvas'
+    pod 'DejalActivityView', '~> 1.2'
 end
 
 target 'SeequTests' do

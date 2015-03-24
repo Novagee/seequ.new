@@ -8,14 +8,15 @@
 
 #import "RingActivityTableViewController.h"
 #import "ActivityCell.h"
+#import "RingStyleKit.h"
 #import "RingActivityNetworkingManager.h"
+#import <DejalActivityView/DejalActivityView.h>
 
 @interface RingActivityTableViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *allButton;
-@property (weak, nonatomic) IBOutlet UIButton *callsButton;
-@property (weak, nonatomic) IBOutlet UIButton *requestButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *dataSourceSegmentControl;
+
 @property (strong, nonatomic) NSArray *activityArray;
 @end
 
@@ -23,8 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[self navigationController] setNavigationBarHidden:YES animated:YES];
 
+    _dataSourceSegmentControl.tintColor = [RingStyleKit seequFoam];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -33,6 +35,9 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:[ActivityCell cellIdentifier] bundle:nil]
      forCellReuseIdentifier:[ActivityCell cellIdentifier]];
+    
+    [self fetchActivityListWithFilter:self.dataSourceSegmentControl.selectedSegmentIndex];
+    
 }
 
 #pragma mark - Table view data source
@@ -44,16 +49,20 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 15;
+    return self.activityArray.count;
 }
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[ActivityCell cellIdentifier] forIndexPath:indexPath];
-    
+    ActivityCell *cell = [tableView dequeueReusableCellWithIdentifier:[ActivityCell cellIdentifier] forIndexPath:indexPath];
+
+#warning The "configureCell" method has not implementation
+    // Configure the cell
+    //
+    [cell configureCell:self.activityArray[indexPath.row]];
     
     return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,87 +71,91 @@
     
 }
 
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the row from the data source
- [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
- } else if (editingStyle == UITableViewCellEditingStyleInsert) {
- // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
- }
- }
- */
-
-/*
- // Override to support rearranging the table view.
- - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
- }
- */
-
-/*
- // Override to support conditional rearranging of the table view.
- - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the item to be re-orderable.
- return YES;
- }
- */
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
-
-- (IBAction)segmentButtonTouchUpInside:(id)sender {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UIButton *button = (UIButton*)sender;
-    
-    switch (button.tag) {
-        case 1: {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        NSString *_id = (self.activityArray[indexPath.row])[@"_id"];
+        
+        [[RingActivityNetworkingManager sharedInstance]deleteActivityWithID:_id body:@{} success:^(id successResponse) {
             
-            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_On"] forState:UIControlStateNormal];
-            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_Off"] forState:UIControlStateNormal];
-            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_Off"] forState:UIControlStateNormal];
-        }
-            break;
-        case 2: {
+            NSLog(@"Delete activity: %@", successResponse);
+            [self fetchActivityListWithFilter:self.dataSourceSegmentControl.selectedSegmentIndex];
             
-            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_Off"] forState:UIControlStateNormal];
-            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_On"] forState:UIControlStateNormal];
-            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_Off"] forState:UIControlStateNormal];
-        }
-            break;
-        case 3: {
+        } failure:^(id failureResponse, NSError *error) {
             
-            [self.allButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_All_Off"] forState:UIControlStateNormal];
-            [self.callsButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Calls_Off"] forState:UIControlStateNormal];
-            [self.requestButton setBackgroundImage:[UIImage imageNamed:@"activity_Segment_Requests_On"] forState:UIControlStateNormal];
-        }
-            break;
-            
-        default:
-            break;
+        }];
     }
     
 }
 
--(void) fetchActivityList
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+     return YES;
+ }
+
+#pragma mark - Control's Action
+
+- (IBAction)dataSourceSegmentControlSwitch:(id)sender {
+    
+    // Activity list filter, change the data source or fetch again?
+    //
+    // .....
+    [self fetchActivityListWithFilter:self.dataSourceSegmentControl.selectedSegmentIndex];
+    
+}
+
+#pragma mark - Test Methods
+
+- (IBAction)addTestButtonTouchUpInside:(id)sender {
+    
+    [[RingActivityNetworkingManager sharedInstance]addActivityWithBody:@{
+                                                                         
+                                                                         }
+                                                               success:^(id successResponse) {
+                                                                   
+                                                                   NSLog(@"Add activity:: %@", successResponse);
+                                                                   [self fetchActivityListWithFilter:self.dataSourceSegmentControl.selectedSegmentIndex];
+                                                                   
+                                                               } failure:^(id failureResponse, NSError *error) {
+                                                                   
+                                                                   NSLog(@"Error: %@", error);
+                                                                   
+                                                               }];
+    
+}
+
+- (IBAction)deleteButtonTouchUpInside:(id)sender {
+    
+    NSString *_id = (self.activityArray.lastObject)[@"_id"];
+    
+    [[RingActivityNetworkingManager sharedInstance]deleteActivityWithID:_id body:@{} success:^(id successResponse) {
+        
+        NSLog(@"Delete activity: %@", successResponse);
+        [self fetchActivityListWithFilter:self.dataSourceSegmentControl.selectedSegmentIndex];
+        
+    } failure:^(id failureResponse, NSError *error) {
+        
+    }];
+    
+}
+
+-(void) fetchActivityListWithFilter:(NSUInteger)dataSourceType
 {
-    [[RingActivityNetworkingManager sharedInstance] getActivityListWithSuccess:^(id successResponse) {
+    // Use the array below to convert the integet to string for "filter" field in HTTP "body"
+    //
+    NSArray *dataSourceTypeArray = @[@"...", @"commented", @"..."];
+    
+    [DejalActivityView activityViewForView:self.view withLabel:@"Loading ..."];
+    
+    [[RingActivityNetworkingManager sharedInstance] getActivityListWithBody:@{} success:^(id successResponse) {
         self.activityArray = (NSArray *)successResponse;
+        
+        NSLog(@"Fetch Activity: %@", successResponse);
+        
+        [self.tableView reloadData];
+        [DejalActivityView removeView];
         
     } failure:^(id failureResponse, NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error"
@@ -150,10 +163,11 @@
                                                       delegate:self
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil, nil];
+        [DejalActivityView removeView];
+
         [alert show];
+        
     }];
-    
-    
     
 }
 

@@ -21,9 +21,9 @@
     return  instance;
 }
 
--(void) getActivityListWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
+-(void) getActivityListWithBody:(NSDictionary *)body success:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
 {
-    [RingNetworkingLib getFromPath:RING_NETWORKING_LIB_ACTIVITY_PATH body:@{} success:^(id successResponse) {
+    [RingNetworkingLib getFromPath:RING_NETWORKING_LIB_ACTIVITY_PATH body:body success:^(id successResponse) {
         success(successResponse);
     } failure:^(id failureResponse, NSError *error) {
         failure(failureResponse, error);
@@ -37,6 +37,31 @@
     } failure:^(id failureResponse, NSError *error) {
         failure(failureResponse, error);
     }];
+}
+
+- (void)addActivityWithBody:(NSDictionary *)body
+                  success:(RingNetworkingLibSuccessBlock)success
+                  failure:(RingNetworkingLibFailureBlock)failure {
+    
+    [RingNetworkingLib postToPath:RING_NETWORKING_LIB_ACTIVITY_PATH body:body success:^(id successResponse) {
+        success(successResponse);
+    } failure:^(id failureResponse, NSError *error) {
+        failure(failureResponse, error);
+    }];
+    
+}
+
+- (void)deleteActivityWithID:(NSString *)activityID
+                        body:(NSDictionary *)body
+                     success:(RingNetworkingLibSuccessBlock)success
+                     failure:(RingNetworkingLibFailureBlock)failure {
+    
+    [RingNetworkingLib deleteToPath:[NSString stringWithFormat:@"%@/%@",RING_NETWORKING_LIB_ACTIVITY_PATH, activityID] body:body success:^(id successResponse) {
+        success(successResponse);
+    } failure:^(id failureResponse, NSError *error) {
+        failure(failureResponse, error);
+    }];
+    
 }
 
 @end

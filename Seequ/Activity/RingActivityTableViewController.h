@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, DataSourceSegmentControlSelection) {
+    DataSourceSegmentControlSelectionAll = 0,
+    DataSourceSegmentControlSelectionSeequ = 1,
+    DataSourceSegmentControlSelectionRequest = 2
+};
+
 @interface RingActivityTableViewController : UIViewController
 
 @end

@@ -26,4 +26,9 @@
          success:(RingNetworkingLibSuccessBlock)success
          failure:(RingNetworkingLibFailureBlock)failure;
 
++(void)deleteToPath:(NSString*)path
+               body:(NSDictionary*)body
+            success:(RingNetworkingLibSuccessBlock)success
+            failure:(RingNetworkingLibFailureBlock)failure;
+
 @end
