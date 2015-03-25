@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FD30A2D00040061008C7BA88"
-               BuildableName = "libPods-Seequ-JSQMessagesViewController.a"
-               BlueprintName = "Pods-Seequ-JSQMessagesViewController"
+               BlueprintIdentifier = "20AFFD500D8BD719A9D19887"
+               BuildableName = "libPods-Seequ-DejalActivityView.a"
+               BlueprintName = "Pods-Seequ-DejalActivityView"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

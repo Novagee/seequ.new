@@ -29,7 +29,7 @@ typedef NS_ENUM(NSUInteger, RingStyleKitContactStatus) {
 
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [RingStyleKit drawActivity_rowWithActivity_row_frame:CGRectMake(39.58, 5.42, 72.77, 39)
+    [RingStyleKit drawActivity_rowWithActivity_row_frame:CGRectMake(0, 0, self.frame.size.width, 64)
                              contact_profile_placeholder:[UIImage imageNamed:@"contact_profile_photo_placeholder"]
                                                  pressed:self.isPressed
                                            notifications:20

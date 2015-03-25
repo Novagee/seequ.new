@@ -19,6 +19,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Seequ-DejalActivityView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Seequ-EventEmitter.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,62 +72,67 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0E32F7F7D25E3DFC96B6A8E3</key>
+		<key>0DEC1AD57ED5C5A24359F0AF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>14B050F9E6964FE5551817AC</key>
+		<key>1916A5A9562FB0A18EA0F061</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3043E1997788C7EF7EFD9622</key>
+		<key>20AFFD500D8BD719A9D19887</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4414CA7EB9C5C1B4712C6A16</key>
+		<key>364D243DC48E59213996DC12</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5BDBD78DA9BAD477ED5924BD</key>
+		<key>4D60B2A7AAD0DF48A4AE130D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5CDCA2877033C069AAF0635E</key>
+		<key>62E7B97224B582080C73CD04</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>74E0F3BBB0D3DFDB27BFFAD1</key>
+		<key>8FC072DADA7E6AA235A0B3DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>863F7FF63138ABE56018E86A</key>
+		<key>A5F81320052135F06F1D08A4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>95B479775F9FD406F349B8A0</key>
+		<key>AB48221D0E10D8616ACAD574</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>98C1F186FA0066AE71561C0E</key>
+		<key>C9AC0238E48BBFCF63B225C0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9F2BA73AD45469FA945BAE9</key>
+		<key>D520686895BF2565B64D51BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DF30CD923834AC3A11884821</key>
+		<key>DA84A2C70A323D1EEA1F2033</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FD30A2D00040061008C7BA88</key>
 		<dict>
 			<key>primary</key>
 			<true/>

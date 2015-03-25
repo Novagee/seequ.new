@@ -12,14 +12,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 @property (weak, nonatomic) IBOutlet UILabel *callerName;
-
-@property (weak, nonatomic) IBOutlet UIImageView *incomingCall;
-@property (weak, nonatomic) IBOutlet UIImageView *outgoingCall;
-@property (weak, nonatomic) IBOutlet UIImageView *comment;
-
+@property (weak, nonatomic) IBOutlet UILabel *detailLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *subImageView;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
-
-- (void)configureCell:(NSDictionary *)cellInfo;
 
 + (NSString *)cellIdentifier;
 + (CGFloat)cellHeight;
