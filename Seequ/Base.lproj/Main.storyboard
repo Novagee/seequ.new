@@ -77,7 +77,7 @@
                                     <action selector="SignInButtonClicked:" destination="Igr-WV-KlO" eventType="touchUpInside" id="Ahe-LT-69d"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Email Address:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8M-yZ-Lqw" customClass="RingTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12" borderStyle="bezel" placeholder="Email Address:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m8M-yZ-Lqw" customClass="RingTextField">
                                 <rect key="frame" x="14" y="285" width="292" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="G03-b1-UsR"/>
@@ -92,7 +92,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gak-ga-4s5" customClass="RingTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12" borderStyle="bezel" placeholder="Password:" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gak-ga-4s5" customClass="RingTextField">
                                 <rect key="frame" x="14" y="341" width="292" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="292" id="bWh-BR-Rvx"/>
@@ -2598,6 +2598,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="5GE-iU-gDK"/>
+        <segue reference="5kf-m0-z5j"/>
     </inferredMetricsTieBreakers>
 </document>
