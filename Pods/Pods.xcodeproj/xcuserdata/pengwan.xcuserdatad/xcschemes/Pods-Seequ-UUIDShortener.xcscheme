@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5BDBD78DA9BAD477ED5924BD"
+               BlueprintIdentifier = "A5F81320052135F06F1D08A4"
                BuildableName = "libPods-Seequ-UUIDShortener.a"
                BlueprintName = "Pods-Seequ-UUIDShortener"
                ReferencedContainer = "container:Pods.xcodeproj">
