@@ -10,8 +10,7 @@
 
 @implementation RingCallNetworkingManager
 
-+(instancetype) sharedInstance
-{
++(instancetype) sharedInstance{
     static dispatch_once_t onceToken;
     static RingCallNetworkingManager *instance;
     dispatch_once(&onceToken, ^{
@@ -31,8 +30,8 @@
     
 }
 
-- (void)getCallListWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure
-{
+- (void)getCallListWithSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure {
+    
     [RingNetworkingLib getFromPath:RING_NETWORKING_LIB_CALL_PATH body:@{} success:^(id successResponse) {
         success(successResponse);
     } failure:^(id failureResponse, NSError *error) {
@@ -41,10 +40,8 @@
     
 }
 
-- (void)startCallUser:(NSString *)userID
-              success:(RingNetworkingLibSuccessBlock)success
-              failure:(RingNetworkingLibFailureBlock)failure
-{
+- (void)startCallUser:(NSString *)userID withSuccess:(RingNetworkingLibSuccessBlock)success failure:(RingNetworkingLibFailureBlock)failure {
+    
     [RingNetworkingLib putToPath:[NSString stringWithFormat:@"%@/%@/start", RING_NETWORKING_LIB_CALL_PATH, userID] body:@{} success:^(id successResponse) {
         
         success(successResponse);
