@@ -32,10 +32,9 @@
                   success:(RingNetworkingLibSuccessBlock)success
                   failure:(RingNetworkingLibFailureBlock)failure;
 
-- (void)checkRoomExist:(NSDictionary *)body
-               inGroup:(NSString *)groupID 
-               success:(RingNetworkingLibSuccessBlock)success
-               failure:(RingNetworkingLibFailureBlock)failure;
+- (void)checkRoomExistWithName:(NSString *)roomName
+                       success:(RingNetworkingLibSuccessBlock)success
+                       failure:(RingNetworkingLibFailureBlock)failure;
 
 - (void)createGroupFromContactWithBody:(NSDictionary *)body
                                success:(RingNetworkingLibSuccessBlock)success
@@ -44,10 +43,11 @@
 - (void)createGroupWithSuccess:(RingNetworkingLibSuccessBlock)success
                        failure:(RingNetworkingLibFailureBlock)failure;
 
-- (void)deleteGroupWithSuccess:(RingNetworkingLibSuccessBlock)success
-                       failure:(RingNetworkingLibFailureBlock)failure;
+- (void)deleteGroup:(NSString *)groupID
+            success:(RingNetworkingLibSuccessBlock)success
+            failure:(RingNetworkingLibFailureBlock)failure;
 
-- (void)getGroupWithGroupID:(NSString *)groupID
+- (void)getGroup:(NSString *)groupID
                     success:(RingNetworkingLibSuccessBlock)success
                     failure:(RingNetworkingLibFailureBlock)failure;
 

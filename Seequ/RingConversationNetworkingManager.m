@@ -32,9 +32,8 @@
     
 }
 
-- (void)getConversationListWithBody:(NSString *)body
-                            success:(RingNetworkingLibSuccessBlock)success
-                            failure:(RingNetworkingLibFailureBlock)failure {
+- (void)getConversationListWithSuccess:(RingNetworkingLibSuccessBlock)success
+                               failure:(RingNetworkingLibFailureBlock)failure {
     
     [RingNetworkingLib getFromPath:RING_NETWORKING_LIB_CONVERSATION_PATH body:@{} success:^(id successResponse) {
         success(successResponse);

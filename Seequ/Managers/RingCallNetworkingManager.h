@@ -17,8 +17,7 @@
 - (void)createCallWithSuccess:(RingNetworkingLibSuccessBlock)success
                       failure:(RingNetworkingLibFailureBlock)failure;
 
-- (void)getCallListWithBody:(NSString *)body
-                    success:(RingNetworkingLibSuccessBlock)success
+- (void)getCallListWithSuccess:(RingNetworkingLibSuccessBlock)success
                     failure:(RingNetworkingLibFailureBlock)failure;
 
 - (void)startCallUser:(NSString *)userID

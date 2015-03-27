@@ -11,3 +11,4 @@ NSString *const RING_NETWORKING_LIB_ACTIVITY_PATH           = @"api/activities";
 NSString *const RING_NETWORKING_LIB_CALL_PATH               = @"api/calls";
 NSString *const RING_NETWORKING_LIB_CONVERSATION_PATH       = @"api/conversations";
 NSString *const RING_NETWORKING_LIB_LOCATION_PATH           = @"api/locations";
+NSString *const RING_NETWORKING_LIB_MESSAGE_PATH            = @"api/messages";
