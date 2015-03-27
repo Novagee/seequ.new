@@ -12,12 +12,10 @@
 
 + (instancetype)sharedInstance;
 
-- (void)createConversationWithBody:(NSDictionary *)body
-                            success:(RingNetworkingLibSuccessBlock)success
+- (void)createConversationWithSuccess:(RingNetworkingLibSuccessBlock)success
                             failure:(RingNetworkingLibFailureBlock)failure;
 
-- (void)getConversationListWithBody:(NSString *)body
-                            success:(RingNetworkingLibSuccessBlock)success
+- (void)getConversationListWithSuccess:(RingNetworkingLibSuccessBlock)success
                             failure:(RingNetworkingLibFailureBlock)failure;
 
 - (void)startConversationUser:(NSString *)userID
