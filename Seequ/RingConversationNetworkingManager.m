@@ -20,11 +20,10 @@
     return  instance;
 }
 
-- (void)createConversationWithBody:(NSDictionary *)body
-                           success:(RingNetworkingLibSuccessBlock)success
-                           failure:(RingNetworkingLibFailureBlock)failure {
-    
-    [RingNetworkingLib postToPath:RING_NETWORKING_LIB_CONVERSATION_PATH body:body success:^(id successResponse) {
+- (void)createConversationWithSuccess:(RingNetworkingLibSuccessBlock)success
+                              failure:(RingNetworkingLibFailureBlock)failure
+{
+    [RingNetworkingLib postToPath:RING_NETWORKING_LIB_CONVERSATION_PATH body:@{} success:^(id successResponse) {
         success(successResponse);
     } failure:^(id failureResponse, NSError *error) {
         failure(failureResponse, error);
@@ -33,8 +32,8 @@
 }
 
 - (void)getConversationListWithSuccess:(RingNetworkingLibSuccessBlock)success
-                               failure:(RingNetworkingLibFailureBlock)failure {
-    
+                               failure:(RingNetworkingLibFailureBlock)failure
+{
     [RingNetworkingLib getFromPath:RING_NETWORKING_LIB_CONVERSATION_PATH body:@{} success:^(id successResponse) {
         success(successResponse);
     } failure:^(id failureResponse, NSError *error) {
@@ -45,8 +44,8 @@
 
 - (void)startConversationUser:(NSString *)userID
                       success:(RingNetworkingLibSuccessBlock)success
-                      failure:(RingNetworkingLibFailureBlock)failure {
-    
+                      failure:(RingNetworkingLibFailureBlock)failure
+{
     [RingNetworkingLib putToPath:[NSString stringWithFormat:@"%@/%@/start", RING_NETWORKING_LIB_CONVERSATION_PATH, userID] body:@{} success:^(id successResponse) {
         
         success(successResponse);
@@ -61,8 +60,8 @@
 
 - (void)endConversationUser:(NSString *)userID
                     success:(RingNetworkingLibSuccessBlock)success
-                    failure:(RingNetworkingLibFailureBlock)failure {
-    
+                    failure:(RingNetworkingLibFailureBlock)failure
+{
     [RingNetworkingLib putToPath:[NSString stringWithFormat:@"%@/%@/end", RING_NETWORKING_LIB_CONVERSATION_PATH, userID] body:@{} success:^(id successResponse) {
         
         success(successResponse);
@@ -77,8 +76,8 @@
 
 - (void)leaveConversationUser:(NSString *)userID
                       success:(RingNetworkingLibSuccessBlock)success
-                      failure:(RingNetworkingLibFailureBlock)failure {
-    
+                      failure:(RingNetworkingLibFailureBlock)failure
+{
     [RingNetworkingLib putToPath:[NSString stringWithFormat:@"%@/%@/leave", RING_NETWORKING_LIB_CONVERSATION_PATH, userID] body:@{} success:^(id successResponse) {
         
         success(successResponse);
