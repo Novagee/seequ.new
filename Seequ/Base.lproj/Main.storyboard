@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gWT-pR-aQe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="gWT-pR-aQe">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -497,6 +497,59 @@
             </objects>
             <point key="canvasLocation" x="1836" y="-1057"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="Eth-g7-BrM">
+            <objects>
+                <viewController id="Q5R-5b-BXO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YyR-oy-PS6"/>
+                        <viewControllerLayoutGuide type="bottom" id="ejC-vO-dNi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hkP-vc-11h">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QH7-5s-zE5">
+                                <rect key="frame" x="137" y="282" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RZd-IW-04E"/>
+                                    <constraint firstAttribute="width" constant="51" id="rko-X6-DAd"/>
+                                </constraints>
+                                <state key="normal" title="Answer">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="XKc-kI-bXB" kind="modal" id="Suz-YD-kbp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46x-bM-7co">
+                                <rect key="frame" x="135" y="205" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="R6s-Hc-yoF"/>
+                                    <constraint firstAttribute="height" constant="30" id="bv0-Dh-Ykg"/>
+                                </constraints>
+                                <state key="normal" title="Income">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LQ5-Z3-b30" kind="modal" id="LwZ-Xn-yPb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="46x-bM-7co" secondAttribute="centerX" constant="-0.5" id="6aG-bf-kJv"/>
+                            <constraint firstAttribute="centerY" secondItem="46x-bM-7co" secondAttribute="centerY" constant="64" id="E2w-Fz-Cz3"/>
+                            <constraint firstAttribute="centerX" secondItem="QH7-5s-zE5" secondAttribute="centerX" constant="-2.5" id="IXy-oh-Ru3"/>
+                            <constraint firstItem="QH7-5s-zE5" firstAttribute="top" secondItem="46x-bM-7co" secondAttribute="bottom" constant="47" id="cPl-zb-7aT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="C9S-2O-QRr"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mHr-4H-tgD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2246" y="-1057"/>
+        </scene>
         <!--Ring Contacts Table View Controller-->
         <scene sceneID="Dkr-2a-6Py">
             <objects>
@@ -667,7 +720,7 @@
         <!--browse-->
         <scene sceneID="BYa-YD-roa">
             <objects>
-                <navigationController id="iyS-0E-RC5" sceneMemberID="viewController">
+                <navigationController navigationBarHidden="YES" id="iyS-0E-RC5" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="browse" image="Browser" id="3TE-eu-fpe"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2Ss-iX-rT0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -693,8 +746,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uPf-p0-JSu" userLabel="NavBar">
-                                <rect key="frame" x="0.0" y="90" width="320" height="88"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPf-p0-JSu" userLabel="NavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
                                 <subviews>
                                     <button opaque="NO" tag="30006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kgI-re-RWO" userLabel="Bookmark Button" customClass="RingBrowserButton">
                                         <rect key="frame" x="290" y="29" width="30" height="30"/>
@@ -803,7 +856,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bp-s5-RWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1819" y="-388"/>
+            <point key="canvasLocation" x="1836" y="-396"/>
         </scene>
         <!--messages-->
         <scene sceneID="7FW-oZ-LKf">
@@ -815,7 +868,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="jKA-aQ-pMl" kind="relationship" relationship="rootViewController" id="2mg-fG-dfF"/>
+                        <segue destination="Q5R-5b-BXO" kind="relationship" relationship="rootViewController" id="cFM-6h-Epd"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jd5-Uw-TGL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -857,10 +910,10 @@
             </objects>
             <point key="canvasLocation" x="-478" y="-396"/>
         </scene>
-        <!--View Controller-->
+        <!--Ring Income Call View Controller-->
         <scene sceneID="CZr-jQ-0Ti">
             <objects>
-                <viewController storyboardIdentifier="viewControllerStoryboardID1" id="LQ5-Z3-b30" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="incomeView" id="LQ5-Z3-b30" customClass="RingIncomeCallViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QIQ-SV-Ja3"/>
                         <viewControllerLayoutGuide type="bottom" id="LRk-bp-jPz"/>
@@ -871,7 +924,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Un7-Ba-rUo" userLabel="Avatar ">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MuA-rw-ulJ" userLabel="Feature bottom">
                                 <rect key="frame" x="0.0" y="130" width="320" height="260"/>
@@ -884,6 +937,9 @@
                                         <state key="normal" image="call_Mute_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="muteButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="9kT-Rv-sK6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NQN-hD-RFO">
                                         <rect key="frame" x="17" y="108" width="90" height="21"/>
@@ -903,6 +959,9 @@
                                         <state key="normal" image="call_Video_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="videoButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="wnf-eg-SZc"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vih-xX-KLf">
                                         <rect key="frame" x="115" y="108" width="90" height="21"/>
@@ -922,6 +981,9 @@
                                         <state key="normal" image="call_Speaker_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="speakerButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="8sK-YV-RSe"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speaker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="az2-kz-tKh">
                                         <rect key="frame" x="213" y="108" width="90" height="21"/>
@@ -941,6 +1003,9 @@
                                         <state key="normal" image="call_Buddy_Browse_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="browserButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="3ls-9Q-IGi"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="browser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4c-T5-CBU">
                                         <rect key="frame" x="115" y="221" width="90" height="21"/>
@@ -960,6 +1025,9 @@
                                         <state key="normal" image="call_Profile_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="profileButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="jeJ-M1-F6z"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jSR-K6-lmX">
                                         <rect key="frame" x="213" y="221" width="90" height="21"/>
@@ -979,6 +1047,9 @@
                                         <state key="normal" image="call_Message_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="messageButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="BuQ-Oi-heK"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KT4-Zt-bg0">
                                         <rect key="frame" x="17" y="221" width="90" height="21"/>
@@ -1037,6 +1108,9 @@
                                         <state key="normal" image="quick_Reply_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="replyButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="7bF-0S-E4d"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="reply message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7R-KM-bts">
                                         <rect key="frame" x="111" y="73" width="98" height="21"/>
@@ -1056,6 +1130,9 @@
                                         <state key="normal" image="call_Answer_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="answerButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="B4A-7O-EOd"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="answer" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4qM-Q4-KPG">
                                         <rect key="frame" x="214" y="103" width="90" height="21"/>
@@ -1075,6 +1152,9 @@
                                         <state key="normal" image="call_Decline_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="declineButtonTouchUpInside:" destination="LQ5-Z3-b30" eventType="touchUpInside" id="hJn-rH-hHr"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="decline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sm3-4W-h3A">
                                         <rect key="frame" x="16" y="103" width="90" height="21"/>
@@ -1172,15 +1252,29 @@
                             <constraint firstItem="Un7-Ba-rUo" firstAttribute="top" secondItem="gGs-1W-JYR" secondAttribute="top" id="zo6-h2-urV"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Wv3-Ja-Eew"/>
+                    <connections>
+                        <outlet property="answerButton" destination="bUS-v4-YY6" id="zHt-7Q-jKS"/>
+                        <outlet property="browserButton" destination="qqe-Kj-1XO" id="bOU-l1-2dN"/>
+                        <outlet property="callStatusLabel" destination="BsP-Qk-KSC" id="45w-kJ-VyY"/>
+                        <outlet property="callerNameLabel" destination="Evr-4W-cPP" id="j2f-dc-JQK"/>
+                        <outlet property="declineButton" destination="0Ck-Zi-ByV" id="1Jt-A8-COh"/>
+                        <outlet property="messageButton" destination="dDc-3e-N4r" id="of7-tR-Dfy"/>
+                        <outlet property="muteButton" destination="efb-0l-Nnf" id="Dts-8k-FAb"/>
+                        <outlet property="profileButton" destination="rzi-jN-Agt" id="vfq-Mz-g6A"/>
+                        <outlet property="replyButton" destination="2M3-FW-oEF" id="TjZ-qi-lXt"/>
+                        <outlet property="speakerButton" destination="VCo-mq-WwN" id="tGC-0O-Vtx"/>
+                        <outlet property="videoButton" destination="CEL-6E-sDW" id="a7R-u5-eoR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cnx-H6-gjz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2406" y="262"/>
+            <point key="canvasLocation" x="2396" y="262"/>
         </scene>
-        <!--View Controller-->
+        <!--Ring Out Going View Controller-->
         <scene sceneID="q9v-jb-f1g">
             <objects>
-                <viewController storyboardIdentifier="viewControllerStoryboardID2" id="XKc-kI-bXB" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="outgoingCallView" id="XKc-kI-bXB" customClass="RingOutGoingViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="utG-Tl-5Pk"/>
                         <viewControllerLayoutGuide type="bottom" id="Db9-IH-l8T"/>
@@ -1189,7 +1283,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pi-e6-uNn" userLabel="Video View">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-Sq-yfN" userLabel="Avatar ">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.24374605429292928" green="0.24374605429292928" blue="0.24374605429292928" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Pi-e6-uNn" userLabel="Video View">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1v-2g-aXS" userLabel="User Button">
@@ -1203,6 +1301,9 @@
                                                 <state key="normal" image="call_Buddy_Browse_Inactive_Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="browserButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="uTu-5d-Et4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QHK-gK-Ygs">
                                                 <rect key="frame" x="191" y="5" width="60" height="60"/>
@@ -1212,6 +1313,9 @@
                                                 <state key="normal" image="call_Message_Inactive_Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="messageButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="BQD-Jz-Eb0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Msb-Mg-4TG">
                                                 <rect key="frame" x="67" y="5" width="60" height="60"/>
@@ -1221,6 +1325,9 @@
                                                 <state key="normal" image="call_Video_Inactive_Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="videoButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="wtT-JG-2fH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61a-ks-jR1">
                                                 <rect key="frame" x="130" y="5" width="60" height="60"/>
@@ -1230,6 +1337,9 @@
                                                 <state key="normal" image="call_Speaker_Inactive_Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="speakerButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="f27-2O-k7K"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E37-PX-7yv">
                                                 <rect key="frame" x="8" y="5" width="60" height="60"/>
@@ -1239,6 +1349,9 @@
                                                 <state key="normal" image="call_Mute_Inactive_Button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="muteButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="Z6t-Mg-usf"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1285,9 +1398,12 @@
                                         <state key="normal" image="call_Decline_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="declineButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="0Q6-Sz-BLt"/>
+                                        </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="g1v-2g-aXS" secondAttribute="width" id="1Eh-r1-HcO"/>
                                     <constraint firstItem="WOb-kO-WwN" firstAttribute="top" secondItem="dtz-lJ-tNT" secondAttribute="bottom" id="4l7-ur-cUF"/>
@@ -1304,11 +1420,7 @@
                                     <constraint firstItem="JA4-Dy-vDm" firstAttribute="top" secondItem="9Pi-e6-uNn" secondAttribute="top" constant="31" id="zqU-jl-M94"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-Sq-yfN" userLabel="Avatar ">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Snl-vc-8Tp" userLabel="Feature bottom">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Snl-vc-8Tp" userLabel="Feature bottom">
                                 <rect key="frame" x="0.0" y="130" width="320" height="260"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ieo-Ot-45r">
@@ -1319,6 +1431,9 @@
                                         <state key="normal" image="call_Mute_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="muteButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="Wd9-P6-gjQ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mute" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MF5-UO-fOB">
                                         <rect key="frame" x="17" y="108" width="90" height="21"/>
@@ -1338,6 +1453,9 @@
                                         <state key="normal" image="call_Video_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="videoButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="QPo-9X-m9P"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="video" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoQ-aG-jmd">
                                         <rect key="frame" x="115" y="108" width="90" height="21"/>
@@ -1357,6 +1475,9 @@
                                         <state key="normal" image="call_Speaker_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="speakerButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="bl8-ux-w6K"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="speaker" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rIv-r9-XJN">
                                         <rect key="frame" x="213" y="108" width="90" height="21"/>
@@ -1376,6 +1497,9 @@
                                         <state key="normal" image="call_Buddy_Browse_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="browserButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="vld-93-nzp"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="browser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECr-Af-hUa">
                                         <rect key="frame" x="115" y="221" width="90" height="21"/>
@@ -1395,6 +1519,9 @@
                                         <state key="normal" image="call_Profile_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="profileButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="HXq-mg-bgh"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjZ-dl-gDD">
                                         <rect key="frame" x="213" y="221" width="90" height="21"/>
@@ -1414,6 +1541,9 @@
                                         <state key="normal" image="call_Message_Inactive_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="messageButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="esh-n6-jHk"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cjv-2I-LYs">
                                         <rect key="frame" x="17" y="221" width="90" height="21"/>
@@ -1461,7 +1591,7 @@
                                     <constraint firstItem="rIv-r9-XJN" firstAttribute="top" secondItem="gwg-WA-HHM" secondAttribute="bottom" constant="-10" id="wWJ-pr-6Q2"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRm-QQ-GbW" userLabel="User Button">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BRm-QQ-GbW" userLabel="User Button">
                                 <rect key="frame" x="0.0" y="416" width="320" height="152"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nE5-em-h8h">
@@ -1472,6 +1602,9 @@
                                         <state key="normal" image="call_Decline_Button">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="declineButtonTouchUpInside:" destination="XKc-kI-bXB" eventType="touchUpInside" id="ifN-7q-Wpw"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="decline" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7A-SD-Xr6">
                                         <rect key="frame" x="115" y="107" width="90" height="21"/>
@@ -1494,14 +1627,14 @@
                                     <constraint firstAttribute="centerY" secondItem="nE5-em-h8h" secondAttribute="centerY" constant="7" id="kdR-JA-EBW"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyh-Ww-fTv" userLabel="seperate bottom">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyh-Ww-fTv" userLabel="seperate bottom">
                                 <rect key="frame" x="0.0" y="390" width="320" height="26"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="W4x-xo-xWS"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-Pv-nvM" userLabel="Label Bottom">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BaV-Pv-nvM" userLabel="Label Bottom">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="130"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kelvin Lam" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Div-aX-ldR">
@@ -1563,10 +1696,35 @@
                             <constraint firstAttribute="centerX" secondItem="xyh-Ww-fTv" secondAttribute="centerX" id="vVz-lE-9tm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="zvV-Sq-yfN" id="PD5-r0-ddb"/>
+                        <outlet property="buttonsBottom" destination="Snl-vc-8Tp" id="NWC-IN-l03"/>
+                        <outlet property="callerNameLabel" destination="Div-aX-ldR" id="GJo-55-udE"/>
+                        <outlet property="declineButtonBottom" destination="BRm-QQ-GbW" id="w6Q-6w-vvZ"/>
+                        <outlet property="labelBottom" destination="BaV-Pv-nvM" id="53Q-kx-Elj"/>
+                        <outlet property="profileButton" destination="Y2d-SF-tEf" id="pbM-qE-Cky"/>
+                        <outlet property="tinyVideoView" destination="JA4-Dy-vDm" id="bi7-Gv-D3I"/>
+                        <outlet property="videoButtonsBottom" destination="g1v-2g-aXS" id="CZt-nN-2hv"/>
+                        <outlet property="videoView" destination="9Pi-e6-uNn" id="rrK-Ms-VKN"/>
+                        <outletCollection property="declineButtons" destination="nE5-em-h8h" id="RM3-OM-kLo"/>
+                        <outletCollection property="browserButton" destination="nq6-Wb-mSh" id="Y4J-6m-DhP"/>
+                        <outletCollection property="messageButtons" destination="udx-nA-cgJ" id="kTU-55-pv6"/>
+                        <outletCollection property="speakerButtons" destination="gwg-WA-HHM" id="Ukz-lx-qeo"/>
+                        <outletCollection property="videoButtons" destination="ZOE-8R-29K" id="JTZ-II-EFb"/>
+                        <outletCollection property="muteButtons" destination="ieo-Ot-45r" id="1tJ-T8-tz3"/>
+                        <outletCollection property="browserButton" destination="aOe-ni-QXu" id="aHT-11-vbL"/>
+                        <outletCollection property="messageButtons" destination="QHK-gK-Ygs" id="Rr2-R0-WaW"/>
+                        <outletCollection property="videoButtons" destination="Msb-Mg-4TG" id="Ht0-Fn-abe"/>
+                        <outletCollection property="speakerButtons" destination="61a-ks-jR1" id="BGe-xb-ZFB"/>
+                        <outletCollection property="muteButtons" destination="E37-PX-7yv" id="gV6-w1-oO6"/>
+                        <outletCollection property="declineButtons" destination="dtz-lJ-tNT" id="8Rr-od-iaR"/>
+                        <outletCollection property="callTimeLabels" destination="qSw-sC-Yw4" id="9nR-QW-gPL"/>
+                        <outletCollection property="callTimeLabels" destination="WOb-kO-WwN" id="7D4-F7-tnZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bQK-Ot-jSY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2799" y="262"/>
+            <point key="canvasLocation" x="2773" y="262"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="T03-eg-3bc">
@@ -1707,7 +1865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfP-98-qVa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3154" y="262"/>
+            <point key="canvasLocation" x="3144" y="262"/>
         </scene>
         <!--Bookmark View Controller-->
         <scene sceneID="L1O-XJ-Ob0">
@@ -2203,7 +2361,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dMn-4R-xDY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2496" y="-405"/>
+            <point key="canvasLocation" x="2396" y="-396"/>
         </scene>
         <!--Add Bookmark View Controller-->
         <scene sceneID="uRU-nq-Nb8">
@@ -2522,7 +2680,7 @@
                                     <constraint firstAttribute="centerY" secondItem="gsG-1j-NEZ" secondAttribute="centerY" constant="-8.5" id="xFU-zO-8E0"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WgN-Ud-deK">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="WgN-Ud-deK">
                                 <rect key="frame" x="0.0" y="109" width="320" height="410"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>

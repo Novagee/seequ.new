@@ -16,11 +16,13 @@
 		796E8AE91AACD47C00AFCDD0 /* RingContactNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 796E8AE81AACD47C00AFCDD0 /* RingContactNetworkingManager.m */; };
 		79F6244F1AABE112002A6172 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F6244E1AABE112002A6172 /* User.m */; };
 		79F624521AABE2B9002A6172 /* Contact.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F624511AABE2B9002A6172 /* Contact.m */; };
+		816412EA1ACB138100ED3DDE /* RingOutGoingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 816412E91ACB138100ED3DDE /* RingOutGoingViewController.m */; };
 		8181CE991AC4EC4200EEE1C5 /* RingLocationNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181CE981AC4EC4200EEE1C5 /* RingLocationNetworkingManager.m */; };
 		8181CE9C1AC4EF5300EEE1C5 /* RingMessageNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181CE9B1AC4EF5300EEE1C5 /* RingMessageNetworkingManager.m */; };
 		8197A8741AC2DCC3007918AE /* RingCallNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8197A8731AC2DCC3007918AE /* RingCallNetworkingManager.m */; };
 		8197A8771AC2F659007918AE /* RingConversationNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8197A8761AC2F659007918AE /* RingConversationNetworkingManager.m */; };
 		8197A87A1AC300A1007918AE /* RingGroupNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8197A8791AC300A1007918AE /* RingGroupNetworkingManager.m */; };
+		81AA42961ACAE0D0007E46B0 /* RingIncomeCallViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81AA42951ACAE0D0007E46B0 /* RingIncomeCallViewController.m */; };
 		9A0D49B11ABC0E9D00F4335A /* RingAddContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D49AF1ABC0E9D00F4335A /* RingAddContactViewController.m */; };
 		9A13F8141AADF9420098298B /* RingActivityNetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8131AADF9420098298B /* RingActivityNetworkingManager.m */; };
 		9A13F8171AAE06FE0098298B /* RingActivityCellView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A13F8161AAE06FE0098298B /* RingActivityCellView.m */; };
@@ -103,6 +105,8 @@
 		79F6244E1AABE112002A6172 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		79F624501AABE2B9002A6172 /* Contact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Contact.h; path = Model/Contact.h; sourceTree = "<group>"; };
 		79F624511AABE2B9002A6172 /* Contact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Contact.m; path = Model/Contact.m; sourceTree = "<group>"; };
+		816412E81ACB138100ED3DDE /* RingOutGoingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingOutGoingViewController.h; sourceTree = "<group>"; };
+		816412E91ACB138100ED3DDE /* RingOutGoingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingOutGoingViewController.m; sourceTree = "<group>"; };
 		8181CE971AC4EC4200EEE1C5 /* RingLocationNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingLocationNetworkingManager.h; path = Managers/RingLocationNetworkingManager.h; sourceTree = "<group>"; };
 		8181CE981AC4EC4200EEE1C5 /* RingLocationNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingLocationNetworkingManager.m; path = Managers/RingLocationNetworkingManager.m; sourceTree = "<group>"; };
 		8181CE9A1AC4EF5300EEE1C5 /* RingMessageNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingMessageNetworkingManager.h; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 		8197A8761AC2F659007918AE /* RingConversationNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingConversationNetworkingManager.m; sourceTree = "<group>"; };
 		8197A8781AC300A1007918AE /* RingGroupNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingGroupNetworkingManager.h; path = Managers/RingGroupNetworkingManager.h; sourceTree = "<group>"; };
 		8197A8791AC300A1007918AE /* RingGroupNetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingGroupNetworkingManager.m; path = Managers/RingGroupNetworkingManager.m; sourceTree = "<group>"; };
+		81AA42941ACAE0D0007E46B0 /* RingIncomeCallViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingIncomeCallViewController.h; sourceTree = "<group>"; };
+		81AA42951ACAE0D0007E46B0 /* RingIncomeCallViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RingIncomeCallViewController.m; sourceTree = "<group>"; };
 		9A0D49AE1ABC0E9D00F4335A /* RingAddContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingAddContactViewController.h; path = Seequ/Contacts/RingAddContactViewController.h; sourceTree = "<group>"; };
 		9A0D49AF1ABC0E9D00F4335A /* RingAddContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingAddContactViewController.m; path = Seequ/Contacts/RingAddContactViewController.m; sourceTree = "<group>"; };
 		9A13F8121AADF9420098298B /* RingActivityNetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RingActivityNetworkingManager.h; sourceTree = "<group>"; };
@@ -357,6 +363,10 @@
 				F21889891A85702E004C0205 /* Browser */,
 				F218898B1A857051004C0205 /* Activity */,
 				F218898A1A857035004C0205 /* Takes */,
+				81AA42941ACAE0D0007E46B0 /* RingIncomeCallViewController.h */,
+				81AA42951ACAE0D0007E46B0 /* RingIncomeCallViewController.m */,
+				816412E81ACB138100ED3DDE /* RingOutGoingViewController.h */,
+				816412E91ACB138100ED3DDE /* RingOutGoingViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -661,10 +671,11 @@
 				TargetAttributes = {
 					F21889571A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
-						DevelopmentTeam = BR98P99FAH;
+						DevelopmentTeam = 5A88JF7M74;
 					};
 					F21889731A856CD1004C0205 = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 5A88JF7M74;
 						TestTargetID = F21889571A856CD1004C0205;
 					};
 				};
@@ -757,6 +768,7 @@
 				9A13F8251AB50C900098298B /* BookmarkTagViewController.m in Sources */,
 				9A13F8261AB50C900098298B /* BookmarkViewController.m in Sources */,
 				259CB6E71AB0FABD00863456 /* RingRealmManager.m in Sources */,
+				816412EA1ACB138100ED3DDE /* RingOutGoingViewController.m in Sources */,
 				9A7019051A87E3FA008F35E5 /* signupButton.m in Sources */,
 				9A9C3E911AB7E08400134CE6 /* AddFolderViewController.m in Sources */,
 				F21889971A85718D004C0205 /* RingActivityTableViewController.m in Sources */,
@@ -797,6 +809,7 @@
 				F21889941A857168004C0205 /* RingBrowserViewController.m in Sources */,
 				9AEFCBB01A9EFF670029FEFE /* RingLoginProgressViewController.m in Sources */,
 				9A7018FF1A87E3FA008F35E5 /* loginLogo.m in Sources */,
+				81AA42961ACAE0D0007E46B0 /* RingIncomeCallViewController.m in Sources */,
 				9A266B3F1AA3026200A53468 /* RingBrowserRefreshButton.m in Sources */,
 				9A70190B1A87E4C8008F35E5 /* RingMessageTableViewController.m in Sources */,
 				8181CE991AC4EC4200EEE1C5 /* RingLocationNetworkingManager.m in Sources */,
