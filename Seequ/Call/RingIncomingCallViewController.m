@@ -7,6 +7,7 @@
 //
 
 #import "RingIncomingCallViewController.h"
+#import "RingCallNetworkingManager.h"
 
 typedef NS_ENUM(NSUInteger, kButtonStatus) {
     
@@ -119,9 +120,13 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 
 - (IBAction)messageButtonTouchUpInside:(id)sender {
     
+    
+    
 }
 
 - (IBAction)browserButtonTouchUpInside:(id)sender {
+    
+    
     
 }
 
@@ -130,6 +135,8 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 }
 
 - (IBAction)answerButtonTouchUpInside:(id)sender {
+    
+    
     
 }
 
@@ -140,6 +147,8 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 }
 
 - (IBAction)replyButtonTouchUpInside:(id)sender {
+    
+    
     
 }
 

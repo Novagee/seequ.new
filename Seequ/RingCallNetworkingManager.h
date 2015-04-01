@@ -44,6 +44,4 @@
                success:(RingNetworkingLibSuccessBlock)success
                failure:(RingNetworkingLibFailureBlock)failure;
 
-
-
 @end

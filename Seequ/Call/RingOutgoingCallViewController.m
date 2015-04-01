@@ -42,6 +42,8 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 @property (strong, nonatomic) NSTimer *timer;
 @property (assign) NSTimeInterval time;
 
+@property (strong, nonatomic) UITapGestureRecognizer *videoTapGesture;
+
 @end
 
 @implementation RingOutgoingCallViewController
@@ -89,6 +91,58 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     _buttonsBottom.hidden = YES;
     _labelBottom.hidden = YES;
     _declineButtonBottom.hidden = YES;
+    
+    if (! self.videoTapGesture) {
+        
+        _videoTapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tapGestureRecognizer:)];
+        [self.videoView addGestureRecognizer:self.videoTapGesture];
+    }
+    
+    [self configureTimer];
+    
+}
+
+- (void)tapGestureRecognizer:(UITapGestureRecognizer *)recognizer {
+    
+    _videoButtonsBottom.hidden = !self.videoButtonsBottom.hidden;
+    
+    [UIView animateWithDuration:0.618/2 animations:^{
+       
+        self.videoButtonsBottom.alpha = self.videoButtonsBottom.hidden;
+        
+    } completion:^(BOOL finished) {
+        
+        if (! self.videoButtonsBottom.hidden) {
+            [self configureTimer];
+        }
+        
+    }];
+    
+}
+
+#pragma mark - Timer Stuff
+
+- (void)configureTimer {
+    
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(handleTimer) userInfo:nil repeats:YES];
+    _time = 3.0f;
+    
+}
+
+- (void)handleTimer {
+    
+    _time--;
+    
+    if (self.time < 0) {
+        
+        [UIView animateWithDuration:0.618/2 animations:^{
+            _videoButtonsBottom.alpha = 0.0f;
+        } completion:^(BOOL finished) {
+            _videoButtonsBottom.hidden = YES;
+            _videoButtonsBottom.alpha = 1.0f;
+        }];
+        
+    }
     
 }
 
