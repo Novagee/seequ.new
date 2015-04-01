@@ -137,7 +137,7 @@
                   symbolName = "-[RingAddContactViewController fetchContantDataFromRemote]"
                   moduleName = "Seequ"
                   urlString = "file:///Users/pengwan/Documents/Seequ/NEW/dev/Seequ.New/Seequ/Contacts/RingAddContactViewController.m"
-                  timestampString = "448960329.609559"
+                  timestampString = "449129518.307514"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -151,7 +151,7 @@
                   symbolName = "__58-[RingAddContactViewController fetchContantDataFromRemote]_block_invoke"
                   moduleName = "Seequ"
                   urlString = "file:///Users/pengwan/Documents/Seequ/NEW/dev/Seequ.New/Seequ/Contacts/RingAddContactViewController.m"
-                  timestampString = "448960329.609982"
+                  timestampString = "449129518.308033"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "33"
@@ -199,7 +199,7 @@
                   symbolName = "-[RingActivityTableViewController addTestButtonTouchUpInside:]"
                   moduleName = "Seequ"
                   urlString = "file:///Users/pengwan/Documents/Seequ/NEW/dev/Seequ.New/Seequ/Activity/RingActivityTableViewController.m"
-                  timestampString = "448960329.612115"
+                  timestampString = "449129518.314628"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
@@ -213,7 +213,7 @@
                   symbolName = "__62-[RingActivityTableViewController addTestButtonTouchUpInside:]_block_invoke"
                   moduleName = "Seequ"
                   urlString = "file:///Users/pengwan/Documents/Seequ/NEW/dev/Seequ.New/Seequ/Activity/RingActivityTableViewController.m"
-                  timestampString = "448960329.612266"
+                  timestampString = "449129518.31488"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "113"
@@ -316,6 +316,22 @@
             startingLineNumber = "156"
             endingLineNumber = "156"
             landmarkName = "-fetchActivityListWithFilter:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Seequ/Contacts/RingAddContactViewController.m"
+            timestampString = "449129502.342925"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

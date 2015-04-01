@@ -21,8 +21,8 @@
 }
 
 - (void)appendItemInMessage:(NSString *)messageID
-                     success:(RingNetworkingLibSuccessBlock)success
-                     failure:(RingNetworkingLibFailureBlock)failure {
+                    success:(RingNetworkingLibSuccessBlock)success
+                    failure:(RingNetworkingLibFailureBlock)failure {
     
     [RingNetworkingLib postToPath:[NSString stringWithFormat:@"%@/%@/append", RING_NETWORKING_LIB_MESSAGE_PATH, messageID] body:@{} success:^(id successResponse) {
         success(successResponse);
@@ -69,8 +69,8 @@
 }
 
 - (void)updateMessage:(NSString *)messageID
-               success:(RingNetworkingLibSuccessBlock)success
-               failure:(RingNetworkingLibFailureBlock)failure {
+              success:(RingNetworkingLibSuccessBlock)success
+              failure:(RingNetworkingLibFailureBlock)failure {
     
     [RingNetworkingLib putToPath:[NSString stringWithFormat:@"%@/%@", RING_NETWORKING_LIB_MESSAGE_PATH, messageID] body:@{} success:^(id successResponse) {
         success(successResponse);

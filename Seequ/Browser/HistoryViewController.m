@@ -8,28 +8,40 @@
 
 #import "HistoryViewController.h"
 #import "Bookmark.h"
+#import "RingStyleKit.h"
 
 @interface HistoryViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *bookmarkList;
 
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UILabel *navBarViewLabel;
+@property (weak, nonatomic) IBOutlet UIButton *doneButton;
+@property (weak, nonatomic) IBOutlet UIView *bottomNavView;
+@property (weak, nonatomic) IBOutlet UIButton *cleanButton;
+
 @end
 
 @implementation HistoryViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     _bookmarkList = [[NSMutableArray alloc]init];
     
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
+    self.navBarViewLabel.textColor = [RingStyleKit white];
+    [self.doneButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    
+    self.bottomNavView.backgroundColor = [RingStyleKit seequFoam];
+    [self.cleanButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    [super viewWillAppear:animated];
     [self configureBookmarkList];
-    
 }
 
 - (void)didReceiveMemoryWarning {

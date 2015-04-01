@@ -73,8 +73,8 @@
 }
 
 - (void)checkRoomExistWithName:(NSString *)roomName
-                 success:(RingNetworkingLibSuccessBlock)success
-                 failure:(RingNetworkingLibFailureBlock)failure {
+                       success:(RingNetworkingLibSuccessBlock)success
+                       failure:(RingNetworkingLibFailureBlock)failure {
     
     [RingNetworkingLib getFromPath:[NSString stringWithFormat:@"%@/%@", RING_NETWORKING_LIB_GROUP_PATH, roomName] body:@{} success:^(id successResponse) {
         success(successResponse);
@@ -120,8 +120,8 @@
 }
 
 - (void)getGroup:(NSString *)groupID
-                    success:(RingNetworkingLibSuccessBlock)success
-                    failure:(RingNetworkingLibFailureBlock)failure {
+         success:(RingNetworkingLibSuccessBlock)success
+         failure:(RingNetworkingLibFailureBlock)failure {
     
     [RingNetworkingLib getFromPath:[NSString stringWithFormat:@"%@/%@", RING_NETWORKING_LIB_GROUP_PATH, groupID] body:@{} success:^(id successResponse) {
         success(successResponse);

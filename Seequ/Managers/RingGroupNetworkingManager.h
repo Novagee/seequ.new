@@ -48,8 +48,8 @@
             failure:(RingNetworkingLibFailureBlock)failure;
 
 - (void)getGroup:(NSString *)groupID
-                    success:(RingNetworkingLibSuccessBlock)success
-                    failure:(RingNetworkingLibFailureBlock)failure;
+         success:(RingNetworkingLibSuccessBlock)success
+         failure:(RingNetworkingLibFailureBlock)failure;
 
 - (void)getGroupListWithSuccess:(RingNetworkingLibSuccessBlock)success
                         failure:(RingNetworkingLibFailureBlock)failure;

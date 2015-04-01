@@ -2,11 +2,11 @@
 //  RingIncomeCallViewController.m
 //  Seequ
 //
-//  Created by Paul on 3/31/15.
-//  Copyright (c) 2015 Seequ. All rights reserved.
+//  Created by peng wan on 15-4-1.
+//  Copyright (c) 2015年 Seequ. All rights reserved.
 //
 
-#import "RingIncomeCallViewController.h"
+#import "RingIncomingCallViewController.h"
 
 typedef NS_ENUM(NSUInteger, kButtonStatus) {
     
@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     
 };
 
-@interface RingIncomeCallViewController ()
+@interface RingIncomingCallViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *callerNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *callStatusLabel;
@@ -33,19 +33,12 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 
 @end
 
-@implementation RingIncomeCallViewController
+@implementation RingIncomingCallViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self configureButtonStatus];
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)configureButtonStatus {
@@ -62,29 +55,24 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
-*/
 
 - (IBAction)muteButtonTouchUpInside:(id)sender {
     
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_muteButton setImage:[UIImage imageNamed:@"call_Mute_Active_Button"]
-                               forState:UIControlStateNormal];
+                     forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOn;
         
     }
     else {
         
         [_muteButton setImage:[UIImage imageNamed:@"call_Mute_Inactive_Button"]
-                               forState:UIControlStateNormal];
+                     forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOff;
         
     }
@@ -96,14 +84,14 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_videoButton setImage:[UIImage imageNamed:@"call_Video_Active_Button"]
-                        forState:UIControlStateNormal];
+                      forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOn;
         
     }
     else {
         
         [_videoButton setImage:[UIImage imageNamed:@"call_Video_Inactive_Button"]
-                        forState:UIControlStateNormal];
+                      forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOff;
         
     }
@@ -115,14 +103,14 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_speakerButton setImage:[UIImage imageNamed:@"call_Speaker_Active_Button"]
-                      forState:UIControlStateNormal];
+                        forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOn;
         
     }
     else {
         
         [_speakerButton setImage:[UIImage imageNamed:@"call_Speaker_Inactive_Button"]
-                      forState:UIControlStateNormal];
+                        forState:UIControlStateNormal];
         ((UIButton *)sender).tag = kButtonStatusOff;
         
     }

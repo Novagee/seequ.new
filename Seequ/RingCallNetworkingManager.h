@@ -2,7 +2,7 @@
 //  RingCallNetworkingManager.h
 //  Seequ
 //
-//  Created by Paul on 3/25/15.
+//  Created by Peng Wan on 3/25/15.
 //  Copyright (c) 2015 Seequ. All rights reserved.
 //
 

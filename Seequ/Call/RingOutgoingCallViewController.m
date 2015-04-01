@@ -1,14 +1,12 @@
 //
-//  RingOutGoingViewController.m
+//  RingOutgoingCallViewController.m
 //  Seequ
 //
-//  Created by Paul on 4/1/15.
-//  Copyright (c) 2015 Seequ. All rights reserved.
+//  Created by peng wan on 15-4-1.
+//  Copyright (c) 2015年 Seequ. All rights reserved.
 //
 
-#import "RingOutGoingViewController.h"
-
-@interface RingOutGoingViewController ()
+#import "RingOutgoingCallViewController.h"
 
 typedef NS_ENUM(NSUInteger, kButtonStatus) {
     
@@ -17,6 +15,8 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     kButtonStatusOff = 1002,
     
 };
+
+@interface RingOutgoingCallViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
 
@@ -44,15 +44,14 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 
 @end
 
-@implementation RingOutGoingViewController
+@implementation RingOutgoingCallViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     [self configureButtonStatus];
     [self configureCallViewStatus];
-    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +85,7 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 - (void)configureVideoViewStatus {
     
     _videoView.hidden = NO;
-
+    
     _buttonsBottom.hidden = YES;
     _labelBottom.hidden = YES;
     _declineButtonBottom.hidden = YES;
@@ -94,36 +93,36 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 - (IBAction)muteButtonTouchUpInside:(id)sender {
-        
+    
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_muteButtons[0] setImage:[UIImage imageNamed:@"call_Mute_Active_Button"]
-                          forState:UIControlStateNormal];
+                         forState:UIControlStateNormal];
         ((UIButton *)_muteButtons[0]).tag = kButtonStatusOn;
         
         [_muteButtons[1] setImage:[UIImage imageNamed:@"call_Mute_Active_Button"]
-                          forState:UIControlStateNormal];
+                         forState:UIControlStateNormal];
         ((UIButton *)_muteButtons[1]).tag = kButtonStatusOn;
         
     }
     else {
         
         [_muteButtons[0] setImage:[UIImage imageNamed:@"call_Mute_Inactive_Button"]
-                          forState:UIControlStateNormal];
+                         forState:UIControlStateNormal];
         ((UIButton *)_muteButtons[0]).tag = kButtonStatusOff;
         
         [_muteButtons[1] setImage:[UIImage imageNamed:@"call_Mute_Inactive_Button"]
-                          forState:UIControlStateNormal];
+                         forState:UIControlStateNormal];
         ((UIButton *)_muteButtons[1]).tag = kButtonStatusOff;
         
     }
@@ -135,11 +134,11 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_videoButtons[0] setImage:[UIImage imageNamed:@"call_Video_Active_Button"]
-                            forState:UIControlStateNormal];
+                          forState:UIControlStateNormal];
         ((UIButton *)_videoButtons[0]).tag = kButtonStatusOn;
         
         [_videoButtons[1] setImage:[UIImage imageNamed:@"call_Video_Active_Button"]
-                            forState:UIControlStateNormal];
+                          forState:UIControlStateNormal];
         ((UIButton *)_videoButtons[1]).tag = kButtonStatusOn;
         
         [self configureVideoViewStatus];
@@ -148,11 +147,11 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     else {
         
         [_videoButtons[0] setImage:[UIImage imageNamed:@"call_Video_Inactive_Button"]
-                            forState:UIControlStateNormal];
+                          forState:UIControlStateNormal];
         ((UIButton *)_videoButtons[0]).tag = kButtonStatusOff;
         
         [_videoButtons[1] setImage:[UIImage imageNamed:@"call_Video_Inactive_Button"]
-                            forState:UIControlStateNormal];
+                          forState:UIControlStateNormal];
         ((UIButton *)_videoButtons[1]).tag = kButtonStatusOff;
         
         [self configureCallViewStatus];
@@ -165,7 +164,7 @@ typedef NS_ENUM(NSUInteger, kButtonStatus) {
     if (((UIButton *)sender).tag == kButtonStatusOff) {
         
         [_speakerButtons[0] setImage:[UIImage imageNamed:@"call_Speaker_Active_Button"]
-                        forState:UIControlStateNormal];
+                            forState:UIControlStateNormal];
         ((UIButton *)_speakerButtons[0]).tag = kButtonStatusOn;
         
         [_speakerButtons[1] setImage:[UIImage imageNamed:@"call_Speaker_Active_Button"]

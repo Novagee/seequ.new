@@ -9,8 +9,6 @@
 #import "RingMainViewController.h"
 #import "RingStyleKit.h"
 
-#import "RingConversationNetworkingManager.h"
-
 @interface RingMainViewController ()
 
 @end
@@ -40,7 +38,6 @@
     UITabBarItem *itemTakes = [self.tabBar.items objectAtIndex:4];
     itemTakes.image = [[RingStyleKit imageOfTab_bar_icon_takesWithPressed:NO notifications:4.0]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     itemTakes.selectedImage = [[RingStyleKit imageOfTab_bar_icon_takesWithPressed:YES notifications:0.0]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-
 }
 
 - (void)didReceiveMemoryWarning {

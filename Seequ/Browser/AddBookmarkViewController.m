@@ -10,6 +10,7 @@
 #import "BookmarkListViewController.h"
 #import "Folder.h"
 #import "RingRealmManager.h"
+#import "RingStyleKit.h"
 
 @interface AddBookmarkViewController ()<UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
 
@@ -18,6 +19,10 @@
 @property (nonatomic, strong) RingRealmManager *realmManager;
 @property (strong, nonatomic) Folder *currentFolder;
 @property (weak, nonatomic) IBOutlet UITextField *bookmarkField;
+
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UILabel *navBarViewLabel;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
 
 @end
 
@@ -31,6 +36,9 @@
     //
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(changeAddBookmarkFolder:) name:@"SeeNotificationAddBookmarkFolder" object:nil];
     
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
+    self.navBarViewLabel.textColor = [RingStyleKit white];
+    [self.cancelButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

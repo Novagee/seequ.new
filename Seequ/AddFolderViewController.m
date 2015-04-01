@@ -9,19 +9,32 @@
 #import "AddFolderViewController.h"
 #import "RingRealmManager.h"
 #import "Folder.h"
+#import "RingStyleKit.h"
 
 @interface AddFolderViewController ()< UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *folderTextField;
 @property (nonatomic, strong) RingRealmManager *realmManager;
 
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UILabel *navBarViewLabel;
+@property (weak, nonatomic) IBOutlet UIButton *cancelButton;
+@property (weak, nonatomic) IBOutlet UIButton *addButton;
+
 @end
 
 @implementation AddFolderViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     [_folderTextField becomeFirstResponder];
+    
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
+    self.navBarViewLabel.textColor = [RingStyleKit white];
+    [self.cancelButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    [self.addButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
 }
 
 - (void)didReceiveMemoryWarning {

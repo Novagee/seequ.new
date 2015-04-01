@@ -12,6 +12,7 @@
 #import "HistoryViewController.h"
 #import "Folder.h"
 #import "RingRealmManager.h"
+#import "RingStyleKit.h"
 
 @interface BookmarkViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -24,6 +25,10 @@
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UILabel *navBarViewLabel;
+@property (weak, nonatomic) IBOutlet UIView *bottomNavView;
+
 @property (nonatomic, strong) RingRealmManager *realmManager;
 
 @end
@@ -32,10 +37,17 @@
 
 - (void)viewDidLoad {
     
-    // Configure root folder
-    //
+    [super viewDidLoad];
+    
     [self configureFolderSetting];
     
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
+    self.navBarViewLabel.textColor = [RingStyleKit white];
+    [self.doneButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    
+    self.bottomNavView.backgroundColor = [RingStyleKit seequFoam];
+    [self.editButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    [self.addFolderButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

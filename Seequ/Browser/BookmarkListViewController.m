@@ -10,6 +10,7 @@
 #import "AddFolderViewController.h"
 #import "Folder.h"
 #import "RingRealmManager.h"
+#import "RingStyleKit.h"
 
 @interface BookmarkListViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -21,6 +22,11 @@
 @property (weak, nonatomic) IBOutlet UIButton *addFolderButton;
 @property (weak, nonatomic) IBOutlet UIButton *doneButton;
 
+@property (weak, nonatomic) IBOutlet UIView *navBarView;
+@property (weak, nonatomic) IBOutlet UILabel *navBarViewLabel;
+@property (weak, nonatomic) IBOutlet UIButton *prevButton;
+@property (weak, nonatomic) IBOutlet UIView *bottomNavView;
+
 @property (nonatomic, strong) RingRealmManager *realmManager;
 
 @end
@@ -28,7 +34,9 @@
 @implementation BookmarkListViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     _folderList = [[NSMutableArray alloc]init];
     _navigationBarTitle.text = self.currentFolder.name;
     
@@ -37,6 +45,14 @@
         _addFolderButton.hidden = YES;
     }
     
+    self.navBarView.backgroundColor = [RingStyleKit seequFoam];
+    self.navBarViewLabel.textColor = [RingStyleKit white];
+    [self.prevButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    [self.doneButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    
+    self.bottomNavView.backgroundColor = [RingStyleKit seequFoam];
+    [self.editButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
+    [self.addFolderButton setTitleColor:[RingStyleKit white] forState:UIControlStateNormal];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
