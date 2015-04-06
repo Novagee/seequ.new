@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="NQz-ZM-Gmn">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--activity-->
+        <scene sceneID="lt5-ec-APE">
+            <objects>
+                <navigationController toolbarHidden="NO" id="NQz-ZM-Gmn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="activity" image="Recent_Activity" id="1gq-KD-Xum"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CAs-Lf-fZG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="fIF-zM-fUW">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="5w6-F0-vFm" kind="relationship" relationship="rootViewController" id="WzP-bs-1qb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JRI-ho-mAW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="265" y="564"/>
+        </scene>
+        <!--activity-->
+        <scene sceneID="qjI-lQ-xVW">
+            <objects>
+                <viewController id="5w6-F0-vFm" customClass="RingActivityTableViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L4I-rr-UY6"/>
+                        <viewControllerLayoutGuide type="bottom" id="tFN-Go-X2I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2iA-wD-eQx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gHO-go-Hh6" userLabel="NavBar">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JZk-VX-Li0">
+                                        <rect key="frame" x="266" y="26" width="46" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="46" id="0vl-BP-U6Z"/>
+                                            <constraint firstAttribute="height" constant="30" id="oux-w4-gdc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Delete">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="deleteButtonTouchUpInside:" destination="5w6-F0-vFm" eventType="touchUpInside" id="crL-AN-fXK"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cop-r8-ygL">
+                                        <rect key="frame" x="118" y="30" width="85" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="84Q-e7-KG8"/>
+                                            <constraint firstAttribute="width" constant="85" id="qBF-TD-acA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LzO-Va-PZU">
+                                        <rect key="frame" x="8" y="26" width="61" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="5cg-gv-tLL"/>
+                                            <constraint firstAttribute="width" constant="61" id="ch9-SZ-jpb"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                        <state key="normal" title="Add(test)">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addTestButtonTouchUpInside:" destination="5w6-F0-vFm" eventType="touchUpInside" id="mgB-ck-BsQ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.51764705879999995" green="0.73725490199999999" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="JZk-VX-Li0" firstAttribute="top" secondItem="gHO-go-Hh6" secondAttribute="top" constant="26" id="LCa-lG-5o0"/>
+                                    <constraint firstAttribute="centerX" secondItem="cop-r8-ygL" secondAttribute="centerX" constant="-0.5" id="b79-RO-kFy"/>
+                                    <constraint firstItem="LzO-Va-PZU" firstAttribute="top" secondItem="gHO-go-Hh6" secondAttribute="top" constant="26" id="cvn-Dz-TC8"/>
+                                    <constraint firstAttribute="centerY" secondItem="cop-r8-ygL" secondAttribute="centerY" constant="-8.5" id="ecG-z4-Oaj"/>
+                                    <constraint firstItem="LzO-Va-PZU" firstAttribute="leading" secondItem="gHO-go-Hh6" secondAttribute="leading" constant="8" id="ptZ-ad-REM"/>
+                                    <constraint firstAttribute="height" constant="64" id="rKx-DV-z9V"/>
+                                    <constraint firstAttribute="trailing" secondItem="JZk-VX-Li0" secondAttribute="trailing" constant="8" id="x9z-no-p9T"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="XR6-6l-Thr">
+                                <rect key="frame" x="0.0" y="109" width="320" height="410"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityCell" id="j7a-C7-XHK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="j7a-C7-XHK" id="rkh-wr-rEn">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="5w6-F0-vFm" id="Tgg-cp-2r9"/>
+                                    <outlet property="delegate" destination="5w6-F0-vFm" id="n0f-BS-4Ef"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JLR-Ti-loG">
+                                <rect key="frame" x="15" y="73" width="291" height="29"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Seequ"/>
+                                    <segment title="Request"/>
+                                </segments>
+                                <connections>
+                                    <action selector="dataSourceSegmentControlSwitch:" destination="5w6-F0-vFm" eventType="valueChanged" id="wVY-q2-nFs"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="XR6-6l-Thr" firstAttribute="top" secondItem="gHO-go-Hh6" secondAttribute="bottom" constant="45" id="9KV-6N-gpZ"/>
+                            <constraint firstItem="XR6-6l-Thr" firstAttribute="top" secondItem="JLR-Ti-loG" secondAttribute="bottom" constant="8" symbolic="YES" id="KLI-nO-61U"/>
+                            <constraint firstItem="gHO-go-Hh6" firstAttribute="top" secondItem="2iA-wD-eQx" secondAttribute="top" id="OgR-Bb-K8S"/>
+                            <constraint firstItem="XR6-6l-Thr" firstAttribute="leading" secondItem="2iA-wD-eQx" secondAttribute="leading" id="PMY-GF-fGb"/>
+                            <constraint firstItem="JLR-Ti-loG" firstAttribute="leading" secondItem="2iA-wD-eQx" secondAttribute="leadingMargin" constant="-1" id="WxJ-lP-aq6"/>
+                            <constraint firstItem="gHO-go-Hh6" firstAttribute="leading" secondItem="2iA-wD-eQx" secondAttribute="leading" id="X6J-E4-XVI"/>
+                            <constraint firstAttribute="trailing" secondItem="XR6-6l-Thr" secondAttribute="trailing" id="dBa-ov-AKV"/>
+                            <constraint firstItem="JLR-Ti-loG" firstAttribute="centerX" secondItem="gHO-go-Hh6" secondAttribute="centerX" id="oTV-Ig-bU8"/>
+                            <constraint firstAttribute="trailing" secondItem="gHO-go-Hh6" secondAttribute="trailing" id="qLX-J0-9xy"/>
+                            <constraint firstItem="tFN-Go-X2I" firstAttribute="top" secondItem="XR6-6l-Thr" secondAttribute="bottom" id="yKa-Wh-5CT"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="activity" image="Recent_Activity" id="jJN-of-EWk"/>
+                    <navigationItem key="navigationItem" id="Qf6-Gb-VxS"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="dataSourceSegmentControl" destination="JLR-Ti-loG" id="AEu-QM-K7H"/>
+                        <outlet property="tableView" destination="XR6-6l-Thr" id="Q5Z-bo-ihh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THT-sI-qgn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="703" y="564"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Recent_Activity" width="28" height="28"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

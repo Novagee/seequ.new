@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="ExZ-f7-Gyq">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <scenes>
+        <!--Contacts-->
+        <scene sceneID="SQl-QB-jdj">
+            <objects>
+                <viewController id="pXf-ZE-oug" customClass="RingContactsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bz6-kb-VPF"/>
+                        <viewControllerLayoutGuide type="bottom" id="cdV-hC-tQ2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="89b-aU-ecr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="AFj-Gj-LoJ">
+                                <rect key="frame" x="53" y="72" width="215" height="29"/>
+                                <segments>
+                                    <segment title="Phone"/>
+                                    <segment title="MySeequ"/>
+                                    <segment title="Favorites"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlValueDidChange:" destination="pXf-ZE-oug" eventType="valueChanged" id="Tlp-gd-sJT"/>
+                                </connections>
+                            </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-Np-IL4">
+                                <rect key="frame" x="0.0" y="108" width="320" height="416"/>
+                                <connections>
+                                    <segue destination="jUu-7F-IBz" kind="embed" id="ta4-nc-zqX"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="XXc-Np-IL4" secondAttribute="centerX" id="D6y-cM-od8"/>
+                            <constraint firstItem="AFj-Gj-LoJ" firstAttribute="top" secondItem="bz6-kb-VPF" secondAttribute="bottom" constant="8" symbolic="YES" id="XPv-hk-el4"/>
+                            <constraint firstAttribute="width" secondItem="XXc-Np-IL4" secondAttribute="width" id="f97-BM-rwX"/>
+                            <constraint firstAttribute="centerX" secondItem="AFj-Gj-LoJ" secondAttribute="centerX" id="fC4-uJ-5aN"/>
+                            <constraint firstItem="XXc-Np-IL4" firstAttribute="top" secondItem="AFj-Gj-LoJ" secondAttribute="bottom" constant="8" symbolic="YES" id="q0f-x1-Dgo"/>
+                            <constraint firstItem="cdV-hC-tQ2" firstAttribute="top" secondItem="XXc-Np-IL4" secondAttribute="bottom" id="qNp-rr-h4g"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="contacts" image="Contacts" id="5kD-kR-zd7"/>
+                    <navigationItem key="navigationItem" title="Contacts" id="Z4r-6Z-M71"/>
+                    <connections>
+                        <outlet property="dataSourceSegmentControl" destination="AFj-Gj-LoJ" id="QFh-VZ-w7a"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HaY-sF-pHz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1631" y="-1400"/>
+        </scene>
+        <!--Ring Contacts Table View Controller-->
+        <scene sceneID="Ti8-DJ-rql">
+            <objects>
+                <tableViewController id="jUu-7F-IBz" customClass="RingContactsTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ZZf-21-5ea">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="kContactsTableViewCellIndetifier" rowHeight="64" id="mIc-Ur-eEY" customClass="RingContactsTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mIc-Ur-eEY" id="uHM-JY-dxW">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jUu-7F-IBz" id="nMr-nz-nfJ"/>
+                            <outlet property="delegate" destination="jUu-7F-IBz" id="i4K-Yb-QcI"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="J6i-R4-81n" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2041" y="-1400.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GAM-0f-JKE">
+            <objects>
+                <navigationController toolbarHidden="NO" id="ExZ-f7-Gyq" sceneMemberID="viewController">
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RNR-bW-rbe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="m5p-Ly-R8z">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="pXf-ZE-oug" kind="relationship" relationship="rootViewController" id="ACB-Kr-Sew"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QTN-SZ-ct3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1217" y="-1400"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Contacts" width="28" height="25"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		256742571ACDEB38003532D8 /* Contacts.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256742561ACDEB38003532D8 /* Contacts.storyboard */; };
+		256742591ACDF242003532D8 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 256742581ACDF242003532D8 /* Messages.storyboard */; };
+		2567425B1ACDF62F003532D8 /* Browser.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567425A1ACDF62F003532D8 /* Browser.storyboard */; };
+		2567425D1ACDF715003532D8 /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567425C1ACDF715003532D8 /* Activity.storyboard */; };
+		2567425F1ACDF7C9003532D8 /* Takes.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2567425E1ACDF7C9003532D8 /* Takes.storyboard */; };
 		2583BB791AB22E88005DD3D3 /* RingContactsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2583BB781AB22E88005DD3D3 /* RingContactsTableViewCell.m */; };
 		259CB6E71AB0FABD00863456 /* RingRealmManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 259CB6E61AB0FABD00863456 /* RingRealmManager.m */; };
 		25AB33991AA906E30007055B /* RingContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB33981AA906E30007055B /* RingContactsViewController.m */; };
@@ -87,6 +92,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		256742561ACDEB38003532D8 /* Contacts.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Contacts.storyboard; sourceTree = "<group>"; };
+		256742581ACDF242003532D8 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		2567425A1ACDF62F003532D8 /* Browser.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Browser.storyboard; sourceTree = "<group>"; };
+		2567425C1ACDF715003532D8 /* Activity.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		2567425E1ACDF7C9003532D8 /* Takes.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Takes.storyboard; sourceTree = "<group>"; };
 		2583BB771AB22E88005DD3D3 /* RingContactsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingContactsTableViewCell.h; path = Contacts/View/RingContactsTableViewCell.h; sourceTree = "<group>"; };
 		2583BB781AB22E88005DD3D3 /* RingContactsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RingContactsTableViewCell.m; path = Contacts/View/RingContactsTableViewCell.m; sourceTree = "<group>"; };
 		259CB6E51AB0FABD00863456 /* RingRealmManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RingRealmManager.h; path = Model/Managers/RingRealmManager.h; sourceTree = "<group>"; };
@@ -320,6 +330,11 @@
 			children = (
 				F218896B1A856CD1004C0205 /* Images.xcassets */,
 				9A9C3E8C1AB5188B00134CE6 /* Main.storyboard */,
+				256742561ACDEB38003532D8 /* Contacts.storyboard */,
+				256742581ACDF242003532D8 /* Messages.storyboard */,
+				2567425A1ACDF62F003532D8 /* Browser.storyboard */,
+				2567425C1ACDF715003532D8 /* Activity.storyboard */,
+				2567425E1ACDF7C9003532D8 /* Takes.storyboard */,
 				9A7018C91A872B11008F35E5 /* RingStyleKit.h */,
 				9A7018CA1A872B11008F35E5 /* RingStyleKit.m */,
 				25B3564A1AC4BA9000D99246 /* RingStyleKit+Extension.h */,
@@ -717,8 +732,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A9C3E8E1AB5188B00134CE6 /* Main.storyboard in Resources */,
+				256742571ACDEB38003532D8 /* Contacts.storyboard in Resources */,
 				9AB253D51AAA2B130045B5F7 /* ActivityCell.xib in Resources */,
+				2567425B1ACDF62F003532D8 /* Browser.storyboard in Resources */,
+				2567425D1ACDF715003532D8 /* Activity.storyboard in Resources */,
+				256742591ACDF242003532D8 /* Messages.storyboard in Resources */,
 				F218896C1A856CD1004C0205 /* Images.xcassets in Resources */,
+				2567425F1ACDF7C9003532D8 /* Takes.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

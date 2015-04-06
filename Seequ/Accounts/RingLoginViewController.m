@@ -27,6 +27,8 @@
     [super viewDidLoad];
     
      [self setup];
+    self.account.text = @"jb@seequ.com";
+    self.password.text = @"secret";
 }
 
 -(void)setup
