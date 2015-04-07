@@ -52,10 +52,12 @@ static NSString *const kAddressBookAccessNotAuthorized = @"This application is n
     [super viewDidLoad];
     
     UINavigationBar *navBar = self.navigationController.navigationBar;
-    navBar.translucent = NO;
+    navBar.translucent = YES;
     navBar.barTintColor = [RingStyleKit seequFoam];
     navBar.titleTextAttributes = @{NSForegroundColorAttributeName:[RingStyleKit white]};
+    
     self.dataSourceSegmentControl.tintColor = [RingStyleKit seequFoam];
+
 }
 
 - (void)viewWillAppear:(BOOL)animated {

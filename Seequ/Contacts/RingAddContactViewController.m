@@ -10,6 +10,8 @@
 #import "RingContactNetworkingManager.h"
 #import "RingTextField.h"
 
+#import "RingSettingViewController.h"
+
 @interface RingAddContactViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 @property (nonatomic, strong) NSArray *groups;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -83,6 +85,13 @@
     }
     
     return cell;
+}
+
+- (IBAction)settingButtonTouchUpInside:(id)sender {
+
+    RingSettingViewController *settingViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"RingSetting"];
+    [self.navigationController pushViewController:settingViewController animated:YES];
+    
 }
 
 @end
